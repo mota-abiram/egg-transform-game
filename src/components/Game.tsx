@@ -151,24 +151,33 @@ const Game = () => {
   const getCharacterStyle = () => {
     const healthPercent = health / maxHealth;
     
+    // More dramatic size changes for realistic transformation
+    const scaleValue = 0.7 + (healthPercent * 0.5); // Scale from 70% to 120%
+    
     return {
       filter: `
-        saturate(${0.3 + healthPercent * 0.7})
-        brightness(${0.7 + healthPercent * 0.3})
+        saturate(${0.4 + healthPercent * 0.6})
+        brightness(${0.6 + healthPercent * 0.4})
+        contrast(${1 + healthPercent * 0.2})
       `,
-      transform: `scale(${1 + healthPercent * 0.2})`,
+      transform: `scale(${scaleValue})`,
+      transition: 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
     };
   };
 
-  const getCharacterColor = () => {
+  const getCharacterEmoji = () => {
     const healthPercent = health / maxHealth;
-    if (healthPercent < 0.3) return "hsl(0, 0%, 75%)";
-    if (healthPercent < 0.6) return "hsl(20, 40%, 65%)";
-    return "hsl(25, 95%, 65%)";
+    // Show realistic body transformation stages
+    if (healthPercent === 0) return "🧍"; // Very weak/thin starting point
+    if (healthPercent < 25) return "🚶"; // Slight improvement
+    if (healthPercent < 50) return "🧍‍♂️"; // Getting stronger
+    if (healthPercent < 75) return "🏃"; // Active and energetic
+    if (healthPercent < 100) return "🏋️"; // Strong and fit
+    return "💪"; // Peak health
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-game-bg to-background flex flex-col items-center justify-center p-4">
+    <div id="game" className="min-h-screen bg-gradient-to-b from-muted/50 to-background flex flex-col items-center justify-center p-4 scroll-mt-20">
       <div className="max-w-4xl w-full space-y-6">
         {/* Header */}
         <div className="text-center space-y-2">
@@ -252,21 +261,27 @@ const Game = () => {
           {/* Character */}
           <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center">
             <div
-              className={`text-8xl transition-all duration-500 ${
+              className={`text-8xl ${
                 health >= maxHealth ? "animate-pulse-glow" : ""
               }`}
               style={getCharacterStyle()}
             >
-              {health < 30 && "🧍"}
-              {health >= 30 && health < 60 && "🚶"}
-              {health >= 60 && health < 90 && "🏃"}
-              {health >= 90 && "💪"}
+              {getCharacterEmoji()}
             </div>
             {health >= maxHealth && (
-              <div className="absolute -top-8 animate-bounce-in">
-                <span className="text-2xl">✨</span>
+              <div className="absolute -top-12 animate-bounce-in flex gap-2">
+                <span className="text-3xl">✨</span>
+                <span className="text-3xl">🌟</span>
+                <span className="text-3xl">✨</span>
               </div>
             )}
+            {/* Health indicator */}
+            <div className="absolute -bottom-6 text-xs font-semibold text-muted-foreground">
+              {health === 0 && "Weak & Thin"}
+              {health > 0 && health < 50 && "Getting Stronger"}
+              {health >= 50 && health < 100 && "Healthy & Active"}
+              {health >= 100 && "Peak Performance!"}
+            </div>
           </div>
 
           {/* Start/Win Overlay */}
