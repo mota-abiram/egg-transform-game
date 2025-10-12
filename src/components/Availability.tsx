@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone } from "lucide-react";
+import { MapPin, Phone, Instagram, Send } from "lucide-react";
 
 const Availability = () => {
   const retailers = [
@@ -10,6 +10,12 @@ const Availability = () => {
 
   const quickCommerce = [
     "Instamart", "Zepto", "Blinkit", "Dunzo"
+  ];
+
+  const cities = [
+    "Bangalore", "Hyderabad", "Chennai", "Mumbai", "Pune", "Delhi",
+    "Kochi", "Coimbatore", "Mysore", "Vizag", "Vijayawada", "Guntur",
+    "Rajahmundry", "Kakinada", "Nellore", "Tirupati"
   ];
 
   return (
@@ -26,7 +32,7 @@ const Availability = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-8">
           {/* Retail Stores */}
           <Card className="p-8">
             <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
@@ -61,6 +67,86 @@ const Availability = () => {
             </div>
           </Card>
         </div>
+
+        {/* Cities Available */}
+        <Card className="p-8 max-w-5xl mx-auto mb-8">
+          <h3 className="text-2xl font-bold mb-6 flex items-center gap-2 text-center justify-center">
+            <span>🌍</span> Available in Major Cities
+          </h3>
+          <div className="flex flex-wrap gap-3 justify-center">
+            {cities.map((city, index) => (
+              <span
+                key={index}
+                className="bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium"
+              >
+                {city}
+              </span>
+            ))}
+          </div>
+        </Card>
+
+        {/* Online Ordering & Social CTA */}
+        <Card className="p-8 max-w-5xl mx-auto mb-12 bg-gradient-to-r from-primary/10 to-accent/10">
+          <div className="text-center space-y-8">
+            <h3 className="text-3xl font-bold">
+              Online Ordering & <span className="text-gradient">Social Media</span>
+            </h3>
+
+            {/* Online Delivery Apps */}
+            <div className="space-y-4">
+              <h4 className="text-xl font-semibold text-muted-foreground">Order Online:</h4>
+              <div className="flex flex-wrap justify-center gap-4">
+                <div className="bg-white px-4 py-2 rounded-lg shadow-sm border">
+                  <span className="text-sm font-semibold text-gray-700">Big Basket</span>
+                </div>
+                <div className="bg-white px-4 py-2 rounded-lg shadow-sm border">
+                  <span className="text-sm font-semibold text-gray-700">Amazon Fresh</span>
+                </div>
+                <div className="bg-white px-4 py-2 rounded-lg shadow-sm border">
+                  <span className="text-sm font-semibold text-gray-700">Flipkart Grocery</span>
+                </div>
+                <div className="bg-white px-4 py-2 rounded-lg shadow-sm border">
+                  <span className="text-sm font-semibold text-gray-700">Instamart</span>
+                </div>
+                <div className="bg-white px-4 py-2 rounded-lg shadow-sm border">
+                  <span className="text-sm font-semibold text-gray-700">Zepto</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+              {/* Instagram CTA */}
+              <div className="flex items-center gap-4 p-6 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                <Instagram className="w-8 h-8" />
+                <div className="text-left">
+                  <p className="text-sm opacity-90">Follow us for updates</p>
+                  <a
+                    href="https://instagram.com/helloeggs_india"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xl font-bold hover:underline"
+                  >
+                    @helloeggs_india
+                  </a>
+                </div>
+              </div>
+
+              {/* Bulk Order Phone */}
+              <div className="flex items-center gap-4 p-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                <Phone className="w-8 h-8" />
+                <div className="text-left">
+                  <p className="text-sm opacity-90">Bulk Orders</p>
+                  <a
+                    href="tel:+916309416417"
+                    className="text-xl font-bold hover:underline"
+                  >
+                    +91 6309 416 417
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
 
         {/* Egg Bank Info */}
         <Card className="p-8 max-w-3xl mx-auto bg-gradient-to-r from-primary/10 to-secondary/10">

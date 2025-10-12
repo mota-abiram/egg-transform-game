@@ -7,10 +7,12 @@ const Variants = () => {
       name: "ADVANCED",
       description: "Premium nutritional blend for optimal health",
       nutrients: [
-        { icon: "☀️", name: "Vitamin D3" },
+        { icon: "⭐", name: "Vitamin A" },
+        { icon: "☀️", name: "Vitamin D" },
         { icon: "🌿", name: "Vitamin E" },
-        { icon: "💪", name: "Selenium" },
         { icon: "🐟", name: "Omega 3" },
+        { icon: "💪", name: "Selenium" },
+        { icon: "🧠", name: "DHA" },
       ],
       highlight: true,
     },
@@ -18,9 +20,11 @@ const Variants = () => {
       name: "DAILY",
       description: "Essential nutrients for everyday wellness",
       nutrients: [
-        { icon: "☀️", name: "Vitamin D3" },
+        { icon: "⭐", name: "Vitamin A" },
+        { icon: "☀️", name: "Vitamin D" },
         { icon: "🌿", name: "Vitamin E" },
         { icon: "💪", name: "Selenium" },
+        { icon: "🧠", name: "DHA" },
       ],
       highlight: false,
     },
@@ -40,18 +44,17 @@ const Variants = () => {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {variants.map((variant, index) => (
-            <Card 
+            <Card
               key={index}
-              className={`p-8 relative overflow-hidden transition-all duration-300 hover:scale-105 ${
-                variant.highlight ? 'border-primary border-2 shadow-xl' : ''
-              }`}
+              className={`p-8 relative overflow-hidden transition-all duration-300 hover:scale-105 ${variant.highlight ? 'border-primary border-2 shadow-xl' : ''
+                }`}
             >
               {variant.highlight && (
                 <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
                   Popular Choice
                 </Badge>
               )}
-              
+
               <div className="space-y-6">
                 <div>
                   <h3 className="text-3xl font-bold mb-2">{variant.name}</h3>
@@ -60,9 +63,9 @@ const Variants = () => {
 
                 <div className="space-y-3">
                   {variant.nutrients.map((nutrient, idx) => (
-                    <div 
+                    <div
                       key={idx}
-                      className="flex items-center gap-3 p-3 rounded-lg bg-primary/5 hover:bg-primary/10 transition-colors"
+                      className="flex items-center gap-3 p-3 rounded-lg bg-primary/5 hover:bg-primary/10 transition-colors border-b border-primary/10 last:border-b-0"
                     >
                       <span className="text-2xl">{nutrient.icon}</span>
                       <span className="font-medium">{nutrient.name}</span>

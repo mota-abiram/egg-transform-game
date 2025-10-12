@@ -1,14 +1,13 @@
 import { Card } from "@/components/ui/card";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Shield, Sparkles, Home, Award } from "lucide-react";
 
 const Benefits = () => {
   const benefits = [
-    { icon: "✓", text: "100% Natural" },
-    { icon: "✓", text: "Veg Feed Only" },
-    { icon: "✓", text: "Nutritionally Enhanced" },
-    { icon: "✓", text: "Farm to Table in 24hrs" },
-    { icon: "✓", text: "1 Egg = 4 Essentials Per Day" },
-    { icon: "✓", text: "Cleaned, Graded, Stamped" },
+    { icon: CheckCircle, text: "100% Natural", color: "text-green-600" },
+    { icon: Shield, text: "No Antibiotics", color: "text-red-500" },
+    { icon: Sparkles, text: "UV Sanitized, Washed, Stamped", color: "text-blue-600" },
+    { icon: Home, text: "Farm Fresh Only", color: "text-orange-600" },
+    { icon: Award, text: "40+ Years of Experience", color: "text-purple-600" },
   ];
 
   return (
@@ -24,19 +23,22 @@ const Benefits = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {benefits.map((benefit, index) => (
-            <Card
-              key={index}
-              className="p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 bg-card"
-            >
-              <div className="flex items-center gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <CheckCircle className="w-6 h-6 text-primary" />
+          {benefits.map((benefit, index) => {
+            const IconComponent = benefit.icon;
+            return (
+              <Card
+                key={index}
+                className="p-6 hover:shadow-2xl hover:translate-y-[-4px] transition-all duration-300 bg-card border-2 hover:border-primary/20"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <IconComponent className={`w-6 h-6 ${benefit.color}`} />
+                  </div>
+                  <p className="text-lg font-semibold">{benefit.text}</p>
                 </div>
-                <p className="text-lg font-semibold">{benefit.text}</p>
-              </div>
-            </Card>
-          ))}
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>
