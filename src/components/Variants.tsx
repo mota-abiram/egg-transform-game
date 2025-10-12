@@ -22,7 +22,6 @@ const Variants = () => {
         { icon: "⭐", name: "Vitamin A" },
         { icon: "☀️", name: "Vitamin D3" },
         { icon: "🧠", name: "DHA" },
-        { icon: "🌿", name: "Omega 3" },
         { icon: "💪", name: "Selenium" },
       ],
       highlight: false,
