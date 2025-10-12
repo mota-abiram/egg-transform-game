@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import Benefits from "@/components/Benefits";
 import Variants from "@/components/Variants";
 import Game from "@/components/Game";
+import EggDisplay from "@/components/EggDisplay";
 import Availability from "@/components/Availability";
 import { useScrollFade } from "@/hooks/useScrollFade";
 import { useRef } from "react";
@@ -16,14 +17,14 @@ const Home = () => {
     return (
         <div className="min-h-screen">
             <Hero />
+            <div ref={gameRef} style={getFadeStyle(gameRef.current?.offsetTop || 0, 600)}>
+                <EggDisplay />
+            </div>
             <div ref={benefitsRef} style={getFadeStyle(benefitsRef.current?.offsetTop || 0, 400)}>
                 <Benefits />
             </div>
             <div ref={variantsRef} style={getFadeStyle(variantsRef.current?.offsetTop || 0, 400)}>
                 <Variants />
-            </div>
-            <div ref={gameRef} style={getFadeStyle(gameRef.current?.offsetTop || 0, 600)}>
-                <Game />
             </div>
             <div ref={availabilityRef} style={getFadeStyle(availabilityRef.current?.offsetTop || 0, 400)}>
                 <Availability />

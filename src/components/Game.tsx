@@ -27,11 +27,61 @@ const Game = () => {
   const [score, setScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
   const [gameWon, setGameWon] = useState(false);
+  const [characterPosition, setCharacterPosition] = useState(50); // Percentage position
+  const [characterDirection, setCharacterDirection] = useState(1); // 1 for right, -1 for left
+  const [acquiredNutrients, setAcquiredNutrients] = useState<string[]>([]);
+  const [characterStage, setCharacterStage] = useState(2); // Character transformation stage (2-5)
   const gameAreaRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number>();
+  const characterMovementRef = useRef<number>();
 
   const maxHealth = 100;
   const healthPerEgg = 20;
+  const hitTolerance = 15; // Percentage tolerance for hit detection
+  const characterSpeed = 0.8; // Movement speed per frame (increased for more visible movement)
+
+  // Character Movement Animation - Continuous loop movement when game is active
+  const animateCharacterMovement = () => {
+    setCharacterPosition((prevPosition) => {
+      let newPosition = prevPosition + (characterDirection * characterSpeed);
+
+      // Reverse direction at boundaries for continuous loop
+      if (newPosition >= 85) {
+        newPosition = 85;
+        setCharacterDirection(-1);
+      } else if (newPosition <= 15) {
+        newPosition = 15;
+        setCharacterDirection(1);
+      }
+
+      return newPosition;
+    });
+
+    // Continue movement only when game is started and not won
+    if (gameStarted && !gameWon) {
+      characterMovementRef.current = requestAnimationFrame(animateCharacterMovement);
+    }
+  };
+
+  // Character Movement Effect - Start when game starts, stop when game ends
+  useEffect(() => {
+    if (gameStarted && !gameWon) {
+      // Start character movement when game starts
+      animateCharacterMovement();
+    } else {
+      // Stop character movement when game stops or is won
+      if (characterMovementRef.current) {
+        cancelAnimationFrame(characterMovementRef.current);
+      }
+    }
+
+    // Cleanup function to stop movement when component unmounts
+    return () => {
+      if (characterMovementRef.current) {
+        cancelAnimationFrame(characterMovementRef.current);
+      }
+    };
+  }, [gameStarted, gameWon]); // Dependencies: gameStarted and gameWon
 
   useEffect(() => {
     if (health >= maxHealth && !gameWon) {
@@ -85,15 +135,37 @@ const Game = () => {
     };
   }, [gameStarted]);
 
-  const handleEggHit = (egg: Egg) => {
+  // Process Successful Egg Landing - Main State Update Function
+  const processSuccessfulEggLanding = (egg: Egg) => {
     if (health < maxHealth) {
-      setHealth((prev) => Math.min(prev + healthPerEgg, maxHealth));
-      setScore((prev) => prev + 1);
+      const newScore = score + 1;
+      const newHealth = Math.min(health + healthPerEgg, maxHealth);
+
+      // Update score and health
+      setScore(newScore);
+      setHealth(newHealth);
+
+      // Update character stage based on successful hits (2-5)
+      setCharacterStage(Math.min(newScore + 1, 5));
+
+      // Add nutrient based on hit count
+      const nutrients = ['☀️ Vitamin D3', '🧠 DHA', '💪 Selenium', '🌿 Omega 3'];
+      if (newScore <= nutrients.length) {
+        setAcquiredNutrients(prev => [...prev, nutrients[newScore - 1]]);
+      }
+
+      // Create visual effects
       createParticles(egg.x, egg.y);
+
+      // Show success message
       toast.success("🎯 Perfect Hit!", {
-        description: "Egg landed on head! +20 Health",
+        description: `Egg landed on head! +20 Health (${newScore}/5) - Stage ${Math.min(newScore + 1, 5)}`,
       });
     }
+  };
+
+  const handleEggHit = (egg: Egg) => {
+    processSuccessfulEggLanding(egg);
   };
 
   const handleEggMiss = (egg: Egg) => {
@@ -139,17 +211,18 @@ const Game = () => {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    // Check if click is on the character's head area
-    const characterCenterX = rect.width / 2; // Center of the game area
+    // Calculate character's current position based on percentage
+    const characterCenterX = (rect.width * characterPosition) / 100;
     const characterWidth = 100; // Approximate character width
     const headY = 400; // Y position where head starts
     const headHeight = 50; // Height of head area
 
+    // Enhanced hit detection with tolerance
     const isInHeadX = x >= characterCenterX - characterWidth / 2 && x <= characterCenterX + characterWidth / 2;
     const isInHeadY = y >= headY && y <= headY + headHeight;
 
     if (isInHeadX && isInHeadY) {
-      // Direct hit on head - no egg animation needed
+      // Perfect hit on moving character - no egg animation needed
       handleEggHit({ id: Date.now(), x: characterCenterX, y: headY, velocity: 0 });
     } else {
       // Miss - show egg falling animation
@@ -170,8 +243,12 @@ const Game = () => {
     setEggs([]);
     setParticles([]);
     setGameWon(false);
+    setCharacterPosition(50);
+    setCharacterDirection(1);
+    setAcquiredNutrients([]);
+
     toast.info("🎮 Game Started!", {
-      description: "Click anywhere to drop eggs!",
+      description: "Click on the moving character to drop eggs!",
     });
   };
 
@@ -182,35 +259,26 @@ const Game = () => {
     setEggs([]);
     setParticles([]);
     setGameWon(false);
+    setCharacterPosition(50);
+    setCharacterDirection(1);
+    setAcquiredNutrients([]);
+    setCharacterStage(2); // Reset to stage 2
+
+    // Note: Character movement continues running (not stopped on reset)
   };
 
   const getCharacterStyle = () => {
     const healthPercent = health / maxHealth;
 
     // More dramatic size changes for realistic transformation
-    const scaleValue = 0.7 + (healthPercent * 0.5); // Scale from 70% to 120%
+    const scaleValue = 0.8 + (healthPercent * 0.4); // Scale from 80% to 120%
 
     return {
-      filter: `
-        saturate(${0.4 + healthPercent * 0.6})
-        brightness(${0.6 + healthPercent * 0.4})
-        contrast(${1 + healthPercent * 0.2})
-      `,
       transform: `scale(${scaleValue})`,
       transition: 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
     };
   };
 
-  const getCharacterEmoji = () => {
-    const healthPercent = health / maxHealth;
-    // Show realistic body transformation stages
-    if (healthPercent === 0) return "🧍"; // Very weak/thin starting point
-    if (healthPercent < 25) return "🚶"; // Slight improvement
-    if (healthPercent < 50) return "🧍‍♂️"; // Getting stronger
-    if (healthPercent < 75) return "🏃"; // Active and energetic
-    if (healthPercent < 100) return "🏋️"; // Strong and fit
-    return "💪"; // Peak health
-  };
 
   return (
     <div id="game" className="min-h-screen bg-gradient-to-b from-yellow-50/60 via-orange-50/40 to-amber-50/60 backdrop-blur-sm flex flex-col items-center justify-center p-4 scroll-mt-20">
@@ -234,26 +302,14 @@ const Game = () => {
             </div>
             <Progress value={health} className="h-3" />
             <div className="flex flex-wrap gap-2 text-xs">
-              {health >= 20 && (
-                <span className="bg-primary/20 text-primary px-2 py-1 rounded-full animate-bounce-in">
-                  ☀️ Vitamin D3
+              {acquiredNutrients.map((nutrient, index) => (
+                <span
+                  key={index}
+                  className="bg-primary/20 text-primary px-2 py-1 rounded-full animate-bounce-in"
+                >
+                  {nutrient}
                 </span>
-              )}
-              {health >= 40 && (
-                <span className="bg-accent/20 text-accent px-2 py-1 rounded-full animate-bounce-in">
-                  🧠 DHA
-                </span>
-              )}
-              {health >= 60 && (
-                <span className="bg-secondary/20 text-secondary px-2 py-1 rounded-full animate-bounce-in">
-                  💪 Selenium
-                </span>
-              )}
-              {health >= 80 && (
-                <span className="bg-primary/20 text-primary px-2 py-1 rounded-full animate-bounce-in">
-                  🌿 Omega 3
-                </span>
-              )}
+              ))}
             </div>
           </Card>
         )}
@@ -297,7 +353,13 @@ const Game = () => {
           ))}
 
           {/* Character */}
-          <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center">
+          <div
+            className="absolute bottom-16 flex flex-col items-center transition-all duration-100 ease-out"
+            style={{
+              left: `${characterPosition}%`,
+              transform: 'translateX(-50%)'
+            }}
+          >
             {/* Head target indicator */}
             {gameStarted && !gameWon && (
               <div
@@ -308,11 +370,18 @@ const Game = () => {
               </div>
             )}
             <div
-              className={`text-8xl ${health >= maxHealth ? "animate-pulse-glow" : ""
+              className={`${health >= maxHealth ? "animate-pulse-glow" : ""
                 }`}
               style={getCharacterStyle()}
             >
-              {getCharacterEmoji()}
+              <img
+                src={`/charcaters/${characterStage}.png`}
+                alt={`Character Stage ${characterStage}`}
+                className="w-24 h-24 object-contain"
+                style={{
+                  filter: health >= maxHealth ? 'drop-shadow(0 0 20px rgba(255, 215, 0, 0.8))' : 'none'
+                }}
+              />
             </div>
             {health >= maxHealth && (
               <div className="absolute -top-12 animate-bounce-in flex gap-2">
@@ -381,7 +450,7 @@ const Game = () => {
           {gameStarted && !gameWon && eggs.length === 0 && (
             <div className="absolute top-8 left-1/2 -translate-x-1/2 text-center animate-float">
               <p className="text-lg font-medium text-foreground bg-white/80 px-4 py-2 rounded-full">
-                🎯 Click on the character's head to hit!
+                🎯 Click on the moving character's head to hit!
               </p>
             </div>
           )}
