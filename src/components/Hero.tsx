@@ -12,7 +12,13 @@ const Hero = () => {
           <div className="space-y-8 text-center lg:text-left">
             <div className="inline-block mb-6">
               <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-                <div className="text-6xl sm:text-7xl lg:text-8xl drop-shadow-2xl filter brightness-110">🥚</div>
+                <div className="w-16 h-20 sm:w-20 sm:h-24 lg:w-24 lg:h-28 flex-shrink-0">
+                  <img
+                    src="/egg.png"
+                    alt="Hello Eggs Logo"
+                    className="w-full h-full object-contain drop-shadow-2xl filter brightness-110"
+                  />
+                </div>
                 <div className="flex flex-col text-center sm:text-left">
                   <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-primary leading-none drop-shadow-lg">
                     Hello

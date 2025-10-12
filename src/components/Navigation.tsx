@@ -25,7 +25,13 @@ const Navigation = () => {
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
                     <Link to="/" className="flex items-center gap-3">
-                        <div className="text-2xl">🥚</div>
+                        <div className="w-8 h-10 flex-shrink-0">
+                            <img
+                                src="/egg.png"
+                                alt="Hello Eggs Logo"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
                         <div className="flex flex-col">
                             <span className="text-xl font-bold text-orange-600">Hello</span>
                             <span className="text-sm font-semibold text-muted-foreground -mt-1">EGGS</span>
@@ -63,7 +69,13 @@ const Navigation = () => {
                             <div className="flex flex-col h-full">
                                 {/* Mobile Logo */}
                                 <div className="flex items-center gap-3 mb-8">
-                                    <div className="text-2xl">🥚</div>
+                                    <div className="w-8 h-10 flex-shrink-0">
+                                        <img
+                                            src="/egg.png"
+                                            alt="Hello Eggs Logo"
+                                            className="w-full h-full object-contain"
+                                        />
+                                    </div>
                                     <div className="flex flex-col">
                                         <span className="text-xl font-bold text-orange-600">Hello</span>
                                         <span className="text-sm font-semibold text-muted-foreground -mt-1">EGGS</span>

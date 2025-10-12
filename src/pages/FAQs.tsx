@@ -145,7 +145,13 @@ const FAQs = () => {
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
                         <Card className="p-6 text-center">
-                            <div className="text-3xl mb-3">🥚</div>
+                            <div className="w-12 h-16 mx-auto mb-3">
+                                <img
+                                    src="/egg.png"
+                                    alt="Hello Eggs"
+                                    className="w-full h-full object-contain"
+                                />
+                            </div>
                             <h3 className="text-lg font-bold mb-2">100% Natural</h3>
                             <p className="text-sm text-muted-foreground">No artificial additives or preservatives</p>
                         </Card>

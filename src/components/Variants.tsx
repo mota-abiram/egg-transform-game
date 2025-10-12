@@ -73,7 +73,15 @@ const Variants = () => {
                 </div>
 
                 <div className="pt-2 sm:pt-4">
-                  <div className="text-6xl sm:text-8xl text-center animate-float">🥚</div>
+                  <div className="flex justify-center">
+                    <div className="w-16 h-20 sm:w-20 sm:h-24 animate-float">
+                      <img
+                        src="/egg.png"
+                        alt="Hello Eggs"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </Card>

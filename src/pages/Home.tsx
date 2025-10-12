@@ -41,9 +41,18 @@ const Home = () => {
                 </div>
 
                 <div className="container mx-auto px-4 text-center relative z-10">
-                    <p className="text-lg font-semibold mb-2">
-                        🥚 Hello Eggs - Nature's Multivitamin
-                    </p>
+                    <div className="flex items-center justify-center gap-3 mb-4">
+                        <div className="w-8 h-10">
+                            <img
+                                src="/egg.png"
+                                alt="Hello Eggs Logo"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                        <p className="text-lg font-semibold">
+                            Hello Eggs - Nature's Multivitamin
+                        </p>
+                    </div>
                     <p className="text-sm opacity-90">
                         © 2025 Srinivasa Farms. All rights reserved.
                     </p>
