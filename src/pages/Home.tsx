@@ -48,7 +48,7 @@ const Home = () => {
                         © 2025 Srinivasa Farms. All rights reserved.
                     </p>
                     <p className="text-sm opacity-90 mt-2">
-                        Enriched with D3, DHA, Selenium & Omega 3
+                        Enriched with Vitamin A, D3, DHA, Selenium & Omega 3
                     </p>
                 </div>
             </footer>

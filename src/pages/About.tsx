@@ -35,7 +35,7 @@ const About = () => {
         {
             year: "2020",
             title: "Hello Eggs Launch",
-            description: "Launched Hello Eggs with D3, DHA, Selenium, and Omega 3 enrichment."
+            description: "Launched Hello Eggs with Vitamin A, D3, DHA, Selenium, and Omega 3 enrichment."
         },
         {
             year: "2025",
@@ -72,7 +72,7 @@ const About = () => {
                             </p>
                             <p className="text-lg text-muted-foreground mb-6">
                                 Our breakthrough came when we developed Hello Eggs - the first nutritionally enhanced eggs in India
-                                that provide essential nutrients like Vitamin D3, DHA, Selenium, and Omega 3. Today, we're proud
+                                that provide essential nutrients like Vitamin A, Vitamin D3, DHA, Selenium, and Omega 3. Today, we're proud
                                 to serve families across the country with eggs that truly make a difference in their health.
                             </p>
                             <Button size="lg" className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600">

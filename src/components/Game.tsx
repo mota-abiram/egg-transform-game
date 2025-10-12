@@ -227,7 +227,7 @@ const Game = () => {
       ];
       setStageMessage(stageMessages[Math.min(newScore - 1, stageMessages.length - 1)]);
 
-      const nutrients = ["☀️ Vitamin D3", "🧠 DHA", "💪 Selenium", "🌿 Omega 3"];
+      const nutrients = ["⭐ Vitamin A", "☀️ Vitamin D3", "🧠 DHA", "🌿 Omega 3", "💪 Selenium"];
       if (newScore <= nutrients.length) {
         setAcquiredNutrients((prev) => [...prev, nutrients[newScore - 1]]);
       }
@@ -504,15 +504,21 @@ const Game = () => {
                           </div>
                         </div>
                         <div className="flex items-center gap-2 text-white/90">
+                          <span className="text-lg">🌿</span>
+                          <div>
+                            <span className="font-medium">Omega 3:</span> Heart health & inflammation reduction
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2 text-white/90">
                           <span className="text-lg">💪</span>
                           <div>
                             <span className="font-medium">Selenium:</span> Powerful antioxidant protection
                           </div>
                         </div>
                         <div className="flex items-center gap-2 text-white/90">
-                          <span className="text-lg">🌿</span>
+                          <span className="text-lg">⭐</span>
                           <div>
-                            <span className="font-medium">Omega 3:</span> Heart health & inflammation reduction
+                            <span className="font-medium">Vitamin A:</span> Vision & immune system support
                           </div>
                         </div>
                       </div>
@@ -539,7 +545,7 @@ const Game = () => {
 
         <Card className="p-6 space-y-3 text-center">
           <h3 className="text-2xl font-bold">Say Hello to Nature's Multivitamin</h3>
-          <p className="text-muted-foreground">Each Hello Egg is enriched with Vitamin D3, DHA, Selenium, and Omega 3 to support your health at every stage of life.</p>
+          <p className="text-muted-foreground">Each Hello Egg is enriched with Vitamin A, Vitamin D3, DHA, Selenium, and Omega 3 to support your health at every stage of life.</p>
           <div className="flex flex-wrap justify-center gap-3 pt-2">
             <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">100% Natural</span>
             <span className="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium">Nutritionally Enhanced</span>

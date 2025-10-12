@@ -7,11 +7,11 @@ const FAQs = () => {
     const faqs = [
         {
             question: "What makes Hello Eggs different from regular eggs?",
-            answer: "Hello Eggs are nutritionally enhanced with Vitamin D3, DHA, Selenium, and Omega 3. These essential nutrients are naturally incorporated into the egg through our special feed formulation, making each egg a powerhouse of nutrition."
+            answer: "Hello Eggs are nutritionally enhanced with Vitamin A, Vitamin D3, DHA, Selenium, and Omega 3. These essential nutrients are naturally incorporated into the egg through our special feed formulation, making each egg a powerhouse of nutrition."
         },
         {
             question: "How are Hello Eggs nutritionally enhanced?",
-            answer: "Our hens are fed a specially formulated diet that includes natural sources of D3, DHA, Selenium, and Omega 3. This process ensures that these nutrients are naturally incorporated into the egg yolk and white, making them more nutritious than regular eggs."
+            answer: "Our hens are fed a specially formulated diet that includes natural sources of Vitamin A, D3, DHA, Selenium, and Omega 3. This process ensures that these nutrients are naturally incorporated into the egg yolk and white, making them more nutritious than regular eggs."
         },
         {
             question: "Are Hello Eggs safe for children?",
@@ -27,7 +27,7 @@ const FAQs = () => {
         },
         {
             question: "What is the nutritional value of Hello Eggs?",
-            answer: "Each Hello Egg contains approximately 6g of protein, 5g of healthy fats, and is enriched with 25% more Vitamin D3, 200mg of DHA, 15mcg of Selenium, and 100mg of Omega 3 compared to regular eggs."
+            answer: "Each Hello Egg contains approximately 6g of protein, 5g of healthy fats, and is enriched with 25% more Vitamin A, 25% more Vitamin D3, 200mg of DHA, 15mcg of Selenium, and 100mg of Omega 3 compared to regular eggs."
         },
         {
             question: "Are Hello Eggs suitable for vegetarians?",
