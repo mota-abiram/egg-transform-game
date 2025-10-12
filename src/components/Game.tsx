@@ -346,23 +346,23 @@ const Game = () => {
   const showInitialAim = gameStarted && !gameWon && score === 0;
 
   return (
-    <div id="game" className="min-h-screen bg-gradient-to-b from-yellow-50/60 via-orange-50/40 to-amber-50/60 flex flex-col items-center justify-center p-4">
-      <div className="max-w-4xl w-full space-y-6">
+    <div id="game" className="min-h-screen bg-gradient-to-b from-yellow-50/60 via-orange-50/40 to-amber-50/60 flex flex-col items-center justify-center p-2 sm:p-4">
+      <div className="max-w-4xl w-full space-y-4 sm:space-y-6">
         <div className="text-center space-y-2">
-          <h1 className="text-5xl md:text-6xl font-bold">Power of Hello Eggs</h1>
-          <p className="text-xl text-muted-foreground">Drop nutrition. Watch transformation. 🥚</p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">Power of Hello Eggs</h1>
+          <p className="text-lg sm:text-xl text-muted-foreground">Drop nutrition. Watch transformation. 🥚</p>
         </div>
 
         {gameStarted && (
-          <Card className="p-6 space-y-4 bg-gradient-to-r from-orange-50 to-yellow-50 border-2 border-orange-200">
-            <div className="flex justify-between items-center">
+          <Card className="p-4 sm:p-6 space-y-3 sm:space-y-4 bg-gradient-to-r from-orange-50 to-yellow-50 border-2 border-orange-200">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
               <div className="flex items-center gap-2">
-                <span className="text-2xl">🥚</span>
-                <span className="text-lg font-bold text-orange-700">Eggs Landed: {score}/5</span>
+                <span className="text-xl sm:text-2xl">🥚</span>
+                <span className="text-base sm:text-lg font-bold text-orange-700">Eggs Landed: {score}/5</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-2xl">❤️</span>
-                <span className="text-lg font-bold text-red-600">Health: {health}%</span>
+                <span className="text-xl sm:text-2xl">❤️</span>
+                <span className="text-base sm:text-lg font-bold text-red-600">Health: {health}%</span>
               </div>
             </div>
             {highScore !== null && (
@@ -387,7 +387,7 @@ const Game = () => {
           </Card>
         )}
 
-        <Card ref={gameAreaRef} onClick={dropEgg} className={`relative w-full h-[600px] overflow-hidden cursor-crosshair ${showInitialAim || (gameStarted && !gameWon) ? "bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50" : "bg-gradient-to-br from-gray-100 to-gray-200"}`}>
+        <Card ref={gameAreaRef} onClick={dropEgg} className={`relative w-full h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden cursor-crosshair ${showInitialAim || (gameStarted && !gameWon) ? "bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50" : "bg-gradient-to-br from-gray-100 to-gray-200"}`}>
           {/* Animated Background Elements */}
           <div className="absolute inset-0 overflow-hidden">
             {/* Floating orbs with custom animations */}
@@ -429,7 +429,7 @@ const Game = () => {
           ))}
 
           <div
-            className="absolute bottom-16 flex flex-col items-center"
+            className="absolute bottom-12 sm:bottom-16 flex flex-col items-center"
             style={{
               left: `${characterPositionUI}%`,
               transform: "translateX(-50%)",
@@ -448,7 +448,7 @@ const Game = () => {
                 key={characterStage} // Force re-render when stage changes
                 src={`/charcaters/${characterStage}.png`}
                 alt={`Character Stage ${characterStage}`}
-                className="w-32 h-32 object-contain"
+                className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 object-contain"
                 style={{ filter: health >= maxHealth ? "drop-shadow(0 0 20px rgba(255,215,0,0.8))" : "none" }}
                 onLoad={() => console.log(`✅ Image loaded: ${characterStage}.png`)}
                 onError={(e) => console.error(`❌ Image failed to load: ${characterStage}.png`, e)}
@@ -456,79 +456,83 @@ const Game = () => {
             </div>
 
             {/* Stage message under character */}
-            {stageMessage && <div className="mt-2 text-center text-sm font-semibold text-green-600">{stageMessage}</div>}
+            {stageMessage && <div className="mt-1 sm:mt-2 text-center text-xs sm:text-sm font-semibold text-green-600">{stageMessage}</div>}
 
             {health >= maxHealth && (
-              <div className="absolute -top-12 animate-bounce-in flex gap-2"><span className="text-3xl">✨</span><span className="text-3xl">🌟</span><span className="text-3xl">✨</span></div>
+              <div className="absolute -top-8 sm:-top-12 animate-bounce-in flex gap-1 sm:gap-2">
+                <span className="text-xl sm:text-3xl">✨</span>
+                <span className="text-xl sm:text-3xl">🌟</span>
+                <span className="text-xl sm:text-3xl">✨</span>
+              </div>
             )}
 
           </div>
 
           {(!gameStarted || gameWon) && (
-            <div className="absolute inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center">
-              <div className="text-center space-y-4 p-8">
+            <div className="absolute inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center overflow-y-auto">
+              <div className="text-center space-y-3 sm:space-y-4 p-2 sm:p-4 md:p-8 w-full max-h-full">
                 {!gameStarted && (
                   <>
-                    <h2 className="text-3xl font-bold text-white">Ready to Transform?</h2>
-                    <p className="text-white/80">Click anywhere to drop Hello Eggs and watch the magic happen!</p>
-                    <Button onClick={startGame} size="lg" className="text-lg">🎮 Start Game</Button>
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white px-2">Ready to Transform?</h2>
+                    <p className="text-xs sm:text-sm md:text-base text-white/80 px-4">Click anywhere to drop Hello Eggs and watch the magic happen!</p>
+                    <Button onClick={startGame} size="lg" className="text-sm sm:text-base md:text-lg">🎮 Start Game</Button>
                   </>
                 )}
                 {gameWon && (
                   <>
-                    <div className="text-6xl animate-bounce-in">🎉</div>
-                    <h2 className="text-4xl font-bold text-white animate-bounce-in">Transformation Complete!</h2>
-                    <p className="text-white/90 text-lg">You've powered up with {score} Hello Eggs!</p>
+                    <div className="text-3xl sm:text-4xl md:text-6xl animate-bounce-in">🎉</div>
+                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white animate-bounce-in px-2">Transformation Complete!</h2>
+                    <p className="text-white/90 text-sm sm:text-base md:text-lg px-4">You've powered up with {score} Hello Eggs!</p>
                     {highScore !== null && (
-                      <div className="bg-yellow-500/20 border border-yellow-400/30 rounded-lg p-3">
-                        <p className="text-yellow-200 text-sm font-medium">
+                      <div className="bg-yellow-500/20 border border-yellow-400/30 rounded-lg p-2 sm:p-3 mx-2">
+                        <p className="text-yellow-200 text-xs sm:text-sm font-medium">
                           🏆 Best Score: {highScore} eggs to complete!
                         </p>
                       </div>
                     )}
 
                     {/* Nutritional Facts */}
-                    <div className="mt-6 p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20">
-                      <h3 className="text-xl font-semibold text-white mb-3">🌟 Nutritional Power Gained:</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
-                        <div className="flex items-center gap-2 text-white/90">
-                          <span className="text-lg">☀️</span>
-                          <div>
+                    <div className="mt-3 sm:mt-4 md:mt-6 p-2 sm:p-3 md:p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 mx-2">
+                      <h3 className="text-base sm:text-lg md:text-xl font-semibold text-white mb-2 sm:mb-3">🌟 Nutritional Power Gained:</h3>
+                      <div className="grid grid-cols-1 gap-2 sm:gap-3 text-xs sm:text-sm">
+                        <div className="flex items-start gap-2 text-white/90">
+                          <span className="text-sm sm:text-base flex-shrink-0 mt-0.5">☀️</span>
+                          <div className="min-w-0">
                             <span className="font-medium">Vitamin D3:</span> Stronger bones & immune system
                           </div>
                         </div>
-                        <div className="flex items-center gap-2 text-white/90">
-                          <span className="text-lg">🧠</span>
-                          <div>
+                        <div className="flex items-start gap-2 text-white/90">
+                          <span className="text-sm sm:text-base flex-shrink-0 mt-0.5">🧠</span>
+                          <div className="min-w-0">
                             <span className="font-medium">DHA:</span> Enhanced brain function & memory
                           </div>
                         </div>
-                        <div className="flex items-center gap-2 text-white/90">
-                          <span className="text-lg">🌿</span>
-                          <div>
+                        <div className="flex items-start gap-2 text-white/90">
+                          <span className="text-sm sm:text-base flex-shrink-0 mt-0.5">🌿</span>
+                          <div className="min-w-0">
                             <span className="font-medium">Omega 3:</span> Heart health & inflammation reduction
                           </div>
                         </div>
-                        <div className="flex items-center gap-2 text-white/90">
-                          <span className="text-lg">💪</span>
-                          <div>
+                        <div className="flex items-start gap-2 text-white/90">
+                          <span className="text-sm sm:text-base flex-shrink-0 mt-0.5">💪</span>
+                          <div className="min-w-0">
                             <span className="font-medium">Selenium:</span> Powerful antioxidant protection
                           </div>
                         </div>
-                        <div className="flex items-center gap-2 text-white/90">
-                          <span className="text-lg">⭐</span>
-                          <div>
+                        <div className="flex items-start gap-2 text-white/90">
+                          <span className="text-sm sm:text-base flex-shrink-0 mt-0.5">⭐</span>
+                          <div className="min-w-0">
                             <span className="font-medium">Vitamin A:</span> Vision & immune system support
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    <div className="space-y-2">
-                      <Button size="lg" className="text-lg w-full" asChild>
+                    <div className="space-y-2 px-2 w-full">
+                      <Button size="lg" className="text-xs sm:text-sm md:text-lg w-full" asChild>
                         <a href="https://srinivasafarms.com" target="_blank" rel="noopener noreferrer">🛒 Get Hello Eggs Now</a>
                       </Button>
-                      <Button onClick={resetGame} variant="outline" size="lg" className="text-lg w-full">🔄 Play Again</Button>
+                      <Button onClick={resetGame} variant="outline" size="lg" className="text-xs sm:text-sm md:text-lg w-full">🔄 Play Again</Button>
                     </div>
                   </>
                 )}
@@ -537,19 +541,19 @@ const Game = () => {
           )}
 
           {showInitialAim && (
-            <div className="absolute top-8 left-1/2 -translate-x-1/2 text-center animate-float">
-              <p className="text-lg font-medium text-foreground bg-white/80 px-4 py-2 rounded-full">🎯 Click on the moving character's head to hit!</p>
+            <div className="absolute top-4 sm:top-8 left-1/2 -translate-x-1/2 text-center animate-float">
+              <p className="text-sm sm:text-lg font-medium text-foreground bg-white/80 px-3 sm:px-4 py-2 rounded-full">🎯 Click on the moving character's head to hit!</p>
             </div>
           )}
         </Card>
 
-        <Card className="p-6 space-y-3 text-center">
-          <h3 className="text-2xl font-bold">Say Hello to Nature's Multivitamin</h3>
-          <p className="text-muted-foreground">Each Hello Egg is enriched with Vitamin A, Vitamin D3, DHA, Selenium, and Omega 3 to support your health at every stage of life.</p>
-          <div className="flex flex-wrap justify-center gap-3 pt-2">
-            <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">100% Natural</span>
-            <span className="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium">Nutritionally Enhanced</span>
-            <span className="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">Farm to Table in 24hrs</span>
+        <Card className="p-4 sm:p-6 space-y-3 text-center">
+          <h3 className="text-xl sm:text-2xl font-bold">Say Hello to Nature's Multivitamin</h3>
+          <p className="text-sm sm:text-base text-muted-foreground">Each Hello Egg is enriched with Vitamin A, Vitamin D3, DHA, Selenium, and Omega 3 to support your health at every stage of life.</p>
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 pt-2">
+            <span className="bg-primary/10 text-primary px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">100% Natural</span>
+            <span className="bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">Nutritionally Enhanced</span>
+            <span className="bg-secondary/10 text-secondary px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">Farm to Table in 24hrs</span>
           </div>
         </Card>
       </div>
