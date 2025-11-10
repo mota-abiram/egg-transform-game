@@ -9,7 +9,7 @@ const Availability = () => {
   ];
 
   const quickCommerce = [
-    "Instamart", "Zepto", "Blinkit", "Dunzo"
+    "Zepto", "Blinkit"
   ];
 
   const cities = [
@@ -24,11 +24,12 @@ const Availability = () => {
         <div className="text-center mb-8 sm:mb-12">
           <div className="inline-block mb-3 sm:mb-4">
             <span className="bg-primary text-primary-foreground px-4 sm:px-6 py-2 sm:py-3 rounded-full text-lg sm:text-xl font-bold">
-              We Are Now Available
+              We Are Available!
             </span>
           </div>
           <p className="text-lg sm:text-xl text-muted-foreground px-4">
-            Find Hello Eggs at your nearest store or order online
+          Find Hello Eggs – India’s 1st Enriched Brown Eggs with D3 & DHA
+          at your nearest store or get them delivered to your doorstep.
           </p>
         </div>
 
@@ -38,15 +39,45 @@ const Availability = () => {
             <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center gap-2">
               <span>🏪</span> Retail Stores
             </h3>
-            <div className="flex flex-wrap gap-2 sm:gap-3">
-              {retailers.map((store, index) => (
-                <span
-                  key={index}
-                  className="bg-primary/10 text-primary px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium"
-                >
-                  {store}
-                </span>
-              ))}
+            <p className="text-sm sm:text-base text-muted-foreground mb-4">
+              Now stocked at leading supermarkets across Hyderabad
+            </p>
+            {/* Star Bazaar */}
+            <div className="mb-4">
+              <p className="text-base sm:text-lg font-semibold mb-2">Star Bazaar</p>
+              <div className="flex flex-wrap gap-2 sm:gap-3">
+                {[
+                  "Kondapur",
+                  "Gachibowli",
+                  "Panjagutta",
+                  "Bowenpally",
+                  "Saket",
+                  "Alwal",
+                  "Vanasthalipuram",
+                  "Kharmanghat",
+                ].map((loc) => (
+                  <span
+                    key={`star-${loc}`}
+                    className="bg-primary/10 text-primary px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium"
+                  >
+                    {loc}
+                  </span>
+                ))}
+              </div>
+            </div>
+            {/* Qmart */}
+            <div>
+              <p className="text-base sm:text-lg font-semibold mb-2">Qmart</p>
+              <div className="flex flex-wrap gap-2 sm:gap-3">
+                {["Gachibowli", "Banjara Hills"].map((loc) => (
+                  <span
+                    key={`qmart-${loc}`}
+                    className="bg-primary/10 text-primary px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium"
+                  >
+                    {loc}
+                  </span>
+                ))}
+              </div>
             </div>
           </Card>
 
