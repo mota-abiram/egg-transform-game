@@ -1,13 +1,50 @@
 import { Card } from "@/components/ui/card";
-import { CheckCircle, Shield, Sparkles, Home, Award } from "lucide-react";
+import { CheckCircle, Ban, Sun, Brain, Trophy, Wheat } from "lucide-react";
 
 const Benefits = () => {
   const benefits = [
-    { icon: CheckCircle, text: "100% Natural", color: "text-green-600" },
-    { icon: Shield, text: "No Antibiotics", color: "text-red-500" },
-    { icon: Sparkles, text: "UV Sanitized, Washed, Stamped", color: "text-blue-600" },
-    { icon: Home, text: "Farm Fresh Only", color: "text-orange-600" },
-    { icon: Award, text: "40+ Years of Experience", color: "text-purple-600" },
+    {
+      icon: CheckCircle,
+      title: "100% Natural & Farm Fresh",
+      description:
+        "Straight from healthy, well-cared-for hens raised in optimal conditions.",
+      color: "text-green-600",
+    },
+    {
+      icon: Ban,
+      title: "No Antibiotics or Hormones",
+      description:
+        "We believe nutrition should be clean, honest, and chemical-free.",
+      color: "text-red-500",
+    },
+    {
+      icon: Sun,
+      title: "UV Sanitized, Washed & Stamped",
+      description:
+        "Every egg goes through a hygienic, certified process for your family’s safety.",
+      color: "text-yellow-500",
+    },
+    {
+      icon: Brain,
+      title: "Farm fresh daily",
+      description:
+        "Designed to support stronger bones, sharper minds, and overall vitality.",
+      color: "text-purple-600",
+    },
+    {
+      icon: Trophy,
+      title: "40+ Years of experience",
+      description:
+        "From the house of Srinivasa Farms — pioneers in India’s poultry nutrition and innovation for over four decades.",
+      color: "text-amber-600",
+    },
+    {
+      icon: Wheat,
+      title: "One Egg. Endless Benefits",
+      description:
+        "A simple daily choice that transforms everyday nutrition into lasting wellness.",
+      color: "text-amber-600",
+    },
   ];
 
   return (
@@ -15,7 +52,7 @@ const Benefits = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
-            Why Choose <span className="text-gradient">Hello Eggs</span>?
+          What Makes  <span className="text-gradient">Hello Eggs </span>Different?
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             From your first steps to your golden years, Hello Eggs provide the essential nutrients your body needs naturally.
@@ -34,7 +71,14 @@ const Benefits = () => {
                   <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center">
                     <IconComponent className={`w-5 h-5 sm:w-6 sm:h-6 ${benefit.color}`} />
                   </div>
-                  <p className="text-base sm:text-lg font-semibold">{benefit.text}</p>
+                  <div>
+                    <p className="text-base sm:text-lg font-semibold">
+                      {benefit.title}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {benefit.description}
+                    </p>
+                  </div>
                 </div>
               </Card>
             );
