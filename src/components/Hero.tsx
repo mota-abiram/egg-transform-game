@@ -7,6 +7,8 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-50/80 via-yellow-50/60 to-amber-50/80 backdrop-blur-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        {/* Page Header */}
+        
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8 text-center lg:text-left">
@@ -47,15 +49,15 @@ const Hero = () => {
 
             <div className="space-y-4 sm:space-y-6">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground text-center lg:text-left">
-                Nature's Perfect<br />
+              India’s 1st Enriched <br />
                 <span className="text-gradient bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
-                  Multivitamin
+                Brown Eggs 🥚
                 </span>
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
-                Enriched with Vitamin A, D3, DHA, Selenium & Omega 3.
+              Packed with Vitamin D3 & DHA for smarter nutrition, every day.
                 <br />
-                <span className="font-semibold text-foreground">One egg, endless benefits.</span>
+                <span className="font-semibold text-foreground">One egg. Endless benefits.</span>
               </p>
 
               {/* UV Sanitization Feature */}
