@@ -344,12 +344,16 @@ const Game = () => {
   };
 
   const showInitialAim = gameStarted && !gameWon && score === 0;
+  const showInstruction = gameStarted && !gameWon; // Show instruction during entire game
 
   return (
-    <div id="game" className="min-h-screen bg-gradient-to-b from-yellow-50/60 via-orange-50/40 to-amber-50/60 flex flex-col items-center justify-center p-2 sm:p-4">
+    // Removed min-h-screen, background, and padding. Added h-full to fill grid cell.
+    <div id="game" className="w-full h-full flex flex-col items-center justify-center">
       <div className="max-w-4xl w-full space-y-4 sm:space-y-6">
         <div className="text-center space-y-2">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">Power of Hello Eggs</h1>
+        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">Power of Hello Eggs</h1>
+
+
           <p className="text-lg sm:text-xl text-muted-foreground">Drop nutrition. Watch transformation. 🥚</p>
         </div>
 
@@ -469,8 +473,8 @@ const Game = () => {
           </div>
 
           {(!gameStarted || gameWon) && (
-            <div className="absolute inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center overflow-y-auto">
-              <div className="text-center space-y-3 sm:space-y-4 p-2 sm:p-4 md:p-8 w-full max-h-full">
+            <div className={`absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center ${gameWon ? 'overflow-auto' : 'overflow-y-auto'}`}>
+              <div className={`text-center w-full ${gameWon ? 'max-w-3xl mx-auto p-4 sm:p-6 md:p-10 space-y-4 sm:space-y-5 flex flex-col justify-center' : 'space-y-3 sm:space-y-4 p-2 sm:p-4 md:p-8 max-h-full'}`}>
                 {!gameStarted && (
                   <>
                     <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white px-2">Ready to Transform?</h2>
@@ -479,68 +483,68 @@ const Game = () => {
                   </>
                 )}
                 {gameWon && (
-                  <>
-                    <div className="text-3xl sm:text-4xl md:text-6xl animate-bounce-in">🎉</div>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white animate-bounce-in px-2">Transformation Complete!</h2>
-                    <p className="text-white/90 text-sm sm:text-base md:text-lg px-4">You've powered up with {score} Hello Eggs!</p>
+                  <div className="flex flex-col items-center justify-center min-h-[70vh] py-2 sm:py-4">
+                    <div className="text-3xl sm:text-4xl md:text-6xl animate-bounce-in mb-2">🎉</div>
+                    <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-white animate-bounce-in px-2 mb-2">Transformation Complete!</h2>
+                    <p className="text-white/90 text-sm sm:text-base md:text-lg px-4 mb-3">You've powered up with {score} Hello Eggs!</p>
                     {highScore !== null && (
-                      <div className="bg-yellow-500/20 border border-yellow-400/30 rounded-lg p-2 sm:p-3 mx-2">
-                        <p className="text-yellow-200 text-xs sm:text-sm font-medium">
-                          🏆 Best Score: {highScore} eggs to complete!
+                      <div className="bg-yellow-500/20 border border-yellow-400/30 rounded-lg p-2 sm:p-3 mx-2 mb-3">
+                        <p className="text-yellow-200 text-sm sm:text-base font-medium">
+                          🏆 Best: {highScore} eggs
                         </p>
                       </div>
                     )}
 
-                    {/* Nutritional Facts */}
-                    <div className="mt-3 sm:mt-4 md:mt-6 p-2 sm:p-3 md:p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 mx-2">
-                      <h3 className="text-base sm:text-lg md:text-xl font-semibold text-white mb-2 sm:mb-3">🌟 Nutritional Power Gained:</h3>
-                      <div className="grid grid-cols-1 gap-2 sm:gap-3 text-xs sm:text-sm">
-                        <div className="flex items-start gap-2 text-white/90">
-                          <span className="text-sm sm:text-base flex-shrink-0 mt-0.5">☀️</span>
+                    {/* Nutritional Facts - Fullscreen fit */}
+                    <div className="mt-2 sm:mt-4 p-3 sm:p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 mx-2 mb-4">
+                      <h3 className="text-sm sm:text-lg font-semibold text-white mb-2">🌟 Nutritional Power Gained:</h3>
+                      <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs sm:text-sm">
+                        <div className="flex items-start gap-1 text-white/90">
+                          <span className="text-sm flex-shrink-0">☀️</span>
                           <div className="min-w-0">
-                            <span className="font-medium">Vitamin D3:</span> Stronger bones & immune system
+                            <span className="font-medium">D3:</span> <span>Bones & immunity</span>
                           </div>
                         </div>
-                        <div className="flex items-start gap-2 text-white/90">
-                          <span className="text-sm sm:text-base flex-shrink-0 mt-0.5">🧠</span>
+                        <div className="flex items-start gap-1 text-white/90">
+                          <span className="text-sm flex-shrink-0">🧠</span>
                           <div className="min-w-0">
-                            <span className="font-medium">DHA:</span> Enhanced brain function & memory
+                            <span className="font-medium">DHA:</span> <span>Brain function</span>
                           </div>
                         </div>
-                        <div className="flex items-start gap-2 text-white/90">
-                          <span className="text-sm sm:text-base flex-shrink-0 mt-0.5">🌿</span>
+                        <div className="flex items-start gap-1 text-white/90">
+                          <span className="text-sm flex-shrink-0">🌿</span>
                           <div className="min-w-0">
-                            <span className="font-medium">Omega 3:</span> Heart health & inflammation reduction
+                            <span className="font-medium">Omega 3:</span> <span>Heart health</span>
                           </div>
                         </div>
-                        <div className="flex items-start gap-2 text-white/90">
-                          <span className="text-sm sm:text-base flex-shrink-0 mt-0.5">💪</span>
+                        <div className="flex items-start gap-1 text-white/90">
+                          <span className="text-sm flex-shrink-0">💪</span>
                           <div className="min-w-0">
-                            <span className="font-medium">Selenium:</span> Powerful antioxidant protection
+                            <span className="font-medium">Selenium:</span> <span>Antioxidant</span>
                           </div>
                         </div>
-                        <div className="flex items-start gap-2 text-white/90">
-                          <span className="text-sm sm:text-base flex-shrink-0 mt-0.5">⭐</span>
+                        <div className="flex items-start gap-1 text-white/90 col-span-2 justify-center">
+                          <span className="text-sm flex-shrink-0">⭐</span>
                           <div className="min-w-0">
-                            <span className="font-medium">Vitamin A:</span> Vision & immune system support
+                            <span className="font-medium">Vitamin A:</span> <span>Vision & immunity</span>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    <div className="space-y-2 px-2 w-full">
-                      <Button size="lg" className="text-xs sm:text-sm md:text-lg w-full" asChild>
+                    <div className="space-y-2 px-2 w-full max-w-sm sm:max-w-md">
+                      <Button size="lg" className="text-sm sm:text-base w-full h-11 sm:h-12" asChild>
                         <a href="https://srinivasafarms.com" target="_blank" rel="noopener noreferrer">🛒 Get Hello Eggs Now</a>
                       </Button>
-                      <Button onClick={resetGame} variant="outline" size="lg" className="text-xs sm:text-sm md:text-lg w-full">🔄 Play Again</Button>
+                      <Button onClick={resetGame} variant="outline" size="lg" className="text-sm sm:text-base w-full h-11 sm:h-12">🔄 Play Again</Button>
                     </div>
-                  </>
+                  </div>
                 )}
               </div>
             </div>
           )}
 
-          {showInitialAim && (
+          {showInstruction && (
             <div className="absolute top-4 sm:top-8 left-1/2 -translate-x-1/2 text-center animate-float">
               <p className="text-sm sm:text-lg font-medium text-foreground bg-white/80 px-3 sm:px-4 py-2 rounded-full">🎯 Click on the moving character's head to hit!</p>
             </div>
