@@ -100,7 +100,7 @@ const Availability = () => {
         </div>
 
         {/* Cities Available */}
-        <Card className="p-6 sm:p-8 max-w-5xl mx-auto mb-6 sm:mb-8">
+        {/* <Card className="p-6 sm:p-8 max-w-5xl mx-auto mb-6 sm:mb-8">
           <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center gap-2 text-center justify-center">
             <span>🌍</span> Available in Major Cities
           </h3>
@@ -114,13 +114,13 @@ const Availability = () => {
               </span>
             ))}
           </div>
-        </Card>
+        </Card> */}
 
         {/* Online Ordering & Social CTA */}
         <Card className="p-6 sm:p-8 max-w-5xl mx-auto mb-8 sm:mb-12 bg-gradient-to-r from-primary/10 to-accent/10">
           <div className="text-center space-y-6 sm:space-y-8">
             <h3 className="text-2xl sm:text-3xl font-bold">
-              Online Ordering & <span className="text-gradient">Social Media</span>
+              Our <span className="text-gradient">Social Media</span>
             </h3>
 
             {/* Online Delivery Apps */}
