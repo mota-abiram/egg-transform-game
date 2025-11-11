@@ -9,33 +9,23 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         {/* Page Header */}
         
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        {/* Changed items-stretch to items-start to align headings */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Left Content */}
-          <div className="space-y-8 text-center lg:text-left">
-            <div className="inline-block mb-6">
-              <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-                <div className="w-16 h-20 sm:w-20 sm:h-24 lg:w-24 lg:h-28 flex-shrink-0">
-                  <img
-                    src="/egg.png"
-                    alt="Hello Eggs Logo"
-                    className="w-full h-full object-contain drop-shadow-2xl filter brightness-110"
-                  />
-                </div>
-                <div className="flex flex-col text-center sm:text-left">
-                  <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-primary leading-none drop-shadow-lg">
-                    Hello
-                  </h1>
-                  <span className="text-2xl sm:text-3xl md:text-4xl font-black text-foreground -mt-1 sm:-mt-2 drop-shadow-md">
-                    EGGS
-                  </span>
-                </div>
-              </div>
-              <div className="mt-3 text-base sm:text-lg text-muted-foreground font-medium text-center sm:text-left">
-                by Srinivasa Farms
-              </div>
+          {/* Changed justify-center to justify-start */}
+          <div className="h-full flex flex-col justify-start space-y-8 text-center lg:text-left">
+            <div className="space-y-4 sm:space-y-6">
+              
+              {/* Heading moved before badges */}
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground text-center lg:text-left">
+              India's 1st Enriched <br />
+                <span className="text-gradient bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
+                Brown Eggs 🥚
+                </span>
+              </h2>
 
-              {/* Trust Badges */}
-              <div className="mt-4 flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 justify-center sm:justify-start">
+              {/* Trust Badges - MOVED HERE */}
+              <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 justify-center sm:justify-start">
                 <Badge className="bg-green-500/90 text-white px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium shadow-lg">
                   <Leaf className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                   100% Natural
@@ -45,15 +35,7 @@ const Hero = () => {
                   40+ Years of Experience
                 </Badge>
               </div>
-            </div>
 
-            <div className="space-y-4 sm:space-y-6">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground text-center lg:text-left">
-              India’s 1st Enriched <br />
-                <span className="text-gradient bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
-                Brown Eggs 🥚
-                </span>
-              </h2>
               <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
               Packed with Vitamin D3 & DHA for smarter nutrition, every day.
                 <br />
@@ -77,25 +59,6 @@ const Hero = () => {
                 <Button size="lg" variant="outline" className="text-base sm:text-lg px-6 sm:px-8 border-2 hover:bg-primary hover:text-primary-foreground" asChild>
                   <a href="tel:+916309416417">📞 Order Now</a>
                 </Button>
-              </div>
-
-              {/* Trust Signals - Retailer Logos */}
-              <div className="flex flex-col items-center lg:items-start space-y-3">
-                <p className="text-xs sm:text-sm text-muted-foreground font-medium">Available at:</p>
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-4 lg:gap-6 opacity-70 grayscale hover:grayscale-0 transition-all duration-300">
-                  <div className="bg-white px-2 sm:px-3 lg:px-4 py-1 sm:py-2 rounded-lg shadow-sm border">
-                    <span className="text-xs sm:text-sm font-semibold text-gray-700">Big Basket</span>
-                  </div>
-                  <div className="bg-white px-2 sm:px-3 lg:px-4 py-1 sm:py-2 rounded-lg shadow-sm border">
-                    <span className="text-xs sm:text-sm font-semibold text-gray-700">Amazon</span>
-                  </div>
-                  <div className="bg-white px-2 sm:px-3 lg:px-4 py-1 sm:py-2 rounded-lg shadow-sm border">
-                    <span className="text-xs sm:text-sm font-semibold text-gray-700">Flipkart</span>
-                  </div>
-                  <div className="bg-white px-2 sm:px-3 lg:px-4 py-1 sm:py-2 rounded-lg shadow-sm border">
-                    <span className="text-xs sm:text-sm font-semibold text-gray-700">Reliance Fresh</span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
