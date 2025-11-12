@@ -17,11 +17,11 @@ const Home = () => {
     return (
         <div className="min-h-screen">
             <Hero />
-            <div ref={gameRef} style={getFadeStyle(gameRef.current?.offsetTop || 0, 600)}>
-                <EggDisplay />
-            </div>
             <div ref={benefitsRef} style={getFadeStyle(benefitsRef.current?.offsetTop || 0, 400)}>
                 <Benefits />
+            </div>
+            <div ref={gameRef} style={getFadeStyle(gameRef.current?.offsetTop || 0, 600)}>
+                <EggDisplay />
             </div>
             <div ref={variantsRef} style={getFadeStyle(variantsRef.current?.offsetTop || 0, 400)}>
                 <Variants />
@@ -31,7 +31,7 @@ const Home = () => {
             </div>
 
             {/* Footer */}
-            <footer className="bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-600 text-white py-8 relative overflow-hidden">
+            <footer className="bg-[#f58351] text-white py-8 relative overflow-hidden">
                 {/* Decorative elements */}
                 <div className="absolute top-0 left-0 w-full h-full">
                     <div className="absolute top-4 left-10 text-4xl opacity-20 animate-float">🥚</div>
@@ -48,7 +48,7 @@ const Home = () => {
                                 alt="Hello Eggs Logo"
                                 className="w-full h-full object-contain"
                             />
-                        </div>
+                        </div> 
                         <p className="text-lg font-semibold">
                             Hello Eggs - Nature's Multivitamin
                         </p>
