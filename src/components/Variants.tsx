@@ -30,7 +30,7 @@ const Variants = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-background to-muted/30">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[#ffffff] via-[#ffefe8] to-[#c8d5db]/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
@@ -45,14 +45,9 @@ const Variants = () => {
           {variants.map((variant, index) => (
             <Card
               key={index}
-              className={`p-6 sm:p-8 relative overflow-hidden transition-all duration-300 hover:scale-105 ${variant.highlight ? 'border-primary border-2 shadow-xl' : ''
-                }`}
+              className="p-6 sm:p-8 relative overflow-hidden transition-all duration-300 hover:scale-105"
             >
-              {variant.highlight && (
-                <Badge className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-primary text-primary-foreground text-xs sm:text-sm">
-                  Popular Choice
-                </Badge>
-              )}
+              
 
               <div className="space-y-4 sm:space-y-6">
                 <div>
@@ -64,7 +59,7 @@ const Variants = () => {
                   {variant.nutrients.map((nutrient, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-primary/5 hover:bg-primary/10 transition-colors border-b border-primary/10 last:border-b-0"
+                      className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-[#ffefe8] hover:bg-[#f58351]/10 transition-colors border-b border-[#c8d5db] last:border-b-0"
                     >
                       <span className="text-xl sm:text-2xl">{nutrient.icon}</span>
                       <span className="text-sm sm:text-base font-medium">{nutrient.name}</span>
@@ -89,10 +84,10 @@ const Variants = () => {
         </div>
 
         <div className="mt-8 sm:mt-12 text-center">
-          <Card className="inline-block p-4 sm:p-6 bg-accent/10">
+          <Card className="inline-block p-4 sm:p-6 bg-white border border-[#c8d5db]">
             <p className="text-base sm:text-lg font-semibold mb-2">Did you know?</p>
-            <p className="text-sm sm:text-base text-muted-foreground">
-              <span className="font-bold text-accent">5 Regular Eggs</span> = <span className="font-bold text-primary">4 Hello Eggs</span> 🎯
+            <p className="text-sm sm:text-base text-[#000000]">
+              <span className="font-bold text-[#f58351]">5 Regular Eggs</span> = <span className="font-bold text-[#f58351]">4 Hello Eggs</span> 🎯
             </p>
           </Card>
         </div>
