@@ -348,17 +348,15 @@ const Game = () => {
 
   return (
     // Removed min-h-screen, background, and padding. Added h-full to fill grid cell.
-    <div id="game" className="w-full h-full flex flex-col items-center justify-center">
-      <div className="max-w-4xl w-full space-y-4 sm:space-y-6">
-        <div className="text-center space-y-2">
-        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">Power of Hello Eggs</h1>
-
-
-          <p className="text-lg sm:text-xl text-muted-foreground">Drop nutrition. Watch transformation. 🥚</p>
+    <div id="game" className="w-full h-full flex flex-col min-h-0">
+      <div className="w-full h-full flex flex-col space-y-1 sm:space-y-2 min-h-0">
+        <div className="text-center space-y-0.5 sm:space-y-1 flex-shrink-0">
+        <h1 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold">Power of Hello Eggs</h1>
+          <p className="text-xs sm:text-sm md:text-base text-muted-foreground">Drop nutrition. Watch transformation. 🥚</p>
         </div>
 
         {gameStarted && (
-          <Card className="p-4 sm:p-6 space-y-3 sm:space-y-4 bg-gradient-to-r from-orange-50 to-yellow-50 border-2 border-orange-200">
+          <Card className="p-2 sm:p-3 space-y-1.5 sm:space-y-2 bg-gradient-to-r from-orange-50 to-yellow-50 border-2 border-orange-200 flex-shrink-0">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
               <div className="flex items-center gap-2">
                 <span className="text-xl sm:text-2xl">🥚</span>
@@ -391,7 +389,15 @@ const Game = () => {
           </Card>
         )}
 
-        <Card ref={gameAreaRef} onClick={dropEgg} className={`relative w-full h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden cursor-crosshair ${showInitialAim || (gameStarted && !gameWon) ? "bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50" : "bg-gradient-to-br from-gray-100 to-gray-200"}`}>
+        <Card
+          ref={gameAreaRef}
+          onClick={dropEgg}
+          className={`relative w-full h-[340px] sm:h-[420px] md:h-[500px] lg:h-[540px] overflow-hidden cursor-crosshair ${
+            showInitialAim || (gameStarted && !gameWon)
+              ? "bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"
+              : "bg-gradient-to-br from-gray-100 to-gray-200"
+          }`}
+        >
           {/* Animated Background Elements */}
           <div className="absolute inset-0 overflow-hidden">
             {/* Floating orbs with custom animations */}
@@ -474,12 +480,12 @@ const Game = () => {
 
           {(!gameStarted || gameWon) && (
             <div className={`absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center ${gameWon ? 'overflow-auto' : 'overflow-y-auto'}`}>
-              <div className={`text-center w-full ${gameWon ? 'max-w-3xl mx-auto p-4 sm:p-6 md:p-10 space-y-4 sm:space-y-5 flex flex-col justify-center' : 'space-y-3 sm:space-y-4 p-2 sm:p-4 md:p-8 max-h-full'}`}>
+              <div className={`text-center w-full ${gameWon ? 'max-w-3xl mx-auto p-4 sm:p-6 md:p-10 space-y-4 sm:space-y-5 flex flex-col justify-center' : 'space-y-2 p-2 sm:p-3 max-h-full'}`}>
                 {!gameStarted && (
                   <>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white px-2">Ready to Transform?</h2>
-                    <p className="text-xs sm:text-sm md:text-base text-white/80 px-4">Click anywhere to drop Hello Eggs and watch the magic happen!</p>
-                    <Button onClick={startGame} size="lg" className="text-sm sm:text-base md:text-lg">🎮 Start Game</Button>
+                    <h2 className="text-base sm:text-lg md:text-xl font-bold text-white px-2">Ready to Transform?</h2>
+                    <p className="text-xs text-white/80 px-4 mb-1">Click anywhere to drop Hello Eggs and watch the magic happen!</p>
+                    <Button onClick={startGame} size="default" className="text-xs sm:text-sm h-9">🎮 Start Game</Button>
                   </>
                 )}
                 {gameWon && (
@@ -551,15 +557,16 @@ const Game = () => {
           )}
         </Card>
 
-        <Card className="p-4 sm:p-6 space-y-3 text-center">
-          <h3 className="text-xl sm:text-2xl font-bold">Say Hello to Nature's Multivitamin</h3>
-          <p className="text-sm sm:text-base text-muted-foreground">Each Hello Egg is enriched with Vitamin A, Vitamin D3, DHA, Selenium, and Omega 3 to support your health at every stage of life.</p>
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 pt-2">
-            <span className="bg-primary/10 text-primary px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">100% Natural</span>
-            <span className="bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">Nutritionally Enhanced</span>
-            <span className="bg-secondary/10 text-secondary px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">Farm to Table in 24hrs</span>
-          </div>
-        </Card>
+        {/* {!gameStarted && (
+          <Card className="p-1.5 sm:p-2 space-y-0.5 text-center flex-shrink-0 hidden xl:block">
+            <h3 className="text-xs font-bold">Say Hello to Nature's Multivitamin</h3>
+            <div className="flex flex-wrap justify-center gap-1 pt-0.5">
+              <span className="bg-primary/10 text-primary px-1.5 py-0.5 rounded-full text-[10px] font-medium">100% Natural</span>
+              <span className="bg-accent/10 text-accent px-1.5 py-0.5 rounded-full text-[10px] font-medium">Nutritionally Enhanced</span>
+              <span className="bg-secondary/10 text-secondary px-1.5 py-0.5 rounded-full text-[10px] font-medium">Farm to Table in 24hrs</span>
+            </div>
+          </Card>
+        )} */}
       </div>
     </div>
   );
