@@ -5,7 +5,7 @@ import { MapPin, Phone, Instagram, Send } from "lucide-react";
 
 
 // FIXED: Map Component with Correct Google Maps Embed URL
-const MapPlaceholder = ({ mapQuery }: { mapQuery: string }) => {
+const MapPlaceholder = ({ mapQuery, className = "sticky top-24 h-96 md:h-[600px] rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden" }: { mapQuery: string; className?: string }) => {
   // CORRECTED: Use the official Google Maps URL format for embedding.
   const mapEmbedBase = "https://maps.google.com/maps?q=";
   const mapEmbedParams = "&output=embed&z=13&iwloc=A"; // Required for embed
@@ -23,7 +23,7 @@ const MapPlaceholder = ({ mapQuery }: { mapQuery: string }) => {
   };
 
   return (
-    <div className="sticky top-24 h-96 md:h-[600px] rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden">
+    <div className={className}>
       <iframe
         width="100%"
         height="100%"
@@ -162,6 +162,14 @@ const Availability = () => {
           <div className="hidden md:block">
             <MapPlaceholder mapQuery={currentMapQuery} />
           </div>
+        </div>
+
+        {/* Mobile Map */}
+        <div className="md:hidden mb-8">
+          <MapPlaceholder
+            mapQuery={currentMapQuery}
+            className="h-72 rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden"
+          />
         </div>
 
         {/* Online Ordering & Social CTA */}
