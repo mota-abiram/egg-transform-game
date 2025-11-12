@@ -8,51 +8,51 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 35 25% 97%;
-    --foreground: 20 20% 15%;
+    --background: 16 100% 95%;
+    --foreground: 0 0% 0%;
 
     --card: 0 0% 100%;
-    --card-foreground: 20 20% 15%;
+    --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 20 20% 15%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 16 100% 60%;
+    --primary: 16 87% 64%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 25 95% 65%;
-    --secondary-foreground: 20 20% 15%;
+    --secondary: 200 20% 82%;
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: 35 20% 92%;
-    --muted-foreground: 20 15% 45%;
+    --muted: 200 20% 82%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 33 100% 55%;
+    --accent: 16 87% 64%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 35 15% 88%;
-    --input: 35 15% 88%;
-    --ring: 16 100% 60%;
+    --border: 200 20% 82%;
+    --input: 200 20% 82%;
+    --ring: 16 87% 64%;
 
     --radius: 1rem;
 
     /* Game-specific colors */
-    --game-bg: 35 35% 95%;
-    --egg-orange: 16 100% 60%;
+    --game-bg: 16 100% 95%;
+    --egg-orange: 16 87% 64%;
     --egg-brown: 28 50% 50%;
     --health-bar: 140 65% 50%;
     --character-weak: 0 0% 75%;
-    --character-healthy: 25 95% 65%;
+    --character-healthy: 16 87% 64%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(16 100% 60%), hsl(33 100% 55%));
-    --gradient-game: linear-gradient(180deg, hsl(35 45% 96%), hsl(35 35% 92%));
-    --gradient-glow: radial-gradient(circle, hsl(16 100% 60% / 0.3), transparent);
+    --gradient-primary: linear-gradient(135deg, hsl(16 87% 64%), hsl(16 87% 64%));
+    --gradient-game: linear-gradient(180deg, hsl(16 100% 95%), hsl(16 100% 95%));
+    --gradient-glow: radial-gradient(circle, hsl(16 87% 64% / 0.3), transparent);
 
     /* Shadows */
-    --shadow-game: 0 4px 20px hsl(16 100% 60% / 0.2);
+    --shadow-game: 0 4px 20px hsl(16 87% 64% / 0.2);
     --shadow-egg: 0 2px 8px hsl(28 50% 30% / 0.3);
     --shadow-character: 0 8px 32px hsl(0 0% 0% / 0.1);
 
@@ -125,12 +125,7 @@ All colors MUST be HSL.
 
   body {
     @apply text-foreground;
-    background: linear-gradient(135deg,
-        hsl(35 25% 97%) 0%,
-        hsl(40 30% 95%) 25%,
-        hsl(45 25% 96%) 50%,
-        hsl(35 20% 98%) 75%,
-        hsl(30 25% 97%) 100%);
+    background: hsl(16 100% 95%);
     background-attachment: fixed;
     min-height: 100vh;
     position: relative;
@@ -144,9 +139,8 @@ All colors MUST be HSL.
     width: 100%;
     height: 100%;
     background-image:
-      radial-gradient(circle at 20% 80%, hsl(16 100% 60% / 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, hsl(33 100% 55% / 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, hsl(25 95% 65% / 0.05) 0%, transparent 50%);
+      radial-gradient(circle at 20% 80%, hsl(16 87% 64% / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(16 87% 64% / 0.05) 0%, transparent 50%);
     pointer-events: none;
     z-index: -1;
   }
@@ -162,8 +156,8 @@ All colors MUST be HSL.
       repeating-linear-gradient(45deg,
         transparent,
         transparent 2px,
-        hsl(35 15% 88% / 0.1) 2px,
-        hsl(35 15% 88% / 0.1) 4px);
+        hsl(200 20% 82% / 0.1) 2px,
+        hsl(200 20% 82% / 0.1) 4px);
     pointer-events: none;
     z-index: -1;
   }
@@ -176,8 +170,8 @@ All colors MUST be HSL.
 
   .bg-pattern {
     background-image:
-      radial-gradient(circle at 25% 25%, hsl(16 100% 60% / 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, hsl(33 100% 55% / 0.1) 0%, transparent 50%);
+      radial-gradient(circle at 25% 25%, hsl(16 87% 64% / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsl(16 87% 64% / 0.05) 0%, transparent 50%);
   }
 
   .glass-effect {
@@ -242,11 +236,11 @@ All colors MUST be HSL.
 
     0%,
     100% {
-      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+      box-shadow: 0 0 20px hsl(16 87% 64% / 0.3);
     }
 
     50% {
-      box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+      box-shadow: 0 0 40px hsl(16 87% 64% / 0.6);
     }
   }
 
