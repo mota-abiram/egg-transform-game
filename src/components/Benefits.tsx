@@ -48,7 +48,7 @@ const Benefits = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white/60 to-orange-50/40 backdrop-blur-sm">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[#ffffff] via-[#ffefe8]/60 to-[#ffffff]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
@@ -65,12 +65,12 @@ const Benefits = () => {
             return (
               <Card
                 key={index}
-                className="p-4 sm:p-6 hover:shadow-2xl hover:translate-y-[-4px] transition-all duration-300 bg-card border-2 hover:border-primary/20"
+                className="p-4 sm:p-6 hover:shadow-2xl hover:translate-y-[-4px] transition-all duration-300 bg-white border-2 border-[#c8d5db] hover:border-[#f58351]"
               >
                 <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <IconComponent className={`w-5 h-5 sm:w-6 sm:h-6 ${benefit.color}`} />
-                  </div>
+                <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#ffefe8] flex items-center justify-center">
+                  <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-[#f58351]" />
+                </div>
                   <div>
                     <p className="text-base sm:text-lg font-semibold">
                       {benefit.title}
