@@ -1,6 +1,12 @@
 const EggDisplay = () => {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#ffffff] via-[#c8d5db]/50 to-[#ffefe8] backdrop-blur-sm">
+        <section 
+            className="relative min-h-screen flex items-center justify-center overflow-hidden"
+            // Applied the new linear-gradient background here and removed the old Tailwind classes
+            style={{
+                background: 'linear-gradient(293deg, rgba(242, 137, 17, 1) 0%, rgba(200, 213, 219, 1) 60%, rgba(255, 255, 255, 1) 100%)'
+            }}
+        >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
                 {/* Page Header */}
                 <div className="mb-8 sm:mb-10 text-center">

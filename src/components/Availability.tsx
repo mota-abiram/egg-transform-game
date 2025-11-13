@@ -72,7 +72,12 @@ const Availability = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[#ffffff] via-[#ffefe8] to-[#c8d5db]/40">
+    <section 
+      className="py-12 sm:py-16 lg:py-20"
+      style={{
+        background: "background: linear-gradient(178deg,rgba(255, 167, 74, 1) 0%, rgba(200, 213, 219, 1) 84%);"
+      }}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-12">
           <div className="inline-block mb-3 sm:mb-4">

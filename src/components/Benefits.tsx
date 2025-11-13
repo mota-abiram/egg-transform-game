@@ -48,14 +48,37 @@ const Benefits = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[#ffffff] via-[#ffefe8]/60 to-[#ffffff]">
+    <section
+      className="py-12 sm:py-16 lg:py-20"
+      // Updated to "Peach to Blue-Gray (Warm to Cool)" from style guide
+      style={{
+        background: "linear-gradient(180deg, #ffefe8 0%, #c8d5db 100%)",
+      }}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-3 sm:mb-4 font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>
-          What Makes  <span className="text-gradient">Hello Eggs </span>Different?
+          <h2
+            className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-3 sm:mb-4 font-headline text-[#000000]"
+            style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}
+          >
+            What Makes
+            {/* Applied gradient style directly from style guide */}
+            <span
+              style={{
+                backgroundImage: "linear-gradient(to right, #f58351, #f58351)",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
+              {" "}
+              Hello Eggs{" "}
+            </span>
+            Different?
           </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
-            From your first steps to your golden years, Hello Eggs provide the essential nutrients your body needs naturally.
+          {/* Replaced text-muted-foreground with a color from the palette */}
+          <p className="text-lg sm:text-xl text-black/80 max-w-2xl mx-auto px-4">
+            From your first steps to your golden years, Hello Eggs provide the
+            essential nutrients your body needs naturally.
           </p>
         </div>
 
@@ -65,17 +88,24 @@ const Benefits = () => {
             return (
               <Card
                 key={index}
-                className="p-4 sm:p-6 hover:shadow-2xl hover:translate-y-[-4px] transition-all duration-300 bg-[#c8d5db] hover:bg-white border-2 border-[#c8d5db] hover:border-[#f58351]"
+                className="p-4 sm:p-6 hover:shadow-2xl hover:translate-y-[-4px] transition-all duration-300 border-2 border-[#c8d5db] hover:border-[#f58351] bg-[linear-gradient(158deg,_#f58351_0%,_#c8d5db_75%)] hover:bg-gradient-none hover:bg-white"
+                // The inline style is now commented out, and the gradient is handled by the className above
+                // style={{
+                //   background:
+                //     "linear-gradient(158deg, rgba(242, 137, 17, 1) 0%, rgba(200, 213, 219, 1) 75%)",
+                // }}
               >
                 <div className="flex items-start gap-3 sm:gap-4">
-                <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#f58351] flex items-center justify-center mt-1">
-                  <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                </div>
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#f58351] flex items-center justify-center mt-1">
+                    <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                  </div>
                   <div>
-                    <p className="text-base sm:text-lg font-semibold font-logo">
+                    {/* Set title color to black */}
+                    <p className="text-base sm:text-lg font-semibold font-logo text-[#000000]">
                       {benefit.title}
                     </p>
-                    <p className="text-sm text-muted-foreground">
+                    {/* Replaced text-muted-foreground */}
+                    <p className="text-sm text-black/80">
                       {benefit.description}
                     </p>
                   </div>

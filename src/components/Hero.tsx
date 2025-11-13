@@ -19,11 +19,23 @@ const Hero = () => {
               
               {/* Heading moved before badges */}
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-foreground text-center lg:text-left font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>
-              India's 1st Enriched <br />
-                <span className="text-gradient bg-gradient-to-r from-[#f58351] to-[#f58351] bg-clip-text text-transparent">
-                Brown Eggs 🥚
-                </span>
-              </h2>
+  India's 1st Enriched <br />
+  <span className="text-gradient bg-gradient-to-r from-[#f58351] to-[#f58351] bg-clip-text text-transparent">
+    Brown Eggs 
+    {/* These classes match the text size classes on the h2:
+      - Base: w-8 h-8 (2rem) for text-3xl (1.875rem)
+      - sm: w-10 h-10 (2.5rem) for sm:text-4xl (2.25rem)
+      - md: w-12 h-12 (3rem) for md:text-5xl (3rem)
+      - lg: w-16 h-16 (4rem) for lg:text-6xl (3.75rem)
+      - Added 'align-middle' to better center it with the text.
+    */}
+    <img 
+      src="/egg.png" 
+      alt="Egg" 
+      className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 inline-block ml-2 align-middle" 
+    />
+  </span>
+</h2>
 
               {/* Trust Badges - MOVED HERE */}
               <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 justify-center sm:justify-start">

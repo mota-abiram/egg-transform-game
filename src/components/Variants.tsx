@@ -30,7 +30,10 @@ const Variants = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[#ffffff] via-[#ffefe8] to-[#c8d5db]/30">
+    <section className="py-12 sm:py-16 lg:py-20" 
+    style={{
+      background: "linear-gradient(156deg,rgba(255, 239, 232, 1) 24%, rgba(245, 131, 81, 1) 75%)",
+    }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-3 sm:mb-4 font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>
