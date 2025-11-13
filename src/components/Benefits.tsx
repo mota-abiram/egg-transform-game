@@ -87,17 +87,19 @@ const Benefits = () => {
             const IconComponent = benefit.icon;
             return (
               <Card
-                key={index}
-                // FIX: All background logic is now in className.
-                // The inline 'style' attribute has been removed.
-                className="p-4 sm:p-6 
-                           transition-all duration-500 ease-out 
-                           border-2 border-[#c8d5db]
-                           hover:border-[#f58351]
-                           hover:shadow-2xl hover:-translate-y-1
-                           bg-[linear-gradient(158deg,_#f58351_0%,_#c8d5db_75%)]
-                           hover:bg-gradient-to-t hover:from-white hover:to-white"
-              >
+              key={index}
+              className="p-4 sm:p-6 
+                         transition-all duration-500 ease-out 
+                         border-2 border-[#c8d5db]
+                         hover:border-[#f58351]
+                         hover:shadow-2xl hover:-translate-y-1
+                         
+                         /* This is your new base background: */
+                         bg-[radial-gradient(at_center,_#F58351,_#FFEFE8)]
+                         
+                         /* This is your hover background: */
+                         hover:bg-gradient-to-t hover:from-white hover:to-white"
+          >
                 {" "}
                 <div className="flex items-start gap-3 sm:gap-4">
                   <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#f58351] flex items-center justify-center mt-1">
