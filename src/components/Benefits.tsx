@@ -88,20 +88,17 @@ const Benefits = () => {
             return (
               <Card
                 key={index}
+                // FIX: All background logic is now in className.
+                // The inline 'style' attribute has been removed.
                 className="p-4 sm:p-6 
-            transition-all duration-500 ease-out 
-            border-2 border-[#c8d5db]
-            hover:border-[#f58351]
-            hover:shadow-2xl hover:-translate-y-1
-            bg-[linear-gradient(158deg,#f58351_0%,#c8d5db_75%)]
-            hover:bg-white"
-
-     // The inline style is now commented out, and the gradient is handled by the className above
-                // style={{
-                //   background:
-                //     "linear-gradient(158deg, rgba(242, 137, 17, 1) 0%, rgba(200, 213, 219, 1) 75%)",
-                // }}
+                           transition-all duration-500 ease-out 
+                           border-2 border-[#c8d5db]
+                           hover:border-[#f58351]
+                           hover:shadow-2xl hover:-translate-y-1
+                           bg-[linear-gradient(158deg,_#f58351_0%,_#c8d5db_75%)]
+                           hover:bg-gradient-to-t hover:from-white hover:to-white"
               >
+                {" "}
                 <div className="flex items-start gap-3 sm:gap-4">
                   <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#f58351] flex items-center justify-center mt-1">
                     <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -111,8 +108,8 @@ const Benefits = () => {
                     <p className="text-base sm:text-lg font-semibold font-logo text-[#000000]">
                       {benefit.title}
                     </p>
-                    {/* Replaced text-muted-foreground */}
-                    <p className="text-sm text-black/80">
+                    {/* Replaced text-muted-foreground AND added text-justify */}
+                    <p className="text-base text-black/80  text-left  font-stretch-50%">
                       {benefit.description}
                     </p>
                   </div>

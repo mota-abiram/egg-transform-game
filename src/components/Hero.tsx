@@ -6,10 +6,13 @@ import Game from "@/components/Game";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#ffefe8] via-[#ffffff] to-[#ffefe8] backdrop-blur-sm">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    style={{
+      backgroundImage:
+        "linear-gradient(to left top, #f58351, #fa986c, #fdac87, #ffc0a3, #ffd4c0, #ffd9d0, #fddfde, #f8e6e9, #ede1ea, #e0dde8, #d3d9e3, #c8d5db)",
+    }}>
       <div className="container mx-auto h-full px-4 sm:px-6 lg:px-8 py-2 sm:py-4 lg:py-6">
         {/* Page Header */}
-        
         {/* Changed items-stretch to items-start to align headings */}
         <div className="grid lg:grid-cols-2 gap-4 lg:gap-6 h-full items-start">
           {/* Left Content */}

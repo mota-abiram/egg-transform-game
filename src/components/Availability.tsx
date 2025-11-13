@@ -75,7 +75,7 @@ const Availability = () => {
     <section 
       className="py-12 sm:py-16 lg:py-20"
       style={{
-        background: "background: linear-gradient(178deg,rgba(255, 167, 74, 1) 0%, rgba(200, 213, 219, 1) 84%);"
+        backgroundImage: "linear-gradient(to right bottom, #ffefe8, #ffdbca, #ffc7ad, #ffb391, #fc9f75, #ff9c82, #ff9a90, #ff999d, #ffb2c9, #f8cee8, #f5e8fa, #ffffff)",
       }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -215,7 +215,7 @@ const Availability = () => {
                   aria-label="Order from Big Basket"
                 >
                   <img 
-                    src= "/blinkit.jpeg"
+                    src= "/blinkit."
                     alt="Big Basket Logo" 
                     // ADDED rounded-full to ensure image is circular
                     className="w-full h-full object-contain transition-transform duration-200 group-hover:scale-110 rounded-full" 
