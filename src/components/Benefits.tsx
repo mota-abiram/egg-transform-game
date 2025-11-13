@@ -49,14 +49,14 @@ const Benefits = () => {
 
   return (
     <section
-      className="py-12 sm:py-16 lg:py-24"
+      className="py-10 sm:py-16 lg:py-20"
       // Updated to "Peach to Blue-Gray (Warm to Cool)" from style guide
       style={{
         background: "linear-gradient(180deg, #ffefe8 0%, #c8d5db 100%)",
       }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <h2
             className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-3 sm:mb-4 font-headline text-[#000000]"
             style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}
@@ -76,13 +76,13 @@ const Benefits = () => {
             Different?
           </h2>
           {/* Improved contrast for accessibility */}
-          <p className="text-lg sm:text-xl text-gray-900 max-w-2xl mx-auto px-4">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-900 max-w-2xl mx-auto px-4 leading-relaxed">
             From your first steps to your golden years, Hello Eggs provide the
             essential nutrients your body needs naturally.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-6xl mx-auto">
           {benefits.map((benefit, index) => {
             const IconComponent = benefit.icon;
             return (
@@ -97,16 +97,16 @@ const Benefits = () => {
                          hover:bg-gradient-to-t hover:from-white hover:to-white"
           >
                 <div className="flex items-start gap-3 sm:gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#f58351] flex items-center justify-center mt-1">
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#f58351] flex items-center justify-center">
                     <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <div className="flex-1 min-w-0">
                     {/* Set title color to black */}
-                    <h3 className="text-base sm:text-lg font-semibold font-logo text-[#000000] mb-1 sm:mb-2">
+                    <h3 className="text-base sm:text-lg font-semibold font-logo text-[#000000] mb-1.5 sm:mb-2 leading-tight">
                       {benefit.title}
                     </h3>
-                    {/* Improved contrast for accessibility */}
-                    <p className="text-sm sm:text-base text-gray-800 text-left leading-relaxed">
+                    {/* Improved contrast and mobile readability */}
+                    <p className="text-[16px] sm:text-base text-gray-900 text-left leading-relaxed">
                       {benefit.description}
                     </p>
                   </div>

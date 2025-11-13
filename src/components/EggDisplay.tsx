@@ -7,7 +7,7 @@ const EggDisplay = () => {
                 background: 'linear-gradient(180deg,rgba(255, 239, 232, 1) 34%, rgba(245, 131, 81, 1) 87%)'
             }}
         >
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24 max-w-7xl">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20 max-w-7xl">
                 {/* Page Header */}
                 <div className="mb-8 sm:mb-10 lg:mb-12 text-center px-4">
                     <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#f58351] drop-shadow-sm font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.05em" }}>
@@ -20,8 +20,8 @@ const EggDisplay = () => {
                     <div className="relative w-full max-w-2xl">
                         <div className="relative">
                             <div className="w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] flex items-center justify-center bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl border-2 border-[#c8d5db] shadow-2xl p-4 sm:p-6">
-                                {/* Real Egg Image Placeholder */}
-                                <div className="w-40 h-48 sm:w-56 sm:h-64 md:w-64 md:h-72 lg:w-80 lg:h-96 bg-gradient-to-br from-amber-100 to-orange-200 rounded-full shadow-inner border-2 sm:border-4 border-white animate-float relative overflow-hidden">
+                                {/* Real Egg Image Placeholder - Responsive with proper aspect ratio */}
+                                <div className="w-40 h-48 sm:w-56 sm:h-64 md:w-64 md:h-72 lg:w-80 lg:h-96 bg-gradient-to-br from-amber-100 to-orange-200 rounded-full shadow-inner border-2 sm:border-4 border-white animate-float relative overflow-hidden" style={{ aspectRatio: '1/1.2' }}>
                                     <div className="absolute inset-0 bg-gradient-to-br from-amber-200/50 to-orange-300/50 rounded-full"></div>
                                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl opacity-60">🥚</div>
                                 </div>

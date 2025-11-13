@@ -30,16 +30,16 @@ const Variants = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16 lg:py-24" 
+    <section className="py-10 sm:py-16 lg:py-20" 
     style={{
       background: "linear-gradient(156deg,rgba(255, 239, 232, 1) 24%, rgba(245, 131, 81, 1) 75%)",
     }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-3 sm:mb-4 font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>
             Our <span className="text-gradient">Nutrient Rich</span> Variants
           </h2>
-          <p className="text-lg sm:text-xl text-gray-900 max-w-2xl mx-auto px-4">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-900 max-w-2xl mx-auto px-4 leading-relaxed">
             Choose the perfect blend of nutrients tailored to your lifestyle
           </p>
         </div>
@@ -55,7 +55,7 @@ const Variants = () => {
               <div className="space-y-4 sm:space-y-6">
                 <div>
                   <h3 className="text-2xl sm:text-3xl font-bold mb-2 font-headline">{variant.name}</h3>
-                  <p className="text-sm sm:text-base text-gray-800">{variant.description}</p>
+                  <p className="text-[16px] sm:text-base text-gray-900 leading-relaxed">{variant.description}</p>
                 </div>
 
                 <div className="space-y-2 sm:space-y-3">
@@ -64,8 +64,8 @@ const Variants = () => {
                       key={idx}
                       className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-[#ffefe8] hover:bg-[#f58351]/10 transition-colors border-b border-[#c8d5db] last:border-b-0"
                     >
-                      <span className="text-xl sm:text-2xl">{nutrient.icon}</span>
-                      <span className="text-sm sm:text-base font-medium">{nutrient.name}</span>
+                      <span className="text-xl sm:text-2xl flex-shrink-0">{nutrient.icon}</span>
+                      <span className="text-[16px] sm:text-base font-medium text-gray-900 leading-relaxed">{nutrient.name}</span>
                     </div>
                   ))}
                 </div>

@@ -73,19 +73,19 @@ const Availability = () => {
 
   return (
     <section 
-      className="py-12 sm:py-16 lg:py-24"
+      className="py-10 sm:py-16 lg:py-20"
       style={{
         backgroundImage: "linear-gradient(to right bottom, #ffefe8, #ffdbca, #ffc7ad, #ffb391, #fc9f75, #ff9c82, #ff9a90, #ff999d, #ffb2c9, #f8cee8, #f5e8fa, #ffffff)",
       }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <div className="inline-block mb-3 sm:mb-4">
             <span className="bg-[#f58351] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-lg sm:text-xl font-semibold font-headline tracking-wide" style={{ wordSpacing: "0.25em", letterSpacing: "0.05em" }}>
               We Are Available!
             </span>
           </div>
-          <p className="text-lg sm:text-xl text-gray-900 px-4">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-900 px-4 leading-relaxed">
           Find Hello Eggs – India’s 1st Enriched Brown Eggs with D3 & DHA
           at your nearest store or get them delivered to your doorstep.
           </p>
@@ -100,7 +100,7 @@ const Availability = () => {
               <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 flex items-center gap-2 font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>
               <span>🏪</span> Retail Stores
             </h3>
-            <p className="text-sm sm:text-base text-gray-800 mb-4">
+            <p className="text-[16px] sm:text-base text-gray-900 mb-4 leading-relaxed">
                 Now stocked at leading supermarkets across Hyderabad. </p>
               
             {/* Star Bazaar */}
@@ -199,10 +199,9 @@ const Availability = () => {
                   aria-label="Order from Big Basket"
                 >
                   <img 
-                    src= "/bb.svg"
+                    src="/bb.svg"
                     alt="Big Basket Logo" 
-                    // ADDED rounded-full to ensure image is circular
-                    className="w-full h-full object-contain transition-transform duration-200 group-hover:scale-110 rounded-full" 
+                    className="w-full h-full object-contain transition-transform duration-200 group-hover:scale-110 rounded-full"
                   />
                 </a>
                 

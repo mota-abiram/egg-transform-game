@@ -11,9 +11,9 @@ const Hero = () => {
       backgroundImage:
         "linear-gradient(to left top, #f58351, #fa986c, #fdac87, #ffc0a3, #ffd4c0, #ffd9d0, #fddfde, #f8e6e9, #ede1ea, #e0dde8, #d3d9e3, #c8d5db)",
     }}>
-      <div className="container mx-auto h-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+      <div className="container mx-auto h-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 max-w-7xl">
         {/* Page Header */}
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 h-full items-center">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 h-full items-center">
           {/* Left Content */}
           <div className="h-full flex flex-col justify-center space-y-3 sm:space-y-4 lg:space-y-5 text-center lg:text-left">
             {/* Heading */}
@@ -41,10 +41,10 @@ const Hero = () => {
               </Badge>
             </div>
 
-            <p className="text-base sm:text-lg md:text-xl text-foreground/90 max-w-lg mx-auto lg:mx-0 text-center lg:text-left leading-relaxed">
+            <p className="text-[16px] sm:text-lg md:text-xl text-gray-900 max-w-lg mx-auto lg:mx-0 text-center lg:text-left leading-relaxed">
               Packed with Vitamin D3 & DHA for smarter nutrition, every day.
               <br />
-              <span className="font-semibold text-foreground">One egg. Endless benefits.</span>
+              <span className="font-semibold text-gray-900">One egg. Endless benefits.</span>
             </p>
 
             {/* UV Sanitization Feature */}
