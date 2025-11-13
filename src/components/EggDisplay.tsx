@@ -4,7 +4,7 @@ const EggDisplay = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
                 {/* Page Header */}
                 <div className="mb-8 sm:mb-10 text-center">
-                    <h3 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight uppercase text-[#f58351] drop-shadow-sm">
+                    <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight uppercase text-[#f58351] drop-shadow-sm font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.05em" }}>
                         EGGS ARE MORE THAN JUST PROTEIN
                     </h3>
                     <div className="mx-auto mt-3 h-1 w-24 sm:w-28 rounded-full bg-[#f58351]"></div>

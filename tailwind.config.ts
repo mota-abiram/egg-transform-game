@@ -13,6 +13,11 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        logo: ["Poppins", "sans-serif"],
+        headline: ["Bowlby One SC", "cursive"],
+        body: ["Bitter", "serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

@@ -20,7 +20,7 @@ const Navigation = () => {
     };
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-orange-200">
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-[#c8d5db]">
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
@@ -33,8 +33,8 @@ const Navigation = () => {
                             />
                         </div>
                         <div className="flex flex-col">
-                            <span className="text-xl font-bold text-orange-600">Hello</span>
-                            <span className="text-sm font-semibold text-muted-foreground -mt-1">EGGS</span>
+                            <span className="text-xl font-bold text-[#f58351] font-logo">Hello</span>
+                            <span className="text-sm font-semibold text-muted-foreground -mt-1 font-logo tracking-[0.2em]">EGGS</span>
                         </div>
                     </Link>
 
@@ -45,10 +45,9 @@ const Navigation = () => {
                                 key={item.path}
                                 asChild
                                 variant={isActive(item.path) ? "default" : "ghost"}
-                                className={isActive(item.path)
-                                    ? "bg-gradient-to-r from-orange-500 to-yellow-500 text-white"
-                                    : "hover:bg-orange-50 hover:text-orange-600"
-                                }
+                                className={`${isActive(item.path)
+                                    ? "bg-[#f58351] text-white"
+                                    : "hover:bg-[#ffefe8] hover:text-[#f58351]"} font-logo tracking-wide`}
                             >
                                 <Link to={item.path} className="flex items-center gap-2">
                                     {item.icon}
@@ -106,18 +105,18 @@ const Navigation = () => {
                                 {/* Mobile Contact Info */}
                                 <div className="mt-auto pt-8 border-t">
                                     <div className="space-y-3">
-                                        <p className="text-sm font-semibold text-muted-foreground">Quick Contact</p>
+                                        <p className="text-sm font-semibold text-muted-foreground font-logo tracking-wide">Quick Contact</p>
                                         <div className="space-y-2">
                                             <a
                                                 href="tel:+916309416417"
-                                                className="flex items-center gap-2 text-sm text-orange-600 hover:text-orange-700"
+                                                className="flex items-center gap-2 text-sm text-[#f58351] hover:text-[#f58351]/80 font-logo tracking-wide"
                                             >
                                                 <Phone className="w-4 h-4" />
                                                 +91 6309 416 417
                                             </a>
                                             <a
                                                 href="mailto:info@srinivasafarms.com"
-                                                className="flex items-center gap-2 text-sm text-orange-600 hover:text-orange-700"
+                                                className="flex items-center gap-2 text-sm text-[#f58351] hover:text-[#f58351]/80 font-logo tracking-wide"
                                             >
                                                 <Info className="w-4 h-4" />
                                                 info@srinivasafarms.com
