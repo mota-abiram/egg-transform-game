@@ -73,34 +73,34 @@ const Availability = () => {
 
   return (
     <section 
-      className="py-12 sm:py-16 lg:py-20"
+      className="py-12 sm:py-16 lg:py-24"
       style={{
         backgroundImage: "linear-gradient(to right bottom, #ffefe8, #ffdbca, #ffc7ad, #ffb391, #fc9f75, #ff9c82, #ff9a90, #ff999d, #ffb2c9, #f8cee8, #f5e8fa, #ffffff)",
       }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8 sm:mb-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="text-center mb-10 sm:mb-14 lg:mb-16">
           <div className="inline-block mb-3 sm:mb-4">
             <span className="bg-[#f58351] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-lg sm:text-xl font-semibold font-headline tracking-wide" style={{ wordSpacing: "0.25em", letterSpacing: "0.05em" }}>
               We Are Available!
             </span>
           </div>
-          <p className="text-lg sm:text-xl text-muted-foreground px-4">
+          <p className="text-lg sm:text-xl text-gray-900 px-4">
           Find Hello Eggs – India’s 1st Enriched Brown Eggs with D3 & DHA
           at your nearest store or get them delivered to your doorstep.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto mb-6 sm:mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 max-w-6xl mx-auto mb-8 sm:mb-10 lg:mb-12">
           
           {/* LEFT COLUMN: Retail and Quick Commerce Cards (Stacked) */}
-          <div className="h-96 md:h-[600px]">
+          <div className="h-auto min-h-[400px] md:h-[600px]">
           {/* Retail Stores */}
           <Card className="p-6 sm:p-8 h-full flex flex-col">
               <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 flex items-center gap-2 font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>
               <span>🏪</span> Retail Stores
             </h3>
-            <p className="text-sm sm:text-base text-muted-foreground mb-4">
+            <p className="text-sm sm:text-base text-gray-800 mb-4">
                 Now stocked at leading supermarkets across Hyderabad. </p>
               
             {/* Star Bazaar */}
@@ -170,10 +170,10 @@ const Availability = () => {
         </div>
 
         {/* Mobile Map */}
-        <div className="md:hidden mb-8">
+        <div className="md:hidden mb-8 sm:mb-10">
           <MapPlaceholder
             mapQuery={currentMapQuery}
-            className="h-72 rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden"
+            className="h-64 sm:h-72 rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden"
           />
         </div>
 
@@ -186,7 +186,7 @@ const Availability = () => {
 
             {/* Online Delivery Apps - MODIFIED TO USE ROUNDED LOGOS */}
             <div className="space-y-3 sm:space-y-4">
-              <h4 className="text-lg sm:text-xl font-semibold text-muted-foreground font-logo tracking-wide" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>Order Online:</h4>
+              <h4 className="text-lg sm:text-xl font-semibold text-gray-900 font-logo tracking-wide" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>Order Online:</h4>
               <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
                 
                 {/* Big Basket */}
@@ -212,12 +212,11 @@ const Availability = () => {
                   rel="noopener noreferrer"
                   // Key classes: w-12 h-12, rounded-full, p-1 for slight padding
                   className="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-md border hover:border-[#f58351] hover:shadow-lg transition-all duration-200 group p-1"
-                  aria-label="Order from Big Basket"
+                  aria-label="Order from Blinkit"
                 >
                   <img 
-                    src= "/blinkit."
-                    alt="Big Basket Logo" 
-                    // ADDED rounded-full to ensure image is circular
+                    src="/blinkit.jpeg"
+                    alt="Blinkit Logo" 
                     className="w-full h-full object-contain transition-transform duration-200 group-hover:scale-110 rounded-full" 
                   />
                 </a>
@@ -287,7 +286,7 @@ const Availability = () => {
                 </a>
 
               </div>
-              <p className="text-xs text-muted-foreground mt-4 italic">Click the logo to order online.</p>
+              <p className="text-xs text-gray-700 mt-4 italic">Click the logo to order online.</p>
             </div>
 
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6 lg:gap-8">
@@ -336,7 +335,7 @@ const Availability = () => {
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-[#f58351] mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-sm sm:text-base font-medium">Plot No.82, Phase 2, Kavuri Hills,</p>
-                  <p className="text-xs sm:text-sm text-muted-foreground">Madhapur, Hyderabad, Telangana 500081</p>
+                  <p className="text-xs sm:text-sm text-gray-700">Madhapur, Hyderabad, Telangana 500081</p>
                 </div>
               </div>
             </div>

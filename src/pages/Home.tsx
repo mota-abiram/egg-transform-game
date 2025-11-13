@@ -30,8 +30,37 @@ const Home = () => {
                 <Availability />
             </div>
 
+            {/* Repeated CTA Section - Near Bottom */}
+            <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-[#f58351] to-[#e67542]">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+                    <div className="text-center space-y-6 sm:space-y-8">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>
+                            Ready to Transform Your Nutrition?
+                        </h2>
+                        <p className="text-lg sm:text-xl text-white/95 max-w-2xl mx-auto leading-relaxed">
+                            Experience the power of India's 1st Enriched Brown Eggs with D3 & DHA. 
+                            Order now and start your journey to better health.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center pt-4">
+                            <a
+                                href="#game"
+                                className="px-8 sm:px-10 py-4 sm:py-5 bg-white text-[#f58351] rounded-lg font-bold text-base sm:text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 min-w-[220px] text-center"
+                            >
+                                Experience the Power
+                            </a>
+                            <a
+                                href="tel:+916309416417"
+                                className="px-8 sm:px-10 py-4 sm:py-5 bg-transparent border-2 border-white text-white rounded-lg font-semibold text-base sm:text-lg hover:bg-white hover:text-[#f58351] transition-all duration-300 min-w-[220px] text-center"
+                            >
+                                📞 Order Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* Footer */}
-            <footer className="bg-[#f58351] text-white py-8 relative overflow-hidden">
+            <footer className="bg-[#f58351] text-white py-12 sm:py-16 relative overflow-hidden">
                 {/* Decorative elements */}
                 <div className="absolute top-0 left-0 w-full h-full">
                     <div className="absolute top-4 left-10 text-4xl opacity-20 animate-float">🥚</div>
@@ -40,25 +69,86 @@ const Home = () => {
                     <div className="absolute bottom-4 right-1/3 text-3xl opacity-20 animate-float" style={{ animationDelay: '0.5s' }}>✨</div>
                 </div>
 
-                <div className="container mx-auto px-4 text-center relative z-10">
-                    <div className="flex items-center justify-center gap-3 mb-4">
-                        <div className="w-8 h-10">
-                            <img
-                                src="/egg.png"
-                                alt="Hello Eggs Logo"
-                                className="w-full h-full object-contain"
-                            />
-                        </div> 
-                        <p className="text-lg font-semibold">
-                            Hello Eggs - Nature's Multivitamin
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 mb-8 sm:mb-10">
+                        {/* Brand Section */}
+                        <div className="text-center md:text-left">
+                            <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
+                                <div className="w-8 h-10">
+                                    <img
+                                        src="/egg.png"
+                                        alt="Hello Eggs Logo"
+                                        className="w-full h-full object-contain"
+                                    />
+                                </div> 
+                                <p className="text-lg sm:text-xl font-bold font-logo">
+                                    Hello Eggs
+                                </p>
+                            </div>
+                            <p className="text-sm sm:text-base text-white/90 mb-2">
+                                Nature's Multivitamin
+                            </p>
+                            <p className="text-xs sm:text-sm text-white/80">
+                                Enriched with Vitamin A, D3, DHA, Selenium & Omega 3
+                            </p>
+                        </div>
+
+                        {/* Quick Links */}
+                        <div className="text-center md:text-left">
+                            <h3 className="text-base sm:text-lg font-semibold mb-4 font-headline">Quick Links</h3>
+                            <ul className="space-y-2 sm:space-y-3">
+                                <li>
+                                    <a href="/" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors">
+                                        Home
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/about" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors">
+                                        About Us
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/faqs" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors">
+                                        FAQs
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/contact" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors">
+                                        Contact
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* Contact Info */}
+                        <div className="text-center md:text-left">
+                            <h3 className="text-base sm:text-lg font-semibold mb-4 font-headline">Get in Touch</h3>
+                            <ul className="space-y-2 sm:space-y-3">
+                                <li>
+                                    <a href="tel:+916309416417" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors flex items-center justify-center md:justify-start gap-2">
+                                        <span>📞</span> +91 6309 416 417
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://instagram.com/helloeggs_india" target="_blank" rel="noopener noreferrer" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors flex items-center justify-center md:justify-start gap-2">
+                                        <span>📷</span> @helloeggs_india
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://srinivasafarms.com" target="_blank" rel="noopener noreferrer" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors flex items-center justify-center md:justify-start gap-2">
+                                        <span>🌐</span> Visit Website
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    {/* Copyright */}
+                    <div className="border-t border-white/20 pt-6 sm:pt-8 text-center">
+                        <p className="text-xs sm:text-sm text-white/80">
+                            © 2025 Srinivasa Farms. All rights reserved.
                         </p>
                     </div>
-                    <p className="text-sm opacity-90">
-                        © 2025 Srinivasa Farms. All rights reserved.
-                    </p>
-                    <p className="text-sm opacity-90 mt-2">
-                        Enriched with Vitamin A, D3, DHA, Selenium & Omega 3
-                    </p>
                 </div>
             </footer>
         </div>
