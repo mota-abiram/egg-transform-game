@@ -88,8 +88,15 @@ const Benefits = () => {
             return (
               <Card
                 key={index}
-                className="p-4 sm:p-6 hover:shadow-2xl hover:translate-y-[-4px] transition-all duration-300 border-2 border-[#c8d5db] hover:border-[#f58351] bg-[linear-gradient(158deg,_#f58351_0%,_#c8d5db_75%)] hover:bg-gradient-none hover:bg-white"
-                // The inline style is now commented out, and the gradient is handled by the className above
+                className="p-4 sm:p-6 
+            transition-all duration-500 ease-out 
+            border-2 border-[#c8d5db]
+            hover:border-[#f58351]
+            hover:shadow-2xl hover:-translate-y-1
+            bg-[linear-gradient(158deg,#f58351_0%,#c8d5db_75%)]
+            hover:bg-white"
+
+     // The inline style is now commented out, and the gradient is handled by the className above
                 // style={{
                 //   background:
                 //     "linear-gradient(158deg, rgba(242, 137, 17, 1) 0%, rgba(200, 213, 219, 1) 75%)",

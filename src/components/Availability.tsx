@@ -206,6 +206,22 @@ const Availability = () => {
                   />
                 </a>
                 
+                <a 
+                  href="https://blinkit.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  // Key classes: w-12 h-12, rounded-full, p-1 for slight padding
+                  className="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-md border hover:border-[#f58351] hover:shadow-lg transition-all duration-200 group p-1"
+                  aria-label="Order from Big Basket"
+                >
+                  <img 
+                    src= "/blinkit.jpeg"
+                    alt="Big Basket Logo" 
+                    // ADDED rounded-full to ensure image is circular
+                    className="w-full h-full object-contain transition-transform duration-200 group-hover:scale-110 rounded-full" 
+                  />
+                </a>
+                
                 {/* Amazon Fresh */}
                 <a 
                   href="https://www.amazon.in/fresh" 

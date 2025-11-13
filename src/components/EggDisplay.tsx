@@ -4,7 +4,7 @@ const EggDisplay = () => {
             className="relative min-h-screen flex items-center justify-center overflow-hidden"
             // Applied the new linear-gradient background here and removed the old Tailwind classes
             style={{
-                background: 'linear-gradient(293deg, rgba(242, 137, 17, 1) 0%, rgba(200, 213, 219, 1) 60%, rgba(255, 255, 255, 1) 100%)'
+                background: 'linear-gradient(180deg,rgba(255, 239, 232, 1) 34%, rgba(245, 131, 81, 1) 87%)'
             }}
         >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
