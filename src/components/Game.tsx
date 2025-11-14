@@ -553,7 +553,7 @@ const Game = () => {
 
           {(!gameStarted || gameWon) && (
             <div className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center overflow-hidden">
-              <div className={`text-center w-full h-full flex flex-col justify-center ${gameWon ? 'p-3 sm:p-4 space-y-2 sm:space-y-3' : 'space-y-2 p-2 sm:p-3'}`}>
+              <div className={`text-center w-full h-full flex flex-col justify-end ${gameWon ? 'p-3 sm:p-4 space-y-2 sm:space-y-3' : 'space-y-2 p-2 sm:p-3'}`}>
                 {!gameStarted && (
                   <>
                     <h2 className="text-base sm:text-lg md:text-xl font-bold text-white px-2">Ready to Transform?</h2>
