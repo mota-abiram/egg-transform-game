@@ -96,7 +96,7 @@ const Availability = () => {
           {/* LEFT COLUMN: Retail and Quick Commerce Cards (Stacked) */}
           <div className="h-auto min-h-[400px] md:h-[600px]">
           {/* Retail Stores */}
-          <Card className="p-6 sm:p-8 h-full flex flex-col">
+          <Card className="p-6 sm:p-8 h-full flex flex-col bg-gradient-to-br from-[#ffefe8] via-white to-[#ffefe8] border-2 border-[#c8d5db]">
               <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 flex items-center gap-2 font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>
               <span>🏪</span> Retail Stores
             </h3>

@@ -31,7 +31,14 @@ const Home = () => {
             </div>
 
             {/* Repeated CTA Section - Near Bottom */}
-            <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-[#f58351] to-[#e67542]">
+            <section className="py-16 sm:py-20 lg:py-24" 
+            style={{
+              /*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=f58351&c2=ffffff&gt=c&gd=dtl
+*/
+background: "conic-gradient(from 225deg, #F58351, #C8D5DB)",
+            }}>
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
                     <div className="text-center space-y-6 sm:space-y-8">
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>

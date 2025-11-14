@@ -8,9 +8,12 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden"
     style={{
-      backgroundImage:
-        "linear-gradient(to left top, #f58351, #fa986c, #fdac87, #ffc0a3, #ffd4c0, #ffd9d0, #fddfde, #f8e6e9, #ede1ea, #e0dde8, #d3d9e3, #c8d5db)",
-    }}>
+      /*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=f58351&c2=ffefe8&gt=c&gd=dtl
+*/
+background: "conic-gradient(from 315deg, #F58351, #FFEFE8)",
+      }}>
       <div className="container mx-auto h-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 max-w-7xl">
         {/* Page Header */}
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 h-full items-center">

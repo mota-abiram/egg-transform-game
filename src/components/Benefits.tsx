@@ -52,8 +52,12 @@ const Benefits = () => {
       className="py-10 sm:py-16 lg:py-20"
       // Updated to "Peach to Blue-Gray (Warm to Cool)" from style guide
       style={{
-        background: "linear-gradient(180deg, #ffefe8 0%, #c8d5db 100%)",
-      }}
+        /*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=f58351&c2=ffffff&gt=c&gd=dbl
+*/
+
+background: "conic-gradient(from 225deg, #F58351, #FFFFFF)"}}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
