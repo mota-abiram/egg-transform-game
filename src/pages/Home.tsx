@@ -31,41 +31,6 @@ const Home = () => {
             </div>
 
             {/* Repeated CTA Section - Near Bottom */}
-            <section className="py-16 sm:py-20 lg:py-24" 
-            style={{
-              /*
-* Created with https://www.css-gradient.com
-* Gradient link: https://www.css-gradient.com/?c1=f58351&c2=ffffff&gt=c&gd=dtl
-*/
-background: "conic-gradient(from 225deg, #F58351, #C8D5DB)",
-            }}>
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-                    <div className="text-center space-y-6 sm:space-y-8">
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>
-                            Ready to Transform Your Nutrition?
-                        </h2>
-                        <p className="text-lg sm:text-xl text-white/95 max-w-2xl mx-auto leading-relaxed">
-                            Experience the power of India's 1st Enriched Brown Eggs with D3 & DHA. 
-                            Order now and start your journey to better health.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center pt-4">
-                            <a
-                                href="#game"
-                                className="px-8 sm:px-10 py-4 sm:py-5 bg-white text-[#f58351] rounded-lg font-bold text-base sm:text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 min-w-[220px] text-center"
-                            >
-                                Experience the Power
-                            </a>
-                            <a
-                                href="tel:+916309416417"
-                                className="px-8 sm:px-10 py-4 sm:py-5 bg-transparent border-2 border-white text-white rounded-lg font-semibold text-base sm:text-lg hover:bg-white hover:text-[#f58351] transition-all duration-300 min-w-[220px] text-center"
-                            >
-                                📞 Order Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             {/* Footer */}
             <footer className="bg-[#f58351] text-white py-12 sm:py-16 relative overflow-hidden">
                 {/* Decorative elements */}

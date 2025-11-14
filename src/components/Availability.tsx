@@ -81,7 +81,7 @@ const Availability = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <div className="inline-block mb-3 sm:mb-4">
-            <span className="bg-[#f58351] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-lg sm:text-xl font-semibold font-headline tracking-wide" style={{ wordSpacing: "0.25em", letterSpacing: "0.05em" }}>
+            <span className="bg-[#f58351] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-lg sm:text-xl font-semibold font-headline tracking-wide" style={{ wordSpacing: "0.25em", letterSpacing: "0.10em" }}>
               We Are Available!
             </span>
           </div>
@@ -97,7 +97,7 @@ const Availability = () => {
           <div className="h-auto min-h-[400px] md:h-[600px]">
           {/* Retail Stores */}
           <Card className="p-6 sm:p-8 h-full flex flex-col bg-gradient-to-br from-[#ffefe8] via-white to-[#ffefe8] border-2 border-[#c8d5db]">
-              <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 flex items-center gap-2 font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>
+              <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 flex items-center gap-2 font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
               <span>🏪</span> Retail Stores
             </h3>
             <p className="text-[16px] sm:text-base text-gray-900 mb-4 leading-relaxed">
@@ -105,8 +105,8 @@ const Availability = () => {
               
             {/* Star Bazaar */}
             <div className="mb-4">
-              <p className="text-base sm:text-lg font-semibold mb-2">Star Bazaar</p>
-              <div className="flex flex-wrap gap-2 sm:gap-3">
+              <p className="text-base sm:text-lg font-semibold mb-2 " style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>Star Bazaar</p>
+              <div className="flex flex-wrap gap-2 sm:gap-3" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
                 {[
                   "Kondapur",
                   "Gachibowli",
@@ -130,8 +130,8 @@ const Availability = () => {
               
             {/* Qmart */}
             <div>
-              <p className="text-base sm:text-lg font-semibold mb-2">Qmart</p>
-              <div className="flex flex-wrap gap-2 sm:gap-3">
+              <p className="text-base sm:text-lg font-semibold mb-2" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>Qmart</p>
+              <div className="flex flex-wrap gap-2 sm:gap-3" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
                 {["Gachibowli", "Banjara Hills"].map((loc) => (
                   <span
                     key={`qmart-${loc}`}
@@ -180,13 +180,13 @@ const Availability = () => {
         {/* Online Ordering & Social CTA */}
         <Card className="p-6 sm:p-8 max-w-5xl mx-auto mb-8 sm:mb-12 bg-white border border-[#c8d5db]">
           <div className="text-center space-y-6 sm:space-y-8">
-            <h3 className="text-2xl sm:text-3xl font-semibold font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>
+            <h3 className="text-2xl sm:text-3xl font-semibold font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
               Our <span className="text-gradient">Social Media</span>
             </h3>
 
             {/* Online Delivery Apps - MODIFIED TO USE ROUNDED LOGOS */}
             <div className="space-y-3 sm:space-y-4">
-              <h4 className="text-lg sm:text-xl font-semibold text-gray-900 font-logo tracking-wide" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>Order Online:</h4>
+              <h4 className="text-lg sm:text-xl font-semibold text-gray-900 font-logo tracking-wide" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>Order Online:</h4>
               <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
                 
                 {/* Big Basket */}
@@ -290,38 +290,29 @@ const Availability = () => {
 
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6 lg:gap-8">
               {/* Instagram CTA */}
-              <div className="flex items-center gap-3 sm:gap-4 p-4 sm:p-6 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 w-full md:w-auto">
-                <Instagram className="w-6 h-6 sm:w-8 sm:h-8" />
-                <div className="text-left">
-                  <p className="text-xs sm:text-sm opacity-90 font-logo tracking-wide" style={{ wordSpacing: "0.2em", letterSpacing: "0.03em" }}>Follow us for updates</p>
-                  <a
-                    href="https://instagram.com/helloeggs_india"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-lg sm:text-xl font-bold hover:underline font-logo tracking-wide"
-                  >
-                    @helloeggs_india
-                  </a>
-                </div>
-              </div>
+              <a
+    href="https://instagram.com/helloeggs_india"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Follow Hello Eggs on Instagram"
+    className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+  >
+    {/* CHANGED: Decreased icon size from w-7/h-7 and sm:w-9/h-9 */}
+    <Instagram className="w-6 h-6 sm:w-8 sm:h-8" />
+  </a>
 
-              {/* Bulk Order Phone */}
-              <div className="flex items-center gap-3 sm:gap-4 p-4 sm:p-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 w-full md:w-auto">
-                <Phone className="w-6 h-6 sm:w-8 sm:h-8" />
-                <div className="text-left">
-                  <p className="text-xs sm:text-sm opacity-90 font-logo tracking-wide" style={{ wordSpacing: "0.2em", letterSpacing: "0.03em" }}>Bulk Orders</p>
-                  <a
-                    href="tel:+916309416417"
-                    className="text-lg sm:text-xl font-bold hover:underline font-logo tracking-wide"
-                  >
-                    +91 6309 416 417
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Card>
-
+  {/* Bulk Order Phone */}
+  <a
+    href="tel:+916309416417"
+    aria-label="Call Hello Eggs for bulk orders"
+    className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+  >
+    {/* CHANGED: Decreased icon size from w-7/h-7 and sm:w-9/h-9 */}
+    <Phone className="w-4 h-4 sm:w-6 sm:h-6" />
+  </a>
+</div>
+</div>
+</Card>
         {/* Egg Bank Info */}
         <Card className="p-6 sm:p-8 max-w-3xl mx-auto bg-white border border-[#c8d5db]">
           <div className="text-center space-y-4 sm:space-y-6">

@@ -50,14 +50,10 @@ const Benefits = () => {
   return (
     <section
       className="py-10 sm:py-16 lg:py-20"
-      // Updated to "Peach to Blue-Gray (Warm to Cool)" from style guide
       style={{
-        /*
-* Created with https://www.css-gradient.com
-* Gradient link: https://www.css-gradient.com/?c1=f58351&c2=ffffff&gt=c&gd=dbl
-*/
+  
 
-background: "conic-gradient(from 225deg, #F58351, #FFFFFF)"}}
+background: "conic-gradient(from 290deg, #F58351, #FFFFFF)"}}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
@@ -65,19 +61,9 @@ background: "conic-gradient(from 225deg, #F58351, #FFFFFF)"}}
             className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-3 sm:mb-4 font-headline text-[#000000]"
             style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}
           >
-            What Makes
+            What Makes Hello Eggs Different?
             {/* Applied gradient style directly from style guide */}
-            <span
-              style={{
-                backgroundImage: "linear-gradient(to right, #f58351, #f58351)",
-                backgroundClip: "text",
-                color: "transparent",
-              }}
-            >
-              {" "}
-              Hello Eggs{" "}
-            </span>
-            Different?
+              
           </h2>
           {/* Improved contrast for accessibility */}
           <p className="text-base sm:text-lg lg:text-xl text-gray-900 max-w-2xl mx-auto px-4 leading-relaxed">
@@ -97,7 +83,7 @@ background: "conic-gradient(from 225deg, #F58351, #FFFFFF)"}}
                          border-2 border-[#c8d5db]
                          hover:border-[#f58351]
                          hover:shadow-2xl hover:-translate-y-1
-                         bg-[radial-gradient(at_center,_#F58351,_#FFEFE8)]
+                       bg-[linear-gradient(to_left,_#F58351,_#FFEFE8)]
                          hover:bg-gradient-to-t hover:from-white hover:to-white"
           >
                 <div className="flex items-start gap-3 sm:gap-4">

@@ -56,10 +56,30 @@ const Game = () => {
     const uiUpdateInterval = 16; // ~60fps for UI updates
 
     const move = () => {
+      const rect = gameAreaRef.current?.getBoundingClientRect();
+      if (!rect) {
+        movementRef.current = requestAnimationFrame(move);
+        return;
+      }
+
+      // Calculate character width in percentage to ensure it stays within bounds
+      const characterWidthPx = 128; // Base character width
+      const characterWidthPercent = (characterWidthPx / rect.width) * 100;
+      const minPosition = characterWidthPercent / 2; // Half character width from left
+      const maxPosition = 100 - (characterWidthPercent / 2); // Half character width from right
+
       let next = characterPositionRef.current + characterDirectionRef.current * speed;
-      if (next >= 85) characterDirectionRef.current = -1;
-      else if (next <= 15) characterDirectionRef.current = 1;
-      characterPositionRef.current += characterDirectionRef.current * speed;
+      
+      // Clamp position to boundaries
+      if (next >= maxPosition) {
+        characterDirectionRef.current = -1;
+        characterPositionRef.current = Math.min(next, maxPosition);
+      } else if (next <= minPosition) {
+        characterDirectionRef.current = 1;
+        characterPositionRef.current = Math.max(next, minPosition);
+      } else {
+        characterPositionRef.current = next;
+      }
 
       // Throttle UI updates to prevent excessive re-renders
       const now = performance.now();
@@ -98,9 +118,25 @@ const Game = () => {
     if (!gameStarted) return;
 
     const animate = () => {
+      const rect = gameAreaRef.current?.getBoundingClientRect();
+      if (!rect) {
+        animationRef.current = requestAnimationFrame(animate);
+        return;
+      }
+
       setEggs((prev) => {
         const updated = prev
-          .map((egg) => ({ ...egg, y: egg.y + egg.velocity, velocity: egg.velocity + 0.3 }))
+          .map((egg) => {
+            // Update position
+            const newY = egg.y + egg.velocity;
+            const newVelocity = egg.velocity + 0.3;
+            
+            // Clamp egg x position to stay within bounds (accounting for egg width ~48px)
+            const eggWidth = 48;
+            const clampedX = Math.max(eggWidth / 2, Math.min(egg.x, rect.width - eggWidth / 2));
+            
+            return { ...egg, x: clampedX, y: newY, velocity: newVelocity };
+          })
           .filter((egg) => {
             // Check if egg hits the character
             if (checkEggCharacterCollision(egg)) {
@@ -108,21 +144,27 @@ const Game = () => {
               return false; // Remove egg after hit
             }
 
-            // Check if egg hits the ground (miss)
-            if (egg.y > 500) {
+            // Check if egg hits the ground (miss) - use actual game area height
+            if (egg.y > rect.height) {
               handleEggMiss(egg);
               return false;
             }
 
-            return egg.y < 600; // Keep egg if still on screen
+            // Keep egg if still on screen
+            return egg.y < rect.height + 100;
           });
         return updated;
       });
 
       setParticles((prev) =>
         prev
-          .map((p) => ({ ...p, x: p.x + p.vx, y: p.y + p.vy, vy: p.vy + 0.3, life: p.life - 1 }))
-          .filter((p) => p.life > 0)
+          .map((p) => {
+            // Clamp particle positions to game area
+            const newX = Math.max(0, Math.min(p.x + p.vx, rect.width));
+            const newY = Math.max(0, Math.min(p.y + p.vy, rect.height));
+            return { ...p, x: newX, y: newY, vy: p.vy + 0.3, life: p.life - 1 };
+          })
+          .filter((p) => p.life > 0 && p.x >= 0 && p.x <= rect.width && p.y >= 0 && p.y <= rect.height)
       );
 
       animationRef.current = requestAnimationFrame(animate);
@@ -284,10 +326,11 @@ const Game = () => {
     const rect = gameAreaRef.current?.getBoundingClientRect();
     if (!rect) return;
 
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    // Clamp click position to game area boundaries
+    const x = Math.max(24, Math.min(e.clientX - rect.left, rect.width - 24));
+    const y = Math.max(0, Math.min(e.clientY - rect.top, rect.height));
 
-    // Always create a falling egg at click position
+    // Always create a falling egg at click position (clamped to boundaries)
     const newEgg: Egg = { id: Date.now(), x, y: 0, velocity: 2 };
     setEggs((prev) => [...prev, newEgg]);
 
@@ -392,7 +435,7 @@ const Game = () => {
         <Card
           ref={gameAreaRef}
           onClick={dropEgg}
-          className={`relative w-full h-[340px] sm:h-[420px] md:h-[500px] lg:h-[540px] overflow-hidden cursor-crosshair ${
+          className={`relative w-full h-[340px] sm:h-[420px] md:h-[500px] lg:h-[540px] overflow-hidden cursor-crosshair rounded-lg border-2 border-[#c8d5db] ${
             showInitialAim || (gameStarted && !gameWon)
               ? "bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"
               : "bg-gradient-to-br from-gray-100 to-gray-200"
@@ -431,12 +474,42 @@ const Game = () => {
             <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-black/5"></div>
           </div>
 
-          {eggs.map((egg) => (
-            <div key={egg.id} className="absolute w-12 h-14 text-4xl" style={{ left: `${egg.x - 24}px`, top: `${egg.y}px`, transform: `rotate(${egg.velocity * 2}deg)` }}>🥚</div>
-          ))}
-          {particles.map((p) => (
-            <div key={p.id} className="absolute w-3 h-3 rounded-full" style={{ left: `${p.x}px`, top: `${p.y}px`, opacity: p.life / 30, backgroundColor: p.life > 15 ? "#10b981" : "#ef4444" }} />
-          ))}
+          {eggs.map((egg) => {
+            // Clamp egg position to ensure it stays within bounds
+            const eggWidth = 48;
+            const eggLeft = Math.max(0, Math.min(egg.x - eggWidth / 2, (gameAreaRef.current?.clientWidth || 0) - eggWidth));
+            return (
+              <div 
+                key={egg.id} 
+                className="absolute w-12 h-14 text-4xl pointer-events-none" 
+                style={{ 
+                  left: `${eggLeft}px`, 
+                  top: `${Math.max(0, egg.y)}px`, 
+                  transform: `rotate(${egg.velocity * 2}deg)` 
+                }}
+              >
+                🥚
+              </div>
+            );
+          })}
+          {particles.map((p) => {
+            // Clamp particle position to ensure it stays within bounds
+            const particleSize = 12;
+            const particleLeft = Math.max(0, Math.min(p.x - particleSize / 2, (gameAreaRef.current?.clientWidth || 0) - particleSize));
+            const particleTop = Math.max(0, Math.min(p.y - particleSize / 2, (gameAreaRef.current?.clientHeight || 0) - particleSize));
+            return (
+              <div 
+                key={p.id} 
+                className="absolute w-3 h-3 rounded-full pointer-events-none" 
+                style={{ 
+                  left: `${particleLeft}px`, 
+                  top: `${particleTop}px`, 
+                  opacity: p.life / 30, 
+                  backgroundColor: p.life > 15 ? "#10b981" : "#ef4444" 
+                }} 
+              />
+            );
+          })}
 
           <div
             className="absolute bottom-12 sm:bottom-16 flex flex-col items-center"
@@ -479,8 +552,8 @@ const Game = () => {
           </div>
 
           {(!gameStarted || gameWon) && (
-            <div className={`absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center ${gameWon ? 'overflow-auto' : 'overflow-y-auto'}`}>
-              <div className={`text-center w-full ${gameWon ? 'max-w-3xl mx-auto p-4 sm:p-6 md:p-10 space-y-4 sm:space-y-5 flex flex-col justify-center' : 'space-y-2 p-2 sm:p-3 max-h-full'}`}>
+            <div className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center overflow-hidden">
+              <div className={`text-center w-full h-full flex flex-col justify-center ${gameWon ? 'p-3 sm:p-4 space-y-2 sm:space-y-3' : 'space-y-2 p-2 sm:p-3'}`}>
                 {!gameStarted && (
                   <>
                     <h2 className="text-base sm:text-lg md:text-xl font-bold text-white px-2">Ready to Transform?</h2>
@@ -489,61 +562,60 @@ const Game = () => {
                   </>
                 )}
                 {gameWon && (
-                  <div className="flex flex-col items-center justify-center min-h-[70vh] py-2 sm:py-4">
-                    <div className="text-3xl sm:text-4xl md:text-6xl animate-bounce-in mb-2">🎉</div>
-                    <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-white animate-bounce-in px-2 mb-2">Transformation Complete!</h2>
-                    <p className="text-white/90 text-sm sm:text-base md:text-lg px-4 mb-3">You've powered up with {score} Hello Eggs!</p>
-                    {highScore !== null && (
-                      <div className="bg-yellow-500/20 border border-yellow-400/30 rounded-lg p-2 sm:p-3 mx-2 mb-3">
-                        <p className="text-yellow-200 text-sm sm:text-base font-medium">
-                          🏆 Best: {highScore} eggs
-                        </p>
-                      </div>
-                    )}
-
-                    {/* Nutritional Facts - Fullscreen fit */}
-                    <div className="mt-2 sm:mt-4 p-3 sm:p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 mx-2 mb-4">
-                      <h3 className="text-sm sm:text-lg font-semibold text-white mb-2">🌟 Nutritional Power Gained:</h3>
-                      <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs sm:text-sm">
-                        <div className="flex items-start gap-1 text-white/90">
-                          <span className="text-sm flex-shrink-0">☀️</span>
+                  <div className="flex flex-col items-center justify-center h-full py-1">
+                  <div className="text-l sm:text-l md:text-l animate-bounce-in mb-0.5">🎉</div>
+                  <h1 className="text-base sm:text-lg md:text-xl font-bold text-white animate-bounce-in px-2 mb-0.5">Transformation Complete!</h1>
+                  <p className="text-white/90 text-xs sm:text-sm md:text-base px-4 mb-1">You've powered up with {score} Hello Eggs!</p>
+                  
+                  {highScore !== null && (
+                    <div className="bg-yellow-500/20 border border-yellow-400/30 rounded-lg p-1.5 sm:p-2 mx-2 mb-1">
+                      <p className="text-yellow-200 text-xs sm:text-sm font-medium">
+                        🏆 Best: {highScore} eggs
+                      </p>
+                    </div>
+                  )}
+                    {/* Nutritional Facts - Compact fit */}
+                    <div className="mt-1 sm:mt-2 p-2 sm:p-3 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 mx-2 mb-2">
+                      <h3 className="text-xs sm:text-sm font-semibold text-white mb-1">🌟 Nutritional Power Gained:</h3>
+                      <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-[10px] sm:text-xs">
+                        <div className="flex items-start gap-0.5 text-white/90">
+                          <span className="text-xs flex-shrink-0">☀️</span>
                           <div className="min-w-0">
-                            <span className="font-medium">D3:</span> <span>Bones & immunity</span>
+                            <span className="font-medium">D3:</span> <span className="text-[10px] sm:text-xs">Bones & immunity</span>
                           </div>
                         </div>
-                        <div className="flex items-start gap-1 text-white/90">
-                          <span className="text-sm flex-shrink-0">🧠</span>
+                        <div className="flex items-start gap-0.5 text-white/90">
+                          <span className="text-xs flex-shrink-0">🧠</span>
                           <div className="min-w-0">
-                            <span className="font-medium">DHA:</span> <span>Brain function</span>
+                            <span className="font-medium">DHA:</span> <span className="text-[10px] sm:text-xs">Brain function</span>
                           </div>
                         </div>
-                        <div className="flex items-start gap-1 text-white/90">
-                          <span className="text-sm flex-shrink-0">🌿</span>
+                        <div className="flex items-start gap-0.5 text-white/90">
+                          <span className="text-xs flex-shrink-0">🌿</span>
                           <div className="min-w-0">
-                            <span className="font-medium">Omega 3:</span> <span>Heart health</span>
+                            <span className="font-medium">Omega 3:</span> <span className="text-[10px] sm:text-xs">Heart health</span>
                           </div>
                         </div>
-                        <div className="flex items-start gap-1 text-white/90">
-                          <span className="text-sm flex-shrink-0">💪</span>
+                        <div className="flex items-start gap-0.5 text-white/90">
+                          <span className="text-xs flex-shrink-0">💪</span>
                           <div className="min-w-0">
-                            <span className="font-medium">Selenium:</span> <span>Antioxidant</span>
+                            <span className="font-medium">Selenium:</span> <span className="text-[10px] sm:text-xs">Antioxidant</span>
                           </div>
                         </div>
-                        <div className="flex items-start gap-1 text-white/90 col-span-2 justify-center">
-                          <span className="text-sm flex-shrink-0">⭐</span>
+                        <div className="flex items-start gap-0.5 text-white/90 col-span-2 justify-center">
+                          <span className="text-xs flex-shrink-0">⭐</span>
                           <div className="min-w-0">
-                            <span className="font-medium">Vitamin A:</span> <span>Vision & immunity</span>
+                            <span className="font-medium">Vitamin A:</span> <span className="text-[10px] sm:text-xs">Vision & immunity</span>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    <div className="space-y-2 px-2 w-full max-w-sm sm:max-w-md">
-                      <Button size="lg" className="text-sm sm:text-base w-full h-11 sm:h-12" asChild>
+                    <div className="space-y-1.5 px-2 w-full max-w-xs sm:max-w-sm">
+                      <Button size="lg" className="text-xs sm:text-sm w-full h-9 sm:h-10" asChild>
                         <a href="https://srinivasafarms.com" target="_blank" rel="noopener noreferrer">🛒 Get Hello Eggs Now</a>
                       </Button>
-                      <Button onClick={resetGame} variant="outline" size="lg" className="text-sm sm:text-base w-full h-11 sm:h-12">🔄 Play Again</Button>
-                    </div>
+                      <Button onClick={resetGame} variant="outline" size="default" className="text-xs sm:text-sm w-full h-9 sm:h-10 mb-6">🔄 Play Again</Button></div>
                   </div>
                 )}
               </div>

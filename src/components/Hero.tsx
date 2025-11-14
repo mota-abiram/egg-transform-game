@@ -8,11 +8,8 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden"
     style={{
-      /*
-* Created with https://www.css-gradient.com
-* Gradient link: https://www.css-gradient.com/?c1=f58351&c2=ffefe8&gt=c&gd=dtl
-*/
-background: "conic-gradient(from 315deg, #F58351, #FFEFE8)",
+  
+background: "conic-gradient(from 325deg, #F58351, #FFEFE8)",
       }}>
       <div className="container mx-auto h-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 max-w-7xl">
         {/* Page Header */}
@@ -20,9 +17,9 @@ background: "conic-gradient(from 315deg, #F58351, #FFEFE8)",
           {/* Left Content */}
           <div className="h-full flex flex-col justify-center space-y-3 sm:space-y-4 lg:space-y-5 text-center lg:text-left">
             {/* Heading */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-foreground text-center lg:text-left font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-foreground text-center lg:text-left font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
               India's 1st Enriched <br />
-              <span className="text-gradient bg-gradient-to-r from-[#f58351] to-[#f58351] bg-clip-text text-transparent">
+              <span className="text-gradient bg-gradient-to-r from-[#f58351] to-[#f58351] bg-clip-text text-transparent" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
                 Brown Eggs 
                 <img 
                   src="/egg.png" 
@@ -44,7 +41,7 @@ background: "conic-gradient(from 315deg, #F58351, #FFEFE8)",
               </Badge>
             </div>
 
-            <p className="text-[16px] sm:text-lg md:text-xl text-gray-900 max-w-lg mx-auto lg:mx-0 text-center lg:text-left leading-relaxed">
+            <p className="text-[16px] sm:text-lg md:text-xl text-gray-900 max-w-lg mx-auto lg:mx-0 text-center lg:text-left leading-relaxed" >
               Packed with Vitamin D3 & DHA for smarter nutrition, every day.
               <br />
               <span className="font-semibold text-gray-900">One egg. Endless benefits.</span>
