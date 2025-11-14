@@ -395,7 +395,7 @@ const Game = () => {
       <div className="w-full h-full flex flex-col space-y-1 sm:space-y-2 min-h-0">
         <div className="text-center space-y-0.5 sm:space-y-1 flex-shrink-0">
         <h1 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold">Power of Hello Eggs</h1>
-          <p className="text-xs sm:text-sm md:text-base text-muted-foreground">Drop nutrition. Watch transformation. 🥚</p>
+          <p className="text-xs sm:text-sm md:text-base font-bold">Drop nutrition. Watch transformation. 🥚</p>
         </div>
 
         {gameStarted && (

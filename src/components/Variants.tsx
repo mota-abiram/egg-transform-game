@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 const Variants = () => {
   const variants = [
     {
-      name: "HELLO EGGS — D3 ENRICHED",
+      name: "Hello Eggs — D3 Enriched",
       description: "For Stronger Bones & Better Immunity",
       nutrients: [
         { icon: "🦴", name: "Supports bone strength & joint health" },     
@@ -16,7 +16,7 @@ const Variants = () => {
       highlight: true,
     },
     {
-      name: "HELLO EGGS — DHA ENRICHED",
+      name: "Hello Eggs — DHA Enriched",
       description: "For Sharper Minds & Healthier Hearts",
       nutrients: [
         { icon: "🧠", name: "Boosts memory, focus & brain development" },
@@ -53,8 +53,14 @@ const Variants = () => {
               
 
               <div className="space-y-4 sm:space-y-6">
-                <div>
-                  <h3 className="text-2xl sm:text-3xl font-bold mb-2 font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>{variant.name}</h3>
+  <div>
+    <h3 
+      // CHANGED: Replaced "normal-case"
+      className="text-2xl sm:text-3xl font-bold mb-2 font-headline capitalize" 
+      style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}
+    >
+      {variant.name}
+    </h3>
                   <p className="text-[16px] sm:text-base text-gray-900 leading-relaxed">{variant.description}</p>
                 </div>
 

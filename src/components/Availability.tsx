@@ -75,7 +75,7 @@ const Availability = () => {
     <section 
       className="py-10 sm:py-16 lg:py-20"
       style={{
-        backgroundImage: "linear-gradient(to right bottom, #ffefe8, #ffdbca, #ffc7ad, #ffb391, #fc9f75, #ff9c82, #ff9a90, #ff999d, #ffb2c9, #f8cee8, #f5e8fa, #ffffff)",
+        backgroundImage: "linear-gradient(to right bottom, #ffefe8, #f58351)",
       }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -96,55 +96,55 @@ const Availability = () => {
           {/* LEFT COLUMN: Retail and Quick Commerce Cards (Stacked) */}
           <div className="h-auto min-h-[400px] md:h-[600px]">
           {/* Retail Stores */}
-          <Card className="p-6 sm:p-8 h-full flex flex-col bg-gradient-to-br from-[#ffefe8] via-white to-[#ffefe8] border-2 border-[#c8d5db]">
-              <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 flex items-center gap-2 font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
-              <span>🏪</span> Retail Stores
-            </h3>
-            <p className="text-[16px] sm:text-base text-gray-900 mb-4 leading-relaxed">
-                Now stocked at leading supermarkets across Hyderabad. </p>
-              
-            {/* Star Bazaar */}
-            <div className="mb-4">
-              <p className="text-base sm:text-lg font-semibold mb-2 " style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>Star Bazaar</p>
-              <div className="flex flex-wrap gap-2 sm:gap-3" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
-                {[
-                  "Kondapur",
-                  "Gachibowli",
-                  "Panjagutta",
-                  "Bowenpally",
-                  "Saket",
-                  "Alwal",
-                  "Vanasthalipuram",
-                  "Kharmanghat",
-                ].map((loc) => (
-                  <span
-                    key={`star-${loc}`}
-                      onClick={() => handleLocationClick(loc, "Star Bazaar")} // Call handler
-                      className="bg-[#ffefe8] text-[#f58351] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium border border-[#c8d5db] cursor-pointer hover:bg-[#f58351] hover:text-white transition-colors duration-200"
-                  >
-                    {loc}
-                  </span>
-                ))}
-              </div>
-            </div>
-              
-            {/* Qmart */}
-            <div>
-              <p className="text-base sm:text-lg font-semibold mb-2" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>Qmart</p>
-              <div className="flex flex-wrap gap-2 sm:gap-3" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
-                {["Gachibowli", "Banjara Hills"].map((loc) => (
-                  <span
-                    key={`qmart-${loc}`}
-                      onClick={() => handleLocationClick(loc, "Qmart")} // Call handler
-                      className="bg-[#ffefe8] text-[#f58351] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium border border-[#c8d5db] cursor-pointer hover:bg-[#f58351] hover:text-white transition-colors duration-200"
-                  >
-                    {loc}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </Card>
-
+          {/* CHANGED: Removed "h-full" class */}
+<Card className="p-6 sm:p-8 flex flex-col bg-gradient-to-br from-[#ffefe8] via-white to-[#ffefe8] border-2 border-[#c8d5db]">
+  <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 flex items-center gap-2 font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
+    <span>🏪</span> Retail Stores
+  </h3>
+  <p className="text-[16px] sm:text-base text-gray-900 mb-4 leading-relaxed">
+    Now stocked at leading supermarkets across Hyderabad. </p>
+  
+  {/* Star Bazaar */}
+  <div className="mb-4">
+    <p className="text-base sm:text-lg font-semibold mb-2 " style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>Star Bazaar</p>
+    <div className="flex flex-wrap gap-2 sm:gap-3 font-bold" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
+      {[
+        "Kondapur",
+        "Gachibwli",
+        "Panjagutta",
+        "Bowenpally",
+        "Saket",
+        "Alwal",
+        "Vanasthalipuram",
+        "Kharmanghat",
+      ].map((loc) => (
+        <span
+          key={`star-${loc}`}
+          onClick={() => handleLocationClick(loc, "Star Bazaar")} // Call handler
+          className="bg-[#ffefe8] text-[#f58351] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold border border-[#c8d5db] cursor-pointer hover:bg-[#f58351] hover:text-white transition-colors duration-200"
+        >
+          {loc}
+        </span>
+      ))}
+    </div>
+  </div>
+    
+  {/* Qmart */}
+  <div>
+    <p className="text-base sm:text-lg font-semibold mb-2" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>Qmart</p>
+    <div className="flex flex-wrap gap-2 sm:gap-3 font-bold " style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
+      {["Gachibowli", "Banjara Hills"].map((loc) => (
+        <span
+          key={`qmart-${loc}`}
+          onClick={() => handleLocationClick(loc, "Qmart")} // Call handler
+          className="bg-[#ffefe8] text-[#f58351] px-3 sm:px-4 py-1 sm:py-2  rounded-full text-xs sm:text-sm font-bold border border-[#c8d5db] cursor-pointer hover:bg-[#f58351] hover:text-white transition-colors duration-200"
+        >
+          {loc}
+        </span>
+      ))}
+    </div>
+  </div>
+</Card>
           {/* Quick Commerce */}
           {/* <Card className="p-6 sm:p-8">
               <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 flex items-center gap-2 font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>
@@ -170,13 +170,14 @@ const Availability = () => {
         </div>
 
         {/* Mobile Map */}
-        <div className="md:hidden mb-8 sm:mb-10">
-          <MapPlaceholder
-            mapQuery={currentMapQuery}
-            className="h-64 sm:h-72 rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden"
-          />
-        </div>
-
+      
+<div className="md:hidden mb-8 sm:mb-10">
+  <MapPlaceholder
+    mapQuery={currentMapQuery}
+    
+    className="rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden"
+  />
+</div>
         {/* Online Ordering & Social CTA */}
         <Card className="p-6 sm:p-8 max-w-5xl mx-auto mb-8 sm:mb-12 bg-white border border-[#c8d5db]">
           <div className="text-center space-y-6 sm:space-y-8">
