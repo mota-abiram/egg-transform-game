@@ -48,37 +48,37 @@ const Variants = () => {
           {variants.map((variant, index) => (
             <Card
               key={index}
-              className="p-6 sm:p-8 relative overflow-hidden transition-all duration-300 hover:scale-105"
+              className="p-4 sm:p-6 lg:p-8 relative overflow-hidden transition-all duration-300 hover:scale-105"
             >
               
 
-              <div className="space-y-4 sm:space-y-6">
+              <div className="space-y-4 sm:space-y-5 lg:space-y-6">
   <div>
     <h3 
       // CHANGED: Replaced "normal-case"
-      className="text-2xl sm:text-3xl font-bold mb-2 font-headline capitalize" 
+      className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 font-headline capitalize" 
       style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}
     >
       {variant.name}
     </h3>
-                  <p className="text-[16px] sm:text-base text-gray-900 leading-relaxed">{variant.description}</p>
+                  <p className="text-sm sm:text-base lg:text-lg text-gray-900 leading-relaxed">{variant.description}</p>
                 </div>
 
-                <div className="space-y-2 sm:space-y-3">
+                <div className="space-y-2 sm:space-y-3 lg:space-y-3">
                   {variant.nutrients.map((nutrient, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-[#ffefe8] hover:bg-[#f58351]/10 transition-colors border-b border-[#c8d5db] last:border-b-0"
+                      className="flex items-center gap-2 sm:gap-3 p-2 sm:p-2.5 lg:p-3 rounded-lg bg-[#ffefe8] hover:bg-[#f58351]/10 transition-colors border-b border-[#c8d5db] last:border-b-0"
                     >
-                      <span className="text-xl sm:text-2xl flex-shrink-0">{nutrient.icon}</span>
-                      <span className="text-[16px] sm:text-base font-medium text-gray-900 leading-relaxed">{nutrient.name}</span>
+                      <span className="text-lg sm:text-xl lg:text-2xl flex-shrink-0">{nutrient.icon}</span>
+                      <span className="text-sm sm:text-base lg:text-lg font-medium text-gray-900 leading-relaxed">{nutrient.name}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="pt-2 sm:pt-4">
+                <div className="pt-2 sm:pt-3 lg:pt-4">
                   <div className="flex justify-center">
-                    <div className="w-16 h-20 sm:w-20 sm:h-24 animate-float">
+                    <div className="w-14 h-20 sm:w-20 sm:h-24 lg:w-20 lg:h-24 animate-float">
                       <img
                         src="/egg.png"
                         alt="Hello Eggs"
@@ -92,10 +92,10 @@ const Variants = () => {
           ))}
         </div>
 
-        <div className="mt-8 sm:mt-12 text-center">
-          <Card className="inline-block p-4 sm:p-6 bg-white border border-[#c8d5db]">
-            <p className="text-base sm:text-lg font-semibold mb-2">Did you know?</p>
-            <p className="text-sm sm:text-base text-[#000000]">
+        <div className="mt-8 sm:mt-12 lg:mt-16 text-center">
+          <Card className="inline-block p-4 sm:p-5 lg:p-6 bg-white border border-[#c8d5db]">
+            <p className="text-sm sm:text-base lg:text-lg font-semibold mb-2">Did you know?</p>
+            <p className="text-xs sm:text-sm lg:text-base text-[#000000]">
               <span className="font-bold text-[#f58351]">5 Regular Eggs</span> = <span className="font-bold text-[#f58351]">4 Hello Eggs</span> 🎯
             </p>
           </Card>

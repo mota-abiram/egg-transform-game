@@ -33,7 +33,7 @@ const Benefits = () => {
     },
     {
       icon: Trophy,
-      title: "40+ Years of experience",
+      title: "60+ Years of experience",
       description:
         "From the house of Srinivasa Farms — pioneers in India’s poultry nutrition and innovation for over four decades.",
       color: "text-amber-600",
