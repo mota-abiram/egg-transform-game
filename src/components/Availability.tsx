@@ -104,7 +104,7 @@ const Availability = () => {
     <div className="flex flex-wrap gap-2 sm:gap-3 font-bold" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
       {[
         "Kondapur",
-        "Gachibwli",
+        "Gachibowli",
         "Panjagutta",
         "Bowenpally",
         "Saket",
