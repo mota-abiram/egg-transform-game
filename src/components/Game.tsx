@@ -435,7 +435,7 @@ const Game = () => {
         <Card
           ref={gameAreaRef}
           onClick={dropEgg}
-          className={`relative w-full h-[340px] sm:h-[420px] md:h-[500px] lg:h-[540px] overflow-hidden cursor-crosshair rounded-lg border-2 border-[#c8d5db] ${
+          className={`relative w-full h-[420px] sm:h-[460px] md:h-[500px] lg:h-[540px] overflow-hidden cursor-crosshair rounded-lg border-2 border-[#c8d5db] ${
             showInitialAim || (gameStarted && !gameWon)
               ? "bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"
               : "bg-gradient-to-br from-gray-100 to-gray-200"
