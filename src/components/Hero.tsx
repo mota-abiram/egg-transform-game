@@ -25,7 +25,7 @@ const Hero = () => {
             </h2>
 
             {/* Trust Badges */}
-            <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 justify-center items-center">
               <Badge className="bg-[#f58351] text-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold shadow-lg">
                 <Leaf className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 100% Natural
