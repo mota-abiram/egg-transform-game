@@ -32,7 +32,7 @@ const Hero = () => {
               </Badge>
               <Badge className="bg-[#f58351] text-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold shadow-lg">
                 <Award className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                40+ Years of Experience
+               60+ Years of Experience
               </Badge>
             </div>
 
