@@ -333,13 +333,13 @@ All colors MUST be HSL.
   /* Hero section responsive background */
   .hero-bg-responsive {
     /* Mobile background (< 640px) */
-    background: conic-gradient(from 200deg, #FFEFE8, #F58351);
+    background: conic-gradient(from 330deg, #FFEFE8, #F58351);
   }
 
   @media (min-width: 640px) {
     .hero-bg-responsive {
       /* Desktop background (≥ 640px) */
-      background: conic-gradient(from 200deg, #F58351, #FFEFE8);
+      background: conic-gradient(from 330deg, #F58351, #FFEFE8);
     }
   }
 }

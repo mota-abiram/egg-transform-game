@@ -15,12 +15,11 @@ const Hero = () => {
             {/* Heading */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-foreground text-center lg:text-left font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
               India's 1st Enriched <br />
-              <span className="text-white drop-shadow-lg sm:text-transparent sm:bg-gradient-to-r sm:from-[#f58351] sm:to-[#f58351] sm:bg-clip-text sm:drop-shadow-none" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
-                Brown Eggs 
-                <img 
+              <span className="text-black" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
+                Brown Eggs<img 
                   src="/egg.png" 
                   alt="Egg" 
-                  className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 inline-block ml-2 align-middle" 
+                  className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 inline-block ml-1 align-middle" 
                 />
               </span>
             </h2>
