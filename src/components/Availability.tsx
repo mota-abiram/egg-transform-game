@@ -3,6 +3,14 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Instagram, Send } from "lucide-react";
 
+// Helper to display a cleaner name in the overlay
+const getDisplayName = (query: string) => {
+  return query
+    .replace(/\+/g, ' ')
+    .replace('Star Bazaar ', '')
+    .replace('Qmart ', '')
+    .replace(' Hyderabad', '');
+};
 
 // FIXED: Map Component with Correct Google Maps Embed URL
 const MapPlaceholder = ({ mapQuery, className = "sticky top-24 h-96 md:h-[600px] rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden" }: { mapQuery: string; className?: string }) => {
@@ -12,15 +20,6 @@ const MapPlaceholder = ({ mapQuery, className = "sticky top-24 h-96 md:h-[600px]
   
   // Final URL includes the correct base, the dynamic query, and the embed parameters
   const mapEmbedUrl = `${mapEmbedBase}${mapQuery}${mapEmbedParams}`;
-  
-  // Helper to display a cleaner name in the overlay
-  const getDisplayName = (query: string) => {
-    return query
-      .replace(/\+/g, ' ')
-      .replace('Star Bazaar ', '')
-      .replace('Qmart ', '')
-      .replace(' Hyderabad', '');
-  };
 
   return (
     <div className={className}>
@@ -34,11 +33,6 @@ const MapPlaceholder = ({ mapQuery, className = "sticky top-24 h-96 md:h-[600px]
         src={mapEmbedUrl} // <-- Now uses the correct Google Maps URL
         aria-label={`Map showing location: ${mapQuery}`}
       ></iframe>
-      
-      {/* Overlay showing the currently viewed location */}
-      <div className="absolute bottom-0 left-0 p-3 bg-white/80 w-full text-center text-xs text-gray-600 border-t">
-        Currently Viewing: <span className="font-semibold">{getDisplayName(mapQuery)}</span>
-      </div>
     </div>
   );
 };
@@ -166,6 +160,10 @@ const Availability = () => {
           {/* RIGHT COLUMN: Map Area */}
           <div className="hidden md:block">
             <MapPlaceholder mapQuery={currentMapQuery} />
+            {/* Currently Viewing text below map */}
+            <div className="mt-3 p-3 bg-white/80 rounded-b-xl text-center text-xs text-gray-600 border-t border-gray-300">
+              Currently Viewing: <span className="font-semibold">{getDisplayName(currentMapQuery)}</span>
+            </div>
           </div>
         </div>
 
@@ -177,6 +175,10 @@ const Availability = () => {
     
     className="rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden"
   />
+  {/* Currently Viewing text below map */}
+  <div className="mt-3 p-3 bg-white/80 rounded-b-xl text-center text-xs text-gray-600 border-t border-gray-300">
+    Currently Viewing: <span className="font-semibold">{getDisplayName(currentMapQuery)}</span>
+  </div>
 </div>
         {/* Online Ordering & Social CTA */}
         <Card className="p-6 sm:p-8 max-w-5xl mx-auto mb-8 sm:mb-12 bg-white border border-[#c8d5db]">
@@ -289,7 +291,7 @@ const Availability = () => {
               <p className="text-xs text-gray-700 mt-4 italic">Click the logo to order online.</p>
             </div>
 
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6 lg:gap-8">
+            <div className="flex flex-row items-center justify-center gap-4 sm:gap-6 lg:gap-8">
               {/* Instagram CTA */}
               <a
     href="https://instagram.com/helloeggs_india"

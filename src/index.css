@@ -331,13 +331,15 @@ All colors MUST be HSL.
   }
 
   /* Hero section responsive background */
-  .hero-bg-mobile {
-    background: linear-gradient(156deg, rgba(255, 239, 232, 1) 24%, rgba(245, 131, 81, 1) 75%);
+  .hero-bg-responsive {
+    /* Mobile background (< 640px) */
+    background: conic-gradient(from 200deg, #FFEFE8, #F58351);
   }
 
   @media (min-width: 640px) {
-    .hero-bg-mobile {
-      background: conic-gradient(from 325deg, #F58351, #FFEFE8);
+    .hero-bg-responsive {
+      /* Desktop background (≥ 640px) */
+      background: conic-gradient(from 200deg, #F58351, #FFEFE8);
     }
   }
 }

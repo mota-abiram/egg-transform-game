@@ -6,11 +6,7 @@ import Game from "@/components/Game";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    style={{
-  
-background: "conic-gradient(from 325deg, #F58351, #FFEFE8)",
-      }}>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-bg-responsive">
       <div className="container mx-auto h-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 max-w-7xl">
         {/* Page Header */}
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 h-full items-center">
@@ -19,7 +15,7 @@ background: "conic-gradient(from 325deg, #F58351, #FFEFE8)",
             {/* Heading */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-foreground text-center lg:text-left font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
               India's 1st Enriched <br />
-              <span className="text-gradient bg-gradient-to-r from-[#f58351] to-[#f58351] bg-clip-text text-transparent" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
+              <span className="text-white drop-shadow-lg sm:text-transparent sm:bg-gradient-to-r sm:from-[#f58351] sm:to-[#f58351] sm:bg-clip-text sm:drop-shadow-none" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
                 Brown Eggs 
                 <img 
                   src="/egg.png" 
