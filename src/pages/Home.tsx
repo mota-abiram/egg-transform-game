@@ -53,7 +53,7 @@ const Home = () => {
                                         className="w-full h-full object-contain"
                                     />
                                 </div> 
-                                <p className="text-lg sm:text-xl font-bold font-logo">
+                                <p className="text-lg sm:text-xl font-bold font-logo"  style={ {wordSpacing: "0.10em", letterSpacing : "0.05em" }}>
                                     Hello Eggs
                                 </p>
                             </div>
@@ -67,7 +67,7 @@ const Home = () => {
 
                         {/* Quick Links */}
                         <div className="text-center md:text-left">
-                            <h3 className="text-base sm:text-lg font-semibold mb-4 font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>Quick Links</h3>
+                            <h3 className="text-base sm:text-lg font-semibold mb-4 font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.10em" }}>Quick Links</h3>
                             <ul className="space-y-2 sm:space-y-3">
                                 <li>
                                     <a href="/" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors">
@@ -94,7 +94,7 @@ const Home = () => {
 
                         {/* Contact Info */}
                         <div className="text-center md:text-left">
-                            <h3 className="text-base sm:text-lg font-semibold mb-4 font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>Get in Touch</h3>
+                            <h3 className="text-base sm:text-lg font-semibold mb-4 font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.10em" }}>Get in Touch</h3>
                             <ul className="space-y-2 sm:space-y-3">
                                 <li>
                                     <a href="tel:+916309416417" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors flex items-center justify-center md:justify-start gap-2">

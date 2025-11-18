@@ -25,7 +25,7 @@ const Hero = () => {
             </h2>
 
             {/* Trust Badges */}
-            <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 justify-center items-center">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 justify-left items-center" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
               <Badge className="bg-[#f58351] text-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold shadow-lg">
                 <Leaf className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 100% Natural
@@ -36,19 +36,21 @@ const Hero = () => {
               </Badge>
             </div>
 
+
+            {/* UV Sanitization Feature */}
+            <div className="flex items-center justify-center lg:justify-start gap-2 p-1 sm:p-3 bg-[#f58351] rounded-lg w-80">
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+              <span className="text-xs sm:text-sm font-bold text-white" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
+                UV Sanitized, Washed, Stamped
+              </span>
+            </div>
+
             <p className="text-[16px] sm:text-lg md:text-xl text-gray-900 max-w-lg mx-auto lg:mx-0 text-center lg:text-left leading-relaxed" >
               Packed with Vitamin D3 & DHA for smarter nutrition, every day.
               <br />
               <span className="font-semibold text-gray-900">One egg. Endless benefits.</span>
             </p>
 
-            {/* UV Sanitization Feature */}
-            <div className="flex items-center justify-center lg:justify-start gap-2 p-2.5 sm:p-3 bg-[#f58351] rounded-lg">
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-              <span className="text-xs sm:text-sm font-medium text-white">
-                UV Sanitized, Washed, Stamped
-              </span>
-            </div>
 
             {/* CTA Buttons - Optimized for above the fold */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start pt-2">

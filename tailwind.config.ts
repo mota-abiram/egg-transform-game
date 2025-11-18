@@ -18,6 +18,12 @@ export default {
         headline: ["Bowlby One SC", "cursive"],
         body: ["Bitter", "serif"],
       },
+
+      // ✅ STEP 3: Add scale-x-92 to make fonts slimmer
+      scale: {
+        92: "0.92",   // 👈 ADDED
+      },
+
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -70,20 +76,12 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {

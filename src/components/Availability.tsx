@@ -13,7 +13,7 @@ const getDisplayName = (query: string) => {
 };
 
 // FIXED: Map Component with Correct Google Maps Embed URL
-const MapPlaceholder = ({ mapQuery, className = "sticky top-24 h-96 md:h-[600px] rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden" }: { mapQuery: string; className?: string }) => {
+const MapPlaceholder = ({ mapQuery, className = "sticky top-24 h-[400px] md:h-[600px] rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden" }: { mapQuery: string; className?: string }) => {
   // CORRECTED: Use the official Google Maps URL format for embedding.
   const mapEmbedBase = "https://maps.google.com/maps?q=";
   const mapEmbedParams = "&output=embed&z=13&iwloc=A"; // Required for embed
@@ -86,102 +86,71 @@ const Availability = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 max-w-6xl mx-auto mb-8 sm:mb-10 lg:mb-12">
-          
-          {/* LEFT COLUMN: Retail and Quick Commerce Cards (Stacked) */}
-          <div className="h-auto min-h-[400px] md:h-[600px]">
-          {/* Retail Stores */}
-          {/* CHANGED: Removed "h-full" class */}
-<Card className="p-6 sm:p-8 flex flex-col bg-gradient-to-br from-[#ffefe8] via-white to-[#ffefe8] border-2 border-[#c8d5db]">
-  <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 flex items-center gap-2 font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
-    <span>🏪</span> Retail Stores
-  </h3>
-  <p className="text-[16px] sm:text-base text-gray-900 mb-4 leading-relaxed">
-    Now stocked at leading supermarkets across Hyderabad. </p>
-  
-  {/* Star Bazaar */}
-  <div className="mb-4">
-    <p className="text-base sm:text-lg font-semibold mb-2 " style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>Star Bazaar</p>
-    <div className="flex flex-wrap gap-2 sm:gap-3 font-bold" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
-      {[
-        "Kondapur",
-        "Gachibowli",
-        "Panjagutta",
-        "Bowenpally",
-        "Saket",
-        "Alwal",
-        "Vanasthalipuram",
-        "Kharmanghat",
-      ].map((loc) => (
-        <span
-          key={`star-${loc}`}
-          onClick={() => handleLocationClick(loc, "Star Bazaar")} // Call handler
-          className="bg-[#ffefe8] text-[#f58351] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold border border-[#c8d5db] cursor-pointer hover:bg-[#f58351] hover:text-white transition-colors duration-200"
-        >
-          {loc}
-        </span>
-      ))}
-    </div>
-  </div>
-    
-  {/* Qmart */}
-  <div>
-    <p className="text-base sm:text-lg font-semibold mb-2" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>Qmart</p>
-    <div className="flex flex-wrap gap-2 sm:gap-3 font-bold " style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
-      {["Gachibowli", "Banjara Hills"].map((loc) => (
-        <span
-          key={`qmart-${loc}`}
-          onClick={() => handleLocationClick(loc, "Qmart")} // Call handler
-          className="bg-[#ffefe8] text-[#f58351] px-3 sm:px-4 py-1 sm:py-2  rounded-full text-xs sm:text-sm font-bold border border-[#c8d5db] cursor-pointer hover:bg-[#f58351] hover:text-white transition-colors duration-200"
-        >
-          {loc}
-        </span>
-      ))}
-    </div>
-  </div>
-</Card>
-          {/* Quick Commerce */}
-          {/* <Card className="p-6 sm:p-8">
-              <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 flex items-center gap-2 font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>
-              <span>🚀</span> Quick Commerce
-            </h3>
-            <div className="flex flex-wrap gap-2 sm:gap-3">
-              {quickCommerce.map((service, index) => (
-                <span
-                  key={index}
-                      className="bg-[#ffefe8] text-[#f58351] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium border border-[#c8d5db]"
-                >
-                  {service}
-                </span>
-              ))}
-            </div>
-          </Card> */}
-        </div>
 
-          {/* RIGHT COLUMN: Map Area */}
-          <div className="hidden md:block">
-            <MapPlaceholder mapQuery={currentMapQuery} />
-            {/* Currently Viewing text below map */}
-            <div className="mt-3 p-3 bg-white/80 rounded-b-xl text-center text-xs text-gray-600 border-t border-gray-300">
-              Currently Viewing: <span className="font-semibold">{getDisplayName(currentMapQuery)}</span>
-            </div>
-          </div>
-        </div>
+{/* LEFT COLUMN: Retail and Quick Commerce Cards (MATCHED HEIGHT) */}
+<div className="h-[400px] md:h-[600px] overflow-auto">
+  <Card className="p-6 sm:p-8 flex flex-col bg-gradient-to-br from-[#ffefe8] via-white to-[#ffefe8] border-2 border-[#c8d5db]">
+    <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 flex items-center gap-2 font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
+      <span>🏪</span> Retail Stores
+    </h3>
 
-        {/* Mobile Map */}
-      
-<div className="md:hidden mb-8 sm:mb-10">
+    <p className="text-[16px] sm:text-base text-gray-900 mb-4 leading-relaxed">
+      Now stocked at leading supermarkets across Hyderabad.
+    </p>
+
+    {/* Star Bazaar */}
+    <div className="mb-4">
+      <p className="text-base sm:text-lg font-semibold mb-2" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>Star Bazaar</p>
+      <div className="flex flex-wrap gap-2 sm:gap-3 font-bold" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
+        {[
+          "Kondapur", "Gachibowli", "Panjagutta", "Bowenpally",
+          "Saket", "Alwal", "Vanasthalipuram", "Kharmanghat"
+        ].map((loc) => (
+          <span
+            key={`star-${loc}`}
+            onClick={() => handleLocationClick(loc, "Star Bazaar")}
+            className="bg-[#ffefe8] text-[#f58351] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold border border-[#c8d5db] cursor-pointer hover:bg-[#f58351] hover:text-white transition-colors duration-200"
+          >
+            {loc}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    {/* Qmart */}
+    <div>
+      <p className="text-base sm:text-lg font-semibold mb-2" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>Qmart</p>
+      <div className="flex flex-wrap gap-2 sm:gap-3 font-bold" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
+        {["Gachibowli", "Banjara Hills"].map((loc) => (
+          <span
+            key={`qmart-${loc}`}
+            onClick={() => handleLocationClick(loc, "Qmart")}
+            className="bg-[#ffefe8] text-[#f58351] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold border border-[#c8d5db] cursor-pointer hover:bg-[#f58351] hover:text-white transition-colors duration-200"
+          >
+            {loc}
+          </span>
+        ))}
+      </div>
+    </div>
+  </Card>
+</div>
+
+{/* RIGHT COLUMN: MAP (MATCHED HEIGHT) */}
+<div className="h-[600px] md:h-[475px]  -mt-12 rounded-xl overflow-auto">
   <MapPlaceholder
     mapQuery={currentMapQuery}
-    
-    className="rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden"
+    className="h-[580px] rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden sticky top-24"
   />
-  {/* Currently Viewing text below map */}
+
   <div className="mt-3 p-3 bg-white/80 rounded-b-xl text-center text-xs text-gray-600 border-t border-gray-300">
     Currently Viewing: <span className="font-semibold">{getDisplayName(currentMapQuery)}</span>
   </div>
 </div>
+
+</div>
+
         {/* Online Ordering & Social CTA */}
-        <Card className="p-6 sm:p-8 max-w-5xl mx-auto mb-8 sm:mb-12 bg-white border border-[#c8d5db]">
+        <div className="p-6 sm:p-8 max-w-5xl mx-auto mb-8 sm:mb-12 bg-transparent">
           <div className="text-center space-y-6 sm:space-y-8">
             <h3 className="text-2xl sm:text-3xl font-semibold font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
               Our <span className="text-gradient">Social Media</span>
@@ -214,9 +183,9 @@ const Availability = () => {
   </a>
 </div>
 </div>
-</Card>
+        </div>
         {/* Egg Bank Info */}
-        <Card className="p-6 sm:p-8 max-w-3xl mx-auto bg-white border border-[#c8d5db]">
+        <div className="p-6 sm:p-8 max-w-3xl mx-auto bg-transparent">
           <div className="text-center space-y-4 sm:space-y-6">
             <h3 className="text-2xl sm:text-3xl font-semibold font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>
               Shop now @ <span className="text-gradient">Srinivasa Egg Bank</span>
@@ -246,7 +215,7 @@ const Availability = () => {
               </Button>
             </div>
           </div>
-        </Card>
+        </div>
       </div>
     </section>
   );

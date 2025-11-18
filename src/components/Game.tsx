@@ -388,6 +388,9 @@ const Game = () => {
 
   const showInitialAim = gameStarted && !gameWon && score === 0;
   const showInstruction = gameStarted && !gameWon; // Show instruction during entire game
+  const cardHeightClasses = gameStarted
+    ? "h-[620px] sm:h-[520px] md:h-[540px] lg:h-[560px]"
+    : "h-[1420px] sm:h-[520px] md:h-[540px] lg:h-[560px]";
 
   return (
     // Removed min-h-screen, background, and padding. Added h-full to fill grid cell.
@@ -435,7 +438,7 @@ const Game = () => {
         <Card
           ref={gameAreaRef}
           onClick={dropEgg}
-          className={`relative w-full h-[420px] sm:h-[460px] md:h-[500px] lg:h-[540px] overflow-hidden cursor-crosshair rounded-lg border-2 border-[#c8d5db] ${
+          className={`relative w-full ${cardHeightClasses} overflow-hidden cursor-crosshair rounded-lg border-2 border-[#c8d5db] ${
             showInitialAim || (gameStarted && !gameWon)
               ? "bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"
               : "bg-gradient-to-br from-gray-100 to-gray-200"

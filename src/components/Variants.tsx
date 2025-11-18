@@ -56,7 +56,8 @@ const Variants = () => {
   <div>
     <h3 
       // CHANGED: Replaced "normal-case"
-      className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 font-headline capitalize" 
+      className=" font-headline origin-left scale-x-92 text-xl sm:text-2xl lg:text-3xl mb-2 sm:mb-3"
+
       style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}
     >
       {variant.name}
@@ -64,14 +65,14 @@ const Variants = () => {
                   <p className="text-sm sm:text-base lg:text-lg text-gray-900 leading-relaxed">{variant.description}</p>
                 </div>
 
-                <div className="space-y-2 sm:space-y-3 lg:space-y-3">
+                <div className="text-[2px] text-gray-900 leading-relaxed space-y-2 sm:space-y-3 lg:space-y-3">
                   {variant.nutrients.map((nutrient, idx) => (
                     <div
                       key={idx}
                       className="flex items-center gap-2 sm:gap-3 p-2 sm:p-2.5 lg:p-3 rounded-lg bg-[#ffefe8] hover:bg-[#f58351]/10 transition-colors border-b border-[#c8d5db] last:border-b-0"
                     >
                       <span className="text-lg sm:text-xl lg:text-2xl flex-shrink-0">{nutrient.icon}</span>
-                      <span className="text-sm sm:text-base lg:text-lg font-medium text-gray-900 leading-relaxed">{nutrient.name}</span>
+                      <span className="text-sm sm:text-base lg:text-lg font-semibold text-gray-900 leading-relaxed">{nutrient.name}</span>
                     </div>
                   ))}
                 </div>
