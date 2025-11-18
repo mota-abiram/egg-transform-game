@@ -394,7 +394,7 @@ const Game = () => {
 
   return (
     // Removed min-h-screen, background, and padding. Added h-full to fill grid cell.
-    <div id="game" className="w-full h-full flex flex-col min-h-[78vh] mt-20 sm:mt-0 mb-15">
+    <div id="game" className="w-full h-full flex flex-col min-h-[75vh] mt-20 sm:mt-0 mb-15">
       <div className="w-full h-full flex flex-col space-y-1 sm:space-y-2 min-h-0">
         <div className="text-center space-y-0.5 sm:space-y-1 flex-shrink-0">
         <h1 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold">Power of Hello Eggs</h1>
