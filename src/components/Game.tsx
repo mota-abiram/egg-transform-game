@@ -390,13 +390,11 @@ const Game = () => {
   const showInstruction = gameStarted && !gameWon; // Show instruction during entire game
   // Make game card taller after game starts (for more space on mobile),
   // but keep a more compact height before start.
-  const cardHeightClasses = gameStarted
-    ? "h-[620px] sm:h-[560px] md:h-[580px] lg:h-[600px]"
-    : "h-[420px] sm:h-[480px] md:h-[520px] lg:h-[540px]";
+  const cardHeightClasses = "h-screen sm:h-[90vh] md:h-[90vh] lg:h-[90vh]";
 
   return (
     // Removed min-h-screen, background, and padding. Added h-full to fill grid cell.
-    <div id="game" className="w-full h-full flex flex-col min-h-0 mt-20 sm:mt-0">
+    <div id="game" className="w-full h-full flex flex-col min-h-[78vh] mt-20 sm:mt-0 mb-15">
       <div className="w-full h-full flex flex-col space-y-1 sm:space-y-2 min-h-0">
         <div className="text-center space-y-0.5 sm:space-y-1 flex-shrink-0">
         <h1 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold">Power of Hello Eggs</h1>
@@ -568,7 +566,7 @@ const Game = () => {
                 )}
                 {gameWon && (
                   <div className="flex flex-col items-center justify-center h-full py-1">
-                  <div className="text-l sm:text-l md:text-l animate-bounce-in mb-0.5">🎉</div>
+                  <div className="text-l sm:text-l md:text-l animate-bounce-in -mb-">🎉</div>
                   <h1 className="text-base sm:text-lg md:text-xl font-bold text-white animate-bounce-in px-2 mb-0.5">Transformation Complete!</h1>
                   <p className="text-white/90 text-xs sm:text-sm md:text-base px-4 mb-1">You've powered up with {score} Hello Eggs!</p>
                   
@@ -620,7 +618,7 @@ const Game = () => {
                       <Button size="lg" className="text-xs sm:text-sm w-full h-9 sm:h-10" asChild>
                         <a href="https://srinivasafarms.com" target="_blank" rel="noopener noreferrer">🛒 Get Hello Eggs Now</a>
                       </Button>
-                      <Button onClick={resetGame} variant="outline" size="default" className="text-xs sm:text-sm w-full h-9 sm:h-10 mb-6">🔄 Play Again</Button></div>
+                      <Button onClick={resetGame} variant="outline" size="default" className="text-xs sm:text-sm w-full h-9 sm:h-4 mb-6">🔄 Play Again</Button></div>
                   </div>
                 )}
               </div>
