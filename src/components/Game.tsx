@@ -394,7 +394,9 @@ const Game = () => {
 
   return (
     // Removed min-h-screen, background, and padding. Added h-full to fill grid cell.
-    <div id="game" className="w-full h-full flex flex-col min-h-[78vh] mt-20 sm:mt-0 mb-15">
+    <div id="game" className="w-full h-full flex flex-col min-h-[78
+    
+    vh] mt-20 sm:mt-0 mb-15">
       <div className="w-full h-full flex flex-col space-y-1 sm:space-y-2 min-h-0">
         <div className="text-center space-y-0.5 sm:space-y-1 flex-shrink-0">
         <h1 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold">Power of Hello Eggs</h1>
@@ -618,7 +620,7 @@ const Game = () => {
                       <Button size="lg" className="text-xs sm:text-sm w-full h-9 sm:h-10" asChild>
                         <a href="https://srinivasafarms.com" target="_blank" rel="noopener noreferrer">🛒 Get Hello Eggs Now</a>
                       </Button>
-                      <Button onClick={resetGame} variant="outline" size="default" className="text-xs sm:text-sm w-full h-9 sm:h-4 mb-6">🔄 Play Again</Button></div>
+                      <Button onClick={resetGame} variant="outline" size="default" className="text-xs sm:text-sm w-full h-10 sm:h-10 mb-10">🔄 Play Again</Button></div>
                   </div>
                 )}
               </div>
