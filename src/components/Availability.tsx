@@ -136,22 +136,23 @@ const Availability = () => {
 </div>
 
 {/* RIGHT COLUMN: MAP (MATCHED HEIGHT) */}
-<div className="h-[340px] md:h-[480px] -mt-14 rounded-xl overflow-auto">
+<div className="h-[200px] md:h-[420px]">
   <MapPlaceholder
     mapQuery={currentMapQuery}
-    className="h-[620px] md:h-[680px] rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden sticky top-24"
+    className="h-full rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden"
   />
-
-  <div className="mt-3 p-3 bg-white/90 rounded-b-xl text-center text-sm font-semibold text-gray-800 border-t border-gray-300">
-    Currently Viewing: <span className="font-bold text-[#f58351]">{getDisplayName(currentMapQuery)}</span>
+  <div className="-mt-1 p-3 bg-white/90 rounded-b-xl text-center text-sm font-semibold text-gray-800 border-t border-gray-300">
+    Currently Viewing:{" "}
+    <span className="font-bold text-[#f58351]">
+      {getDisplayName(currentMapQuery)}
+    </span>
   </div>
 </div>
-
 </div>
 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 max-w-6xl mx-auto mb-10 sm:mb-10 lg:mb-12">
 
         {/* Online Ordering & Social CTA */}
-        <Card className="p-6 sm:p-8 w-full bg-[#ffefe8] border border-[#c8d5db]">
+        <Card className="p-6 sm:p-8 mt-4 w-full bg-[#ffefe8] border border-[#c8d5db]">
         <div className="text-center space-y-6 sm:space-y-8">
             <h3 className="text-2xl sm:text-3xl font-semibold font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
               Our <span className="text-gradient">Social Media</span>
