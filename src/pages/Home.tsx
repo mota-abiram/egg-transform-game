@@ -17,13 +17,13 @@ const Home = () => {
     return (
         <div className="min-h-screen">
             <Hero />
-            <div ref={benefitsRef} style={getFadeStyle(benefitsRef.current?.offsetTop || 0, 400)}>
+            <div ref={benefitsRef} className="mt-8 sm:mt-12" style={getFadeStyle(benefitsRef.current?.offsetTop || 0, 400)}>
                 <Benefits />
             </div>
-            <div ref={gameRef} style={getFadeStyle(gameRef.current?.offsetTop || 0, 600)}>
+            <div ref={gameRef} className="mt-8 sm:mt-12" style={getFadeStyle(gameRef.current?.offsetTop || 0, 600)}>
                 <EggDisplay />
             </div>
-            <div ref={variantsRef} style={getFadeStyle(variantsRef.current?.offsetTop || 0, 400)}>
+            <div ref={variantsRef} className="mt-8 sm:mt-12" style={getFadeStyle(variantsRef.current?.offsetTop || 0, 400)}>
                 <Variants />
             </div>
             <div ref={availabilityRef} style={getFadeStyle(availabilityRef.current?.offsetTop || 0, 400)}>

@@ -13,7 +13,7 @@ const getDisplayName = (query: string) => {
 };
 
 // FIXED: Map Component with Correct Google Maps Embed URL
-const MapPlaceholder = ({ mapQuery, className = "sticky top-24 h-[400px] md:h-[600px] rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden" }: { mapQuery: string; className?: string }) => {
+const MapPlaceholder = ({ mapQuery, className = "sticky top-24 h-[500px] md:h-[650px] rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden" }: { mapQuery: string; className?: string }) => {
   // CORRECTED: Use the official Google Maps URL format for embedding.
   const mapEmbedBase = "https://maps.google.com/maps?q=";
   const mapEmbedParams = "&output=embed&z=13&iwloc=A"; // Required for embed
@@ -109,7 +109,7 @@ const Availability = () => {
           <span
             key={`star-${loc}`}
             onClick={() => handleLocationClick(loc, "Star Bazaar")}
-            className="bg-[#ffefe8] text-[#f58351] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold border border-[#c8d5db] cursor-pointer hover:bg-[#f58351] hover:text-white transition-colors duration-200"
+            className="bg-[#ffefe8] text-[#f58351] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-extrabold border border-[#c8d5db] cursor-pointer hover:bg-[#f58351] hover:text-white transition-colors duration-200"
           >
             {loc}
           </span>
@@ -125,7 +125,7 @@ const Availability = () => {
           <span
             key={`qmart-${loc}`}
             onClick={() => handleLocationClick(loc, "Qmart")}
-            className="bg-[#ffefe8] text-[#f58351] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold border border-[#c8d5db] cursor-pointer hover:bg-[#f58351] hover:text-white transition-colors duration-200"
+            className="bg-[#ffefe8] text-[#f58351] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-extrabold border border-[#c8d5db] cursor-pointer hover:bg-[#f58351] hover:text-white transition-colors duration-200"
           >
             {loc}
           </span>
@@ -136,22 +136,23 @@ const Availability = () => {
 </div>
 
 {/* RIGHT COLUMN: MAP (MATCHED HEIGHT) */}
-<div className="h-[600px] md:h-[475px]  -mt-12 rounded-xl overflow-auto">
+<div className="h-[640px] md:h-[480px] -mt-14 rounded-xl overflow-auto">
   <MapPlaceholder
     mapQuery={currentMapQuery}
-    className="h-[580px] rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden sticky top-24"
+    className="h-[620px] md:h-[680px] rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden sticky top-24"
   />
 
-  <div className="mt-3 p-3 bg-white/80 rounded-b-xl text-center text-xs text-gray-600 border-t border-gray-300">
-    Currently Viewing: <span className="font-semibold">{getDisplayName(currentMapQuery)}</span>
+  <div className="mt-3 p-3 bg-white/90 rounded-b-xl text-center text-sm font-semibold text-gray-800 border-t border-gray-300">
+    Currently Viewing: <span className="font-bold text-[#f58351]">{getDisplayName(currentMapQuery)}</span>
   </div>
 </div>
 
 </div>
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 max-w-6xl mx-auto mb-10 sm:mb-10 lg:mb-12">
 
         {/* Online Ordering & Social CTA */}
-        <div className="p-6 sm:p-8 max-w-5xl mx-auto mb-8 sm:mb-12 bg-transparent">
-          <div className="text-center space-y-6 sm:space-y-8">
+        <Card className="p-6 sm:p-8 w-full bg-[#ffefe8] border border-[#c8d5db]">
+        <div className="text-center space-y-6 sm:space-y-8">
             <h3 className="text-2xl sm:text-3xl font-semibold font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
               Our <span className="text-gradient">Social Media</span>
             </h3>
@@ -183,10 +184,10 @@ const Availability = () => {
   </a>
 </div>
 </div>
-        </div>
+        </Card>
         {/* Egg Bank Info */}
-        <div className="p-6 sm:p-8 max-w-3xl mx-auto bg-transparent">
-          <div className="text-center space-y-4 sm:space-y-6">
+        <Card className="p-6 sm:p-8 w-full bg-white border border-[#c8d5db]">
+        <div className="text-center space-y-4 sm:space-y-6">
             <h3 className="text-2xl sm:text-3xl font-semibold font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>
               Shop now @ <span className="text-gradient">Srinivasa Egg Bank</span>
             </h3>
@@ -195,8 +196,8 @@ const Availability = () => {
               <div className="flex items-start gap-2 text-left">
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-[#f58351] mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-sm sm:text-base font-medium">Plot No.82, Phase 2, Kavuri Hills,</p>
-                  <p className="text-xs sm:text-sm text-gray-700">Madhapur, Hyderabad, Telangana 500081</p>
+                  <p className="text-sm sm:text-base text-black-700 font-medium">Plot No.82, Phase 2, Kavuri Hills,</p>
+                  <p className="text-xs sm:text-sm text-gray-900 font-medium">Madhapur, Hyderabad, Telangana 500081</p>
                 </div>
               </div>
             </div>
@@ -215,7 +216,8 @@ const Availability = () => {
               </Button>
             </div>
           </div>
-        </div>
+        </Card>
+      </div>
       </div>
     </section>
   );
