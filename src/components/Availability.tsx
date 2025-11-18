@@ -197,7 +197,7 @@ const Availability = () => {
               <div className="flex items-start gap-2 text-left">
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-[#f58351] mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-sm sm:text-base text-black-700 font-medium">Plot No.82, Phase 2, Kavuri Hills,</p>
+                  <p className="text-sm sm:text-base text-black-400 font-medium">Plot No.82, Phase 2, Kavuri Hills,</p>
                   <p className="text-xs sm:text-sm text-gray-900 font-medium">Madhapur, Hyderabad, Telangana 500081</p>
                 </div>
               </div>
