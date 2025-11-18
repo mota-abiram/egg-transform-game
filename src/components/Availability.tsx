@@ -136,7 +136,7 @@ const Availability = () => {
 </div>
 
 {/* RIGHT COLUMN: MAP (MATCHED HEIGHT) */}
-<div className="h-[200px] md:h-[420px]">
+<div className="h-[300px] md:h-[420px]">
   <MapPlaceholder
     mapQuery={currentMapQuery}
     className="h-full rounded-xl bg-white border border-gray-300 shadow-xl overflow-hidden"
