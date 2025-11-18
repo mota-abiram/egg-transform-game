@@ -388,9 +388,11 @@ const Game = () => {
 
   const showInitialAim = gameStarted && !gameWon && score === 0;
   const showInstruction = gameStarted && !gameWon; // Show instruction during entire game
+  // Make game card taller after game starts (for more space on mobile),
+  // but keep a more compact height before start.
   const cardHeightClasses = gameStarted
-    ? "h-[620px] sm:h-[520px] md:h-[540px] lg:h-[560px]"
-    : "h-[1420px] sm:h-[520px] md:h-[540px] lg:h-[560px]";
+    ? "h-[620px] sm:h-[560px] md:h-[580px] lg:h-[600px]"
+    : "h-[420px] sm:h-[480px] md:h-[520px] lg:h-[540px]";
 
   return (
     // Removed min-h-screen, background, and padding. Added h-full to fill grid cell.
