@@ -11,7 +11,7 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 h-full items-center">
           {/* Left Content */}
           <div className="h-full flex flex-col justify-center space-y-3 sm:space-y-4 lg:space-y-5 text-center lg:text-left bg-white/80 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-0 p-12 sm:p-6 rounded-xl shadow-md lg:shadow-none">
-          {/* Heading */}
+            {/* Heading */}
             <h2
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-foreground text-center lg:text-left font-headline "
               style={{ wordSpacing: "0.10em", letterSpacing: "0.05em", textShadow: "1px 1px 6px rgba(0,0,0,0.15)" }}
@@ -25,7 +25,7 @@ const Hero = () => {
                 <img
                   src="/egg.png"
                   alt="Egg"
-                  className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 inline-block ml-1 align-middle"
+                  className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 inline-block mr-4 align-middle"
                 />
               </span>
             </h2>
