@@ -1,19 +1,15 @@
 const EggDisplay = () => {
     return (
-        <section 
-            className="relative flex items-center justify-center overflow-hidden"
-            // Applied the new linear-gradient background here and removed the old Tailwind classes
-            style={{
-                background: 'linear-gradient(180deg,rgba(255, 239, 232, 1) 34%, rgba(245, 131, 81, 1) 87%)'
-            }}
+        <section
+            className="relative flex items-center justify-center overflow-hidden bg-background"
         >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-14 max-w-7xl">
                 {/* Page Header */}
                 <div className="mb-8 sm:mb-10 lg:mb-12 text-center px-4">
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#f58351] drop-shadow-sm font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.05em" }}>
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-primary drop-shadow-sm font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.05em" }}>
                         EGGS ARE MORE THAN JUST PROTEIN
                     </h3>
-                    <div className="mx-auto mt-3 sm:mt-4 h-1 w-24 sm:w-28 rounded-full bg-[#f58351]"></div>
+                    <div className="mx-auto mt-3 sm:mt-4 h-1 w-24 sm:w-28 rounded-full bg-primary/20"></div>
                 </div>
                 <div className="flex justify-center px-4">
                     {/* Large Egg Display */}
@@ -29,25 +25,25 @@ const EggDisplay = () => {
 
                             {/* Enhanced Metallic Nutrient Badges - Responsive positioning */}
                             <div className="absolute top-1 sm:top-2 md:top-4 lg:top-6 right-1 sm:right-2 md:right-4 lg:right-6 bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-xl px-1.5 sm:px-2 md:px-3 lg:px-4 py-0.5 sm:py-1 md:py-1.5 lg:py-2 rounded-full text-[10px] sm:text-xs md:text-sm font-bold border-2 border-amber-300">
-                            Iron
+                                Iron
                             </div>
                             <div className="absolute top-4 sm:top-6 md:top-8 lg:top-12 left-1 sm:left-2 md:left-4 lg:left-6 bg-gradient-to-r from-cyan-600 to-sky-600 text-white shadow-xl px-1.5 sm:px-2 md:px-3 lg:px-4 py-0.5 sm:py-1 md:py-1.5 lg:py-2 rounded-full text-[10px] sm:text-xs md:text-sm font-bold border-2 border-cyan-400">
                                 Vitamin D
                             </div>
                             <div className="absolute top-8 sm:top-10 md:top-14 lg:top-20 right-1 sm:right-2 md:right-4 lg:right-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-xl px-1.5 sm:px-2 md:px-3 lg:px-4 py-0.5 sm:py-1 md:py-1.5 lg:py-2 rounded-full text-[10px] sm:text-xs md:text-sm font-bold border-2 border-blue-400">
-                            Zinc & Selenium
+                                Zinc & Selenium
                             </div>
                             <div className="absolute bottom-12 sm:bottom-14 md:bottom-18 lg:bottom-24 left-1 sm:left-2 md:left-4 lg:left-6 bg-gradient-to-r from-green-600 to-green-700 text-white shadow-xl px-1.5 sm:px-2 md:px-3 lg:px-4 py-0.5 sm:py-1 md:py-1.5 lg:py-2 rounded-full text-[10px] sm:text-xs md:text-sm font-bold border-2 border-green-400">
-                            Good Fats
+                                Good Fats
                             </div>
                             <div className="absolute bottom-8 sm:bottom-10 md:bottom-14 lg:bottom-20 right-1 sm:right-2 md:right-4 lg:right-6 bg-gradient-to-r from-rose-600 to-pink-600 text-white shadow-xl px-1.5 sm:px-2 md:px-3 lg:px-4 py-0.5 sm:py-1 md:py-1.5 lg:py-2 rounded-full text-[10px] sm:text-xs md:text-sm font-bold border-2 border-rose-400">
                                 Antioxidants
                             </div>
                             <div className="absolute bottom-1 sm:bottom-2 md:bottom-4 lg:bottom-6 left-1 sm:left-2 md:left-4 lg:left-6 bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-xl px-1.5 sm:px-2 md:px-3 lg:px-4 py-0.5 sm:py-1 md:py-1.5 lg:py-2 rounded-full text-[10px] sm:text-xs md:text-sm font-bold border-2 border-purple-400">
-                            Choline
+                                Choline
                             </div>
                             <div className="absolute top-1/2 left-1 sm:left-2 md:left-4 lg:left-6 transform -translate-y-1/2 bg-gradient-to-r from-orange-600 to-red-600 text-white shadow-xl px-1.5 sm:px-2 md:px-3 lg:px-4 py-0.5 sm:py-1 md:py-1.5 lg:py-2 rounded-full text-[10px] sm:text-xs md:text-sm font-bold border-2 border-orange-400">
-                                 Vitamin B
+                                Vitamin B
                             </div>
                         </div>
                     </div>

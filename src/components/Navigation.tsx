@@ -33,7 +33,7 @@ const Navigation = () => {
                             />
                         </div>
                         <div className="flex flex-col">
-                            <span className="text-xl font-bold text-[#f58351] font-logo">Hello</span>
+                            <span className="text-xl font-bold text-primary font-logo">Hello</span>
                             <span className="text-sm font-semibold text-muted-foreground -mt-1 font-logo tracking-[0.2em]">EGGS</span>
                         </div>
                     </Link>
@@ -46,8 +46,8 @@ const Navigation = () => {
                                 asChild
                                 variant={isActive(item.path) ? "default" : "ghost"}
                                 className={`${isActive(item.path)
-                                    ? "bg-[#f58351] text-white"
-                                    : "hover:bg-[#ffefe8] hover:text-[#f58351]"} font-logo tracking-wide`}
+                                    ? "bg-primary text-primary-foreground"
+                                    : "hover:bg-primary/10 hover:text-primary"} font-logo tracking-wide`}
                             >
                                 <Link to={item.path} className="flex items-center gap-2">
                                     {item.icon}
@@ -109,14 +109,14 @@ const Navigation = () => {
                                         <div className="space-y-2">
                                             <a
                                                 href="tel:+916309416417"
-                                                className="flex items-center gap-2 text-sm text-[#f58351] hover:text-[#f58351]/80 font-logo tracking-wide"
+                                                className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 font-logo tracking-wide"
                                             >
                                                 <Phone className="w-4 h-4" />
                                                 +91 6309 416 417
                                             </a>
                                             <a
                                                 href="mailto:info@srinivasafarms.com"
-                                                className="flex items-center gap-2 text-sm text-[#f58351] hover:text-[#f58351]/80 font-logo tracking-wide"
+                                                className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 font-logo tracking-wide"
                                             >
                                                 <Info className="w-4 h-4" />
                                                 info@srinivasafarms.com

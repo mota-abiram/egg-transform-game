@@ -10,38 +10,38 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 16 100% 95%;
-    --foreground: 0 0% 0%;
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
+    --popover-foreground: 222 47% 11%;
 
     --primary: 16 87% 64%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 200 20% 82%;
-    --secondary-foreground: 0 0% 0%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 200 20% 82%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 16% 47%;
 
     --accent: 16 87% 64%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 200 20% 82%;
-    --input: 200 20% 82%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
     --ring: 16 87% 64%;
 
     --radius: 1rem;
 
     /* Game-specific colors */
-    --game-bg: 16 100% 95%;
+    --game-bg: 0 0% 98%;
     --egg-orange: 16 87% 64%;
     --egg-brown: 28 50% 50%;
     --health-bar: 140 65% 50%;
@@ -49,14 +49,14 @@ All colors MUST be HSL.
     --character-healthy: 16 87% 64%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(16 87% 64%), hsl(16 87% 64%));
-    --gradient-game: linear-gradient(180deg, hsl(16 100% 95%), hsl(16 100% 95%));
-    --gradient-glow: radial-gradient(circle, hsl(16 87% 64% / 0.3), transparent);
+    --gradient-primary: linear-gradient(135deg, hsl(16 87% 64%), hsl(16 90% 70%));
+    --gradient-game: linear-gradient(180deg, hsl(0 0% 98%), hsl(0 0% 100%));
+    --gradient-glow: radial-gradient(circle, hsl(16 87% 64% / 0.15), transparent);
 
     /* Shadows */
-    --shadow-game: 0 4px 20px hsl(16 87% 64% / 0.2);
-    --shadow-egg: 0 2px 8px hsl(28 50% 30% / 0.3);
-    --shadow-character: 0 8px 32px hsl(0 0% 0% / 0.1);
+    --shadow-game: 0 10px 30px -10px hsl(0 0% 0% / 0.1);
+    --shadow-egg: 0 4px 12px hsl(28 50% 30% / 0.15);
+    --shadow-character: 0 8px 32px hsl(0 0% 0% / 0.05);
 
     /* Animations */
     --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -80,35 +80,35 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 20 25% 12%;
-    --foreground: 35 20% 92%;
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
 
-    --card: 20 20% 15%;
-    --card-foreground: 35 20% 92%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 20 20% 15%;
-    --popover-foreground: 35 20% 92%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 16 100% 60%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 16 87% 64%;
+    --primary-foreground: 222 47% 11%;
 
-    --secondary: 25 50% 35%;
-    --secondary-foreground: 35 20% 92%;
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 20 15% 25%;
-    --muted-foreground: 35 15% 60%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 33 100% 55%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 16 87% 64%;
+    --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 62.8% 50.6%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 20 15% 25%;
-    --input: 20 15% 25%;
-    --ring: 16 100% 60%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 16 87% 64%;
 
-    --game-bg: 20 25% 14%;
+    --game-bg: 222 47% 13%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -127,7 +127,7 @@ All colors MUST be HSL.
 
   body {
     @apply text-foreground font-body;
-    background: hsl(16 100% 95%);
+    background: hsl(0 0% 100%);
     background-attachment: fixed;
     min-height: 100vh;
     position: relative;
@@ -333,13 +333,13 @@ All colors MUST be HSL.
   /* Hero section responsive background */
   .hero-bg-responsive {
     /* Mobile background (< 640px) */
-    background: conic-gradient(from 330deg, #FFEFE8, #F58351);
+    background: conic-gradient(from 330deg, hsl(0 0% 100%), hsl(16 100% 98%));
   }
 
   @media (min-width: 640px) {
     .hero-bg-responsive {
       /* Desktop background (≥ 640px) */
-      background: conic-gradient(from 330deg, #F58351, #FFEFE8);
+      background: conic-gradient(from 330deg, hsl(16 100% 98%), hsl(0 0% 100%));
     }
   }
 }

@@ -49,21 +49,17 @@ const Benefits = () => {
 
   return (
     <section
-      className="py-10 sm:py-16 lg:py-20"
-      style={{
-  
-
-background: "conic-gradient(from 290deg, #F58351, #FFFFFF)"}}
+      className="py-10 sm:py-16 lg:py-20 bg-background"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <h2
-            className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-3 sm:mb-4 font-headline text-[#000000]"
+            className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-3 sm:mb-4 font-headline text-foreground"
             style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}
           >
             What Makes Hello Eggs Different?
             {/* Applied gradient style directly from style guide */}
-              
+
           </h2>
           {/* Improved contrast for accessibility */}
           <p className="text-base sm:text-lg lg:text-xl text-gray-900 max-w-2xl mx-auto px-4 leading-relaxed">
@@ -77,26 +73,24 @@ background: "conic-gradient(from 290deg, #F58351, #FFFFFF)"}}
             const IconComponent = benefit.icon;
             return (
               <Card
-              key={index}
-              className="p-4 sm:p-6 
+                key={index}
+                className="p-4 sm:p-6 
                          transition-all duration-500 ease-out 
-                         border-2 border-[#c8d5db]
-                         hover:border-[#f58351]
-                         hover:shadow-2xl hover:-translate-y-1
-                       bg-[linear-gradient(to_left,_#F58351,_#FFEFE8)]
-                         hover:bg-gradient-to-t hover:from-white hover:to-white"
-          >
+                         bg-card border border-border
+                         hover:border-primary/50
+                         hover:shadow-2xl hover:-translate-y-1"
+              >
                 <div className="flex items-start gap-3 sm:gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#f58351] flex items-center justify-center">
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center">
                     <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <div className="flex-1 min-w-0">
                     {/* Set title color to black */}
-                    <h3 className="text-base sm:text-lg font-semibold font-logo text-[#000000] mb-1.5 sm:mb-2 leading-tight">
+                    <h3 className="text-base sm:text-lg font-semibold font-logo text-foreground mb-1.5 sm:mb-2 leading-tight">
                       {benefit.title}
                     </h3>
                     {/* Improved contrast and mobile readability */}
-                    <p className="text-[16px] sm:text-base text-gray-900 text-left leading-relaxed">
+                    <p className="text-[16px] sm:text-base text-muted-foreground text-left leading-relaxed">
                       {benefit.description}
                     </p>
                   </div>

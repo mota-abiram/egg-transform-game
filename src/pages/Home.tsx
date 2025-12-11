@@ -32,7 +32,7 @@ const Home = () => {
 
             {/* Repeated CTA Section - Near Bottom */}
             {/* Footer */}
-            <footer className="bg-[#f58351] text-white py-12 sm:py-16 relative overflow-hidden">
+            <footer className="bg-slate-900 text-white py-12 sm:py-16 relative overflow-hidden">
                 {/* Decorative elements */}
                 <div className="absolute top-0 left-0 w-full h-full">
                     <div className="absolute top-4 left-10 text-4xl opacity-20 animate-float">🥚</div>
@@ -52,8 +52,8 @@ const Home = () => {
                                         alt="Hello Eggs Logo"
                                         className="w-full h-full object-contain"
                                     />
-                                </div> 
-                                <p className="text-lg sm:text-xl font-bold font-logo"  style={ {wordSpacing: "0.10em", letterSpacing : "0.05em" }}>
+                                </div>
+                                <p className="text-lg sm:text-xl font-bold font-logo" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
                                     Hello Eggs
                                 </p>
                             </div>

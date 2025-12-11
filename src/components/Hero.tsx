@@ -18,7 +18,7 @@ const Hero = () => {
             >
               India's 1st Enriched <br />
               <span
-                className="text-[#f58351]"
+                className="text-primary"
                 style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}
               >
                 Brown Eggs
@@ -35,21 +35,21 @@ const Hero = () => {
               className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 justify-left items-center"
               style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}
             >
-              <Badge className="bg-[#f58351] text-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold shadow-lg">
+              <Badge className="bg-white text-primary border border-primary/20 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold shadow-sm hover:bg-orange-50">
                 <Leaf className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 100% Natural
               </Badge>
-              <Badge className="bg-[#f58351] text-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold shadow-lg">
+              <Badge className="bg-white text-primary border border-primary/20 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold shadow-sm hover:bg-orange-50">
                 <Award className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 60+ Years of Experience
               </Badge>
             </div>
 
             {/* UV Sanitization Feature */}
-            <div className="flex items-center justify-center lg:justify-start gap-2 p-1.5 sm:p-3 bg-[#f58351] rounded-lg shadow-md">
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+            <div className="flex items-center justify-center lg:justify-start gap-2 p-1.5 sm:p-3 bg-orange-50/50 border border-orange-100 rounded-lg shadow-sm w-fit mx-auto lg:mx-0">
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
               <span
-                className="text-xs sm:text-sm font-bold text-white"
+                className="text-xs sm:text-sm font-bold text-foreground/80"
                 style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}
               >
                 UV Sanitized, Washed, Stamped
@@ -66,7 +66,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start pt-2">
               <Button
                 size="lg"
-                className="text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 bg-[#f58351] hover:bg-[#e67542] text-white border-0 shadow-xl hover:shadow-2xl transform hover:scale-[1.02] transition-all duration-300 font-bold rounded-lg min-w-[200px] sm:min-w-[220px]"
+                className="text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 bg-primary hover:bg-primary/90 text-primary-foreground border-0 shadow-xl hover:shadow-2xl transform hover:scale-[1.02] transition-all duration-300 font-bold rounded-lg min-w-[200px] sm:min-w-[220px]"
                 asChild
               >
                 <a href="#game">Experience the Power</a>
@@ -74,7 +74,7 @@ const Hero = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 border-2 border-[#f58351] hover:bg-[#f58351] hover:text-white text-[#f58351] font-semibold rounded-lg min-w-[200px] sm:min-w-[220px] shadow-md hover:shadow-xl transition-all duration-300"
+                className="text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 border-2 border-primary hover:bg-primary hover:text-white text-primary font-semibold rounded-lg min-w-[200px] sm:min-w-[220px] shadow-md hover:shadow-xl transition-all duration-300"
                 asChild
               >
                 <a href="tel:+916309416417">📞 Order Now</a>
