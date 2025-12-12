@@ -1,5 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+
 
 const Variants = () => {
   const variants = [
@@ -14,6 +16,7 @@ const Variants = () => {
         { icon: "☀️", name: " Perfect for those with limited sun exposure " },
       ],
       highlight: true,
+      link: "https://blinkit.com/prn/x/prid/727735",
     },
     {
       name: "Hello Eggs — DHA Enriched",
@@ -26,6 +29,7 @@ const Variants = () => {
         { icon: "🌿", name: " Natural source of essential Omega-3 fats" },
       ],
       highlight: false,
+      link: "https://blinkit.com/prn/x/prid/725491",
     },
   ];
 
@@ -75,7 +79,7 @@ const Variants = () => {
                 </div>
 
                 <div className="pt-2 sm:pt-3 lg:pt-4">
-                  <div className="flex justify-center">
+                  <div className="flex flex-col items-center justify-center gap-3 sm:gap-4">
                     <div className="w-14 h-20 sm:w-20 sm:h-24 lg:w-20 lg:h-24 animate-float">
                       <img
                         src="/egg.png"
@@ -83,6 +87,19 @@ const Variants = () => {
                         className="w-full h-full object-contain"
                       />
                     </div>
+
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 border-2 border-primary hover:bg-primary hover:text-white text-primary font-semibold rounded-lg min-w-[200px] sm:min-w-[220px] shadow-md hover:shadow-xl transition-all duration-300"
+                      asChild
+                    >
+                      <a href={variant.link} target="_blank" rel="noopener noreferrer">
+                        Order Now
+                      </a>
+                    </Button>
+
+
                   </div>
                 </div>
               </div>

@@ -93,8 +93,11 @@ const Benefits = () => {
                     <p className="text-[16px] sm:text-base text-muted-foreground text-left leading-relaxed">
                       {benefit.description}
                     </p>
+
                   </div>
+
                 </div>
+
               </Card>
             );
           })}

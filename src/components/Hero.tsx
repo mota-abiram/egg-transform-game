@@ -77,7 +77,9 @@ const Hero = () => {
                 className="text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 border-2 border-primary hover:bg-primary hover:text-white text-primary font-semibold rounded-lg min-w-[200px] sm:min-w-[220px] shadow-md hover:shadow-xl transition-all duration-300"
                 asChild
               >
-                <a href="tel:+916309416417">📞 Order Now</a>
+                <a href="https://blinkit.com/prn/x/prid/727735" target="_blank" rel="noopener noreferrer">
+                  Order Now
+                </a>
               </Button>
             </div>
           </div>
