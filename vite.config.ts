@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // 🔴 IMPORTANT: subfolder deployment
+  // 🔴 IMPORTANT: subfolder deploymenttt
   base: "/dm-helloeggs-lp/",
 
   server: {
