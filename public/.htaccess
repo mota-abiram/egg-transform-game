@@ -1,19 +1,19 @@
 # Enable Rewrite Engine
 RewriteEngine On
 
-# If HTTPS is not enabled, redirect to HTTPS (optional - uncomment if needed)
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Set the base directory for rewrites (subfolder deployment)
+RewriteBase /dm-helloeggs-lp/
 
 # Handle Authorization Header
 RewriteCond %{HTTP:Authorization} .
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-# Serve existing files and directories directly
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+# If the requested file exists, serve it directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
 
-# Redirect all other requests to index.html for SPA routing
+# For all other requests, serve index.html (SPA routing)
 RewriteRule ^ index.html [QSA,L]
 
 # Enable GZIP Compression

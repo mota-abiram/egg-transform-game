@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { MapPin, Phone, Mail, Clock, MessageSquare, Send } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { toast } from "sonner";
 
 const Contact = () => {
@@ -77,12 +78,12 @@ const Contact = () => {
     ];
 
     const quickLinks = [
-        { title: "Product Information", href: "/faqs" },
-        { title: "Order Hello Eggs", href: "/" },
-        { title: "Farm Visit", href: "tel:+916309416417" },
-        { title: "Bulk Orders", href: "tel:+916309416417" },
-        { title: "Retailer Partnership", href: "mailto:partnerships@srinivasafarms.com" },
-        { title: "Media Inquiries", href: "mailto:media@srinivasafarms.com" }
+        { title: "Product Information", href: "/faqs", isInternal: true },
+        { title: "Order Hello Eggs", href: "/", isInternal: true },
+        { title: "Farm Visit", href: "tel:+916309416417", isInternal: false },
+        { title: "Bulk Orders", href: "tel:+916309416417", isInternal: false },
+        { title: "Retailer Partnership", href: "mailto:partnerships@srinivasafarms.com", isInternal: false },
+        { title: "Media Inquiries", href: "mailto:media@srinivasafarms.com", isInternal: false }
     ];
 
     return (
@@ -220,9 +221,15 @@ const Contact = () => {
                         {quickLinks.map((link, index) => (
                             <Card key={index} className="p-4 hover:shadow-lg transition-all duration-300">
                                 <Button asChild variant="ghost" className="w-full justify-start h-auto p-0">
-                                    <a href={link.href} className="text-left">
-                                        <span className="text-foreground hover:text-orange-600">{link.title}</span>
-                                    </a>
+                                    {link.isInternal ? (
+                                        <Link to={link.href} className="w-full p-2 text-left">
+                                            <span className="text-foreground hover:text-orange-600">{link.title}</span>
+                                        </Link>
+                                    ) : (
+                                        <a href={link.href} className="w-full p-2 text-left">
+                                            <span className="text-foreground hover:text-orange-600">{link.title}</span>
+                                        </a>
+                                    )}
                                 </Button>
                             </Card>
                         ))}

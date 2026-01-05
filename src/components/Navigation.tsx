@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X, Home, HelpCircle, Info, Phone } from "lucide-react";
+import eggImage from "/egg.png";
 
 const Navigation = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +28,7 @@ const Navigation = () => {
                     <Link to="/" className="flex items-center gap-3">
                         <div className="w-8 h-10 flex-shrink-0">
                             <img
-                                src="/egg.png"
+                                src={eggImage}
                                 alt="Hello Eggs Logo"
                                 className="w-full h-full object-contain"
                             />
@@ -70,7 +71,7 @@ const Navigation = () => {
                                 <div className="flex items-center gap-3 mb-8">
                                     <div className="w-8 h-10 flex-shrink-0">
                                         <img
-                                            src="/egg.png"
+                                            src={eggImage}
                                             alt="Hello Eggs Logo"
                                             className="w-full h-full object-contain"
                                         />

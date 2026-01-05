@@ -5,6 +5,7 @@ import Game from "@/components/Game";
 import Availability from "@/components/Availability";
 import { useScrollFade } from "@/hooks/useScrollFade";
 import { useRef } from "react";
+import eggImage from "/egg.png";
 
 const Index = () => {
   const { getFadeStyle } = useScrollFade();
@@ -43,7 +44,7 @@ const Index = () => {
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="w-8 h-10">
               <img
-                src="/egg.png"
+                src={eggImage}
                 alt="Hello Eggs Logo"
                 className="w-full h-full object-contain"
               />

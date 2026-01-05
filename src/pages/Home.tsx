@@ -6,6 +6,8 @@ import EggDisplay from "@/components/EggDisplay";
 import Availability from "@/components/Availability";
 import { useScrollFade } from "@/hooks/useScrollFade";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
+import eggImage from "/egg.png";
 
 const Home = () => {
     const { getFadeStyle } = useScrollFade();
@@ -48,7 +50,7 @@ const Home = () => {
                             <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
                                 <div className="w-8 h-10">
                                     <img
-                                        src="/egg.png"
+                                        src={eggImage}
                                         alt="Hello Eggs Logo"
                                         className="w-full h-full object-contain"
                                     />
@@ -70,24 +72,24 @@ const Home = () => {
                             <h3 className="text-base sm:text-lg font-semibold mb-4 font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.10em" }}>Quick Links</h3>
                             <ul className="space-y-2 sm:space-y-3">
                                 <li>
-                                    <a href="/" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors">
+                                    <Link to="/" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors">
                                         Home
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="/about" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors">
+                                    <Link to="/about" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors">
                                         About Us
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="/faqs" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors">
+                                    <Link to="/faqs" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors">
                                         FAQs
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="/contact" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors">
+                                    <Link to="/contact" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors">
                                         Contact
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>

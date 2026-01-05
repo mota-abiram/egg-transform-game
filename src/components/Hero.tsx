@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Leaf, Sparkles, Award } from "lucide-react";
 import Game from "@/components/Game";
+import eggImage from "/egg.png";
 
 const Hero = () => {
   return (
@@ -23,7 +24,7 @@ const Hero = () => {
               >
                 Brown Eggs
                 <img
-                  src="/egg.png"
+                  src={eggImage}
                   alt="Egg"
                   className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 inline-block mr-4 align-middle"
                 />

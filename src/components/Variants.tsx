@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import eggImage from "/egg.png";
 
 
 const Variants = () => {
@@ -82,7 +83,7 @@ const Variants = () => {
                   <div className="flex flex-col items-center justify-center gap-3 sm:gap-4">
                     <div className="w-14 h-20 sm:w-20 sm:h-24 lg:w-20 lg:h-24 animate-float">
                       <img
-                        src="/egg.png"
+                        src={eggImage}
                         alt="Hello Eggs"
                         className="w-full h-full object-contain"
                       />

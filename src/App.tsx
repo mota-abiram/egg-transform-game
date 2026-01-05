@@ -17,19 +17,22 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+
+      {/* 🔥 IMPORTANT: basename for subfolder deployment */}
+      <BrowserRouter basename="/dm-helloeggs-lp">
         <Navigation />
+
         <div className="pt-16">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/faqs" element={<FAQs />} />
             <Route path="/contact" element={<Contact />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </BrowserRouter>
+
     </TooltipProvider>
   </QueryClientProvider>
 );

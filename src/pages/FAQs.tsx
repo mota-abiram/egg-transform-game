@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { HelpCircle, Phone, Mail } from "lucide-react";
+import eggImage from "/egg.png";
 
 const FAQs = () => {
     const faqs = [
@@ -147,7 +148,7 @@ const FAQs = () => {
                         <Card className="p-6 text-center">
                             <div className="w-12 h-16 mx-auto mb-3">
                                 <img
-                                    src="/egg.png"
+                                    src={eggImage}
                                     alt="Hello Eggs"
                                     className="w-full h-full object-contain"
                                 />
