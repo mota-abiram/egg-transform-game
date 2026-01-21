@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Instagram, Send } from "lucide-react";
+import { MapPin, Phone, Instagram, Send, Facebook, Twitter, Youtube } from "lucide-react";
 
 // Helper to display a cleaner name in the overlay
 const getDisplayName = (query: string) => {
@@ -146,68 +146,31 @@ const Availability = () => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 max-w-6xl mx-auto mb-10 sm:mb-10 lg:mb-12">
 
-          {/* Online Ordering & Social CTA */}
-          <Card className="p-6 sm:p-8 mt-4 w-full bg-secondary/20 border border-border">
+        {/* Egg Bank Info Card (NOW CENTERED AND BELOW STORES/MAP) */}
+        <div className="max-w-6xl mx-auto w-full mb-12 sm:mb-16">
+          <Card className="rounded-2xl text-card-foreground shadow-xl p-6 sm:p-8 w-full bg-card border border-border flex flex-col justify-center">
             <div className="text-center space-y-6 sm:space-y-8">
-              <h3 className="text-2xl sm:text-3xl font-semibold font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
-                Our <span className="text-gradient">Social Media</span>
-              </h3>
-
-              {/* Online Delivery Apps - MODIFIED TO USE ROUNDED LOGOS */}
-
-
-              <div className="flex flex-row items-center justify-center gap-4 sm:gap-6 lg:gap-8">
-                {/* Instagram CTA */}
-                <a
-                  href="https://instagram.com/helloeggs_india"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Follow Hello Eggs on Instagram"
-                  className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
-                >
-                  {/* CHANGED: Decreased icon size from w-7/h-7 and sm:w-9/h-9 */}
-                  <Instagram className="w-6 h-6 sm:w-8 sm:h-8" />
-                </a>
-
-                {/* Bulk Order Phone */}
-                <a
-                  href="tel:+916309416417"
-                  aria-label="Call Hello Eggs for bulk orders"
-                  className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
-                >
-                  {/* CHANGED: Decreased icon size from w-7/h-7 and sm:w-9/h-9 */}
-                  <Phone className="w-4 h-4 sm:w-6 sm:h-6" />
-                </a>
-              </div>
-            </div>
-          </Card>
-          {/* Egg Bank Info */}
-          <Card className="p-6 sm:p-8 w-full bg-card border border-border">
-            <div className="text-center space-y-4 sm:space-y-6">
-              <h3 className="text-2xl sm:text-3xl font-semibold font-headline" style={{ wordSpacing: "0.25em", letterSpacing: "0.04em" }}>
+              <h3 className="text-3xl sm:text-4xl font-semibold font-headline" style={{ wordSpacing: '0.25em', letterSpacing: '0.04em' }}>
                 Shop now @ <span className="text-gradient">Srinivasa Egg Bank</span>
               </h3>
-
-              <div className="flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6">
-                <div className="flex items-start gap-2 text-left">
-                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-[#f58351] mt-1 flex-shrink-0" />
+              <div className="flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6 bg-secondary/30 p-4 rounded-xl border border-border">
+                <div className="flex items-start gap-3 text-left">
+                  <MapPin className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                   <div>
-                    <p className="text-sm sm:text-base text-black-400 font-medium">Plot No.82, Phase 2, Kavuri Hills,</p>
-                    <p className="text-xs sm:text-sm text-gray-900 font-medium">Madhapur, Hyderabad, Telangana 500081</p>
+                    <p className="text-base sm:text-lg text-foreground font-bold leading-tight">Plot No.82, Phase 2, Kavuri Hills,</p>
+                    <p className="text-sm sm:text-base text-muted-foreground font-medium">Madhapur, Hyderabad, Telangana 500081</p>
                   </div>
                 </div>
               </div>
-
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                <Button size="lg" className="gap-2 text-sm sm:text-base font-logo tracking-wide" style={{ wordSpacing: "0.2em", letterSpacing: "0.03em" }} asChild>
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+                <Button asChild size="lg" className="h-14 px-8 gap-3 text-base sm:text-lg font-bold shadow-lg bg-white text-primary border border-primary hover:bg-primary hover:text-white transition-all duration-300" style={{ wordSpacing: '0.2em', letterSpacing: '0.03em' }}>
                   <a href="tel:+916309416417">
-                    <Phone className="w-4 h-4" />
+                    <Phone className="w-5 h-5" />
                     +91 6309 416 417
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" className="text-sm sm:text-base font-logo tracking-wide" style={{ wordSpacing: "0.2em", letterSpacing: "0.03em" }} asChild>
+                <Button asChild variant="outline" size="lg" className="h-14 px-8 text-base sm:text-lg font-bold bg-white text-primary border-2 border-primary hover:bg-primary hover:text-white transition-all duration-300" style={{ wordSpacing: '0.2em', letterSpacing: '0.03em' }}>
                   <a href="https://srinivasafarms.com" target="_blank" rel="noopener noreferrer">
                     🌐 Visit Website
                   </a>
@@ -215,6 +178,110 @@ const Availability = () => {
               </div>
             </div>
           </Card>
+        </div>
+
+        <div className="max-w-6xl mx-auto mb-10 sm:mb-10 lg:mb-12">
+          {/* Social Media & Order Online - NOW CENTERED AND FULL WIDTH */}
+          <div className="flex flex-col md:flex-row gap-6 sm:gap-8">
+            {/* Social Media Card */}
+            <Card className="p-6 sm:p-8 flex-1 bg-secondary/20 border border-border rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="text-center space-y-6 sm:space-y-8">
+                <h3 className="text-2xl sm:text-3xl font-semibold font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
+                  Our <span className="text-gradient">Social Media</span>
+                </h3>
+
+                <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+                  {/* Instagram */}
+                  <a
+                    href="https://instagram.com/helloeggs_india"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Follow Hello Eggs on Instagram"
+                    className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
+                  >
+                    <Instagram className="w-6 h-6 sm:w-7 sm:h-7" />
+                  </a>
+
+                  {/* Facebook */}
+                  <a
+                    href="https://www.facebook.com/HelloEggsIndia/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Follow Hello Eggs on Facebook"
+                    className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#1877F2] text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
+                  >
+                    <Facebook className="w-6 h-6 sm:w-7 sm:h-7" />
+                  </a>
+
+                  {/* Twitter (X) */}
+                  <a
+                    href="https://x.com/helloeggs_india?s=11"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Follow Hello Eggs on X"
+                    className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-black text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="w-5 h-5 sm:w-6 sm:h-6 fill-current"
+                      aria-hidden="true"
+                    >
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                  </a>
+
+                  {/* YouTube */}
+                  <a
+                    href="https://www.youtube.com/@HelloEggsIn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Subscribe to Hello Eggs on YouTube"
+                    className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#FF0000] text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="w-6 h-6 sm:w-8 sm:h-8 fill-current"
+                      aria-hidden="true"
+                    >
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </Card>
+
+            {/* Order Online Card */}
+            <Card className="p-6 sm:p-8 flex-1 bg-secondary/20 border border-border rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="text-center space-y-6 sm:space-y-8">
+                <h3 className="text-2xl sm:text-3xl font-semibold font-headline" style={{ wordSpacing: "0.10em", letterSpacing: "0.05em" }}>
+                  Order <span className="text-gradient">Online</span>
+                </h3>
+
+                <div className="flex flex-row items-center justify-center gap-8 sm:gap-12">
+                  {[
+                    { name: 'Blinkit', logo: 'blinkit.jpeg', fit: 'object-cover', padding: 'p-0', link: 'https://link.blinkit.com/b/p3o9zd8v' },
+                    { name: 'Zepto', logo: 'zepto.png', fit: 'object-cover', padding: 'p-0', link: 'https://zepto-prod.onelink.me/tC90/iifcnkrf', imageClass: 'scale-[1.3]' }
+                  ].map((partner) => (
+                    <div key={partner.name} className="flex flex-col items-center gap-3">
+                      <a
+                        href={partner.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl shadow-md border border-border hover:scale-110 transition-transform duration-300 overflow-hidden"
+                      >
+                        <img
+                          src={`${import.meta.env.BASE_URL}${partner.logo}`}
+                          alt={partner.name}
+                          className={`w-full h-full ${partner.fit} ${(partner as any).imageClass || ''}`}
+                        />
+                      </a>
+                      <span className="text-xs sm:text-sm font-bold text-gray-700 uppercase tracking-wider">{partner.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Card>
+          </div>
         </div>
       </div>
     </section>

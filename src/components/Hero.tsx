@@ -1,10 +1,34 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Leaf, Sparkles, Award } from "lucide-react";
+import { Leaf, Sparkles, Award, ShoppingCart, ChevronDown } from "lucide-react";
 import Game from "@/components/Game";
 import eggImage from "/egg.png";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Hero = () => {
+  const partners = [
+    {
+      name: 'Blinkit',
+      logo: 'blinkit.jpeg',
+      link: 'https://link.blinkit.com/b/p3o9zd8v',
+      padding: 'p-0',
+      fit: 'object-cover'
+    },
+    {
+      name: 'Zepto',
+      logo: 'zepto.png',
+      link: 'https://zepto-prod.onelink.me/tC90/iifcnkrf',
+      padding: 'p-0',
+      fit: 'object-cover',
+      imageClass: 'scale-[1.3]'
+    }
+  ];
+
   return (
     <section className="relative min-h-[95vh] sm:min-h-screen flex items-center justify-center overflow-hidden hero-bg-responsive pb-24 sm:pb-16">
       <div className="container mx-auto h-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 max-w-7xl">
@@ -72,16 +96,47 @@ const Hero = () => {
               >
                 <a href="#game">Experience the Power</a>
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 border-2 border-primary hover:bg-primary hover:text-white text-primary font-semibold rounded-lg min-w-[200px] sm:min-w-[220px] shadow-md hover:shadow-xl transition-all duration-300"
-                asChild
-              >
-                <a href="https://blinkit.com/prn/x/prid/727735" target="_blank" rel="noopener noreferrer">
-                  Order Now
-                </a>
-              </Button>
+
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 border-2 border-primary hover:bg-primary hover:text-white text-primary font-semibold rounded-lg min-w-[200px] sm:min-w-[220px] shadow-md hover:shadow-xl transition-all duration-300 group"
+                  >
+                    <ShoppingCart className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                    Order Online
+                    <ChevronDown className="w-4 h-4 ml-2 opacity-50 group-hover:opacity-100 transition-opacity" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  align="end"
+                  className="p-4 bg-white/95 backdrop-blur-md border-2 border-primary/20 shadow-2xl rounded-2xl flex items-center gap-6 animate-in fade-in zoom-in duration-200"
+                >
+                  {partners.map((partner) => (
+                    <DropdownMenuItem
+                      key={partner.name}
+                      asChild
+                      className="p-0 focus:bg-transparent"
+                    >
+                      <a
+                        href={partner.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/item outline-none"
+                      >
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden transition-all duration-300 group-hover/item:scale-110 group-hover/item:shadow-xl group-hover/item:ring-4 group-hover/item:ring-primary/10">
+                          <img
+                            src={`${import.meta.env.BASE_URL}${partner.logo}`}
+                            alt={partner.name}
+                            className={`w-full h-full ${partner.fit} ${partner.padding} ${partner.imageClass || ''}`}
+                          />
+                        </div>
+                      </a>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
 

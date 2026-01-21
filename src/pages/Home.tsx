@@ -7,6 +7,7 @@ import Availability from "@/components/Availability";
 import { useScrollFade } from "@/hooks/useScrollFade";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
+import { Phone, Instagram, Facebook, Twitter, Youtube, Globe } from "lucide-react";
 import eggImage from "/egg.png";
 
 const Home = () => {
@@ -19,17 +20,21 @@ const Home = () => {
     return (
         <div className="min-h-screen">
             <Hero />
+
+            <div ref={availabilityRef} style={getFadeStyle(availabilityRef.current?.offsetTop || 0, 400)}>
+                <Availability />
+            </div>
+
             <div ref={benefitsRef} className="mt-8 sm:mt-12" style={getFadeStyle(benefitsRef.current?.offsetTop || 0, 400)}>
                 <Benefits />
             </div>
+
             <div ref={gameRef} className="mt-8 sm:mt-12" style={getFadeStyle(gameRef.current?.offsetTop || 0, 600)}>
                 <EggDisplay />
             </div>
+
             <div ref={variantsRef} className="mt-8 sm:mt-12" style={getFadeStyle(variantsRef.current?.offsetTop || 0, 400)}>
                 <Variants />
-            </div>
-            <div ref={availabilityRef} style={getFadeStyle(availabilityRef.current?.offsetTop || 0, 400)}>
-                <Availability />
             </div>
 
             {/* Repeated CTA Section - Near Bottom */}
@@ -100,17 +105,32 @@ const Home = () => {
                             <ul className="space-y-2 sm:space-y-3">
                                 <li>
                                     <a href="tel:+916309416417" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors flex items-center justify-center md:justify-start gap-2">
-                                        <span>📞</span> +91 6309 416 417
+                                        <Phone className="w-4 h-4" /> +91 6309 416 417
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://instagram.com/helloeggs_india" target="_blank" rel="noopener noreferrer" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors flex items-center justify-center md:justify-start gap-2">
-                                        <span>📷</span> @helloeggs_india
+                                        <Instagram className="w-4 h-4" /> Instagram
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.facebook.com/HelloEggsIndia/" target="_blank" rel="noopener noreferrer" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors flex items-center justify-center md:justify-start gap-2">
+                                        <Facebook className="w-4 h-4" /> Facebook
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://x.com/helloeggs_india?s=11" target="_blank" rel="noopener noreferrer" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors flex items-center justify-center md:justify-start gap-2">
+                                        <Twitter className="w-4 h-4" /> X
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com/@HelloEggsIn" target="_blank" rel="noopener noreferrer" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors flex items-center justify-center md:justify-start gap-2">
+                                        <Youtube className="w-4 h-4" /> YouTube
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://srinivasafarms.com" target="_blank" rel="noopener noreferrer" className="text-sm sm:text-base text-white/90 hover:text-white transition-colors flex items-center justify-center md:justify-start gap-2">
-                                        <span>🌐</span> Visit Website
+                                        <Globe className="w-4 h-4" /> Visit Website
                                     </a>
                                 </li>
                             </ul>

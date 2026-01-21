@@ -69,7 +69,7 @@ const Game = () => {
       const maxPosition = 100 - (characterWidthPercent / 2); // Half character width from right
 
       let next = characterPositionRef.current + characterDirectionRef.current * speed;
-      
+
       // Clamp position to boundaries
       if (next >= maxPosition) {
         characterDirectionRef.current = -1;
@@ -130,11 +130,11 @@ const Game = () => {
             // Update position
             const newY = egg.y + egg.velocity;
             const newVelocity = egg.velocity + 0.3;
-            
+
             // Clamp egg x position to stay within bounds (accounting for egg width ~48px)
             const eggWidth = 48;
             const clampedX = Math.max(eggWidth / 2, Math.min(egg.x, rect.width - eggWidth / 2));
-            
+
             return { ...egg, x: clampedX, y: newY, velocity: newVelocity };
           })
           .filter((egg) => {
@@ -397,7 +397,7 @@ const Game = () => {
     <div id="game" className="w-full h-full flex flex-col min-h-[75vh] mt-20 sm:mt-0 mb-15">
       <div className="w-full h-full flex flex-col space-y-1 sm:space-y-2 min-h-0">
         <div className="text-center space-y-0.5 mt-12 sm:space-y-1 flex-shrink-0">
-        <h1 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold -mb-1">Power of Hello Eggs</h1>
+          <h1 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold -mb-1">Power of Hello Eggs</h1>
           <p className="text-xs sm:text-sm md:text-base font-bold ">Drop nutrition. Watch transformation. 🥚</p>
         </div>
 
@@ -438,11 +438,10 @@ const Game = () => {
         <Card
           ref={gameAreaRef}
           onClick={dropEgg}
-          className={`relative w-full ${cardHeightClasses} overflow-hidden cursor-crosshair rounded-lg border-2 border-[#c8d5db] ${
-            showInitialAim || (gameStarted && !gameWon)
+          className={`relative w-full ${cardHeightClasses} overflow-hidden cursor-crosshair rounded-lg border-2 border-[#c8d5db] ${showInitialAim || (gameStarted && !gameWon)
               ? "bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"
               : "bg-gradient-to-br from-gray-100 to-gray-200"
-          }`}
+            }`}
         >
           {/* Animated Background Elements */}
           <div className="absolute inset-0 overflow-hidden">
@@ -482,13 +481,13 @@ const Game = () => {
             const eggWidth = 48;
             const eggLeft = Math.max(0, Math.min(egg.x - eggWidth / 2, (gameAreaRef.current?.clientWidth || 0) - eggWidth));
             return (
-              <div 
-                key={egg.id} 
-                className="absolute w-12 h-14 text-4xl pointer-events-none" 
-                style={{ 
-                  left: `${eggLeft}px`, 
-                  top: `${Math.max(0, egg.y)}px`, 
-                  transform: `rotate(${egg.velocity * 2}deg)` 
+              <div
+                key={egg.id}
+                className="absolute w-12 h-14 text-4xl pointer-events-none"
+                style={{
+                  left: `${eggLeft}px`,
+                  top: `${Math.max(0, egg.y)}px`,
+                  transform: `rotate(${egg.velocity * 2}deg)`
                 }}
               >
                 🥚
@@ -501,15 +500,15 @@ const Game = () => {
             const particleLeft = Math.max(0, Math.min(p.x - particleSize / 2, (gameAreaRef.current?.clientWidth || 0) - particleSize));
             const particleTop = Math.max(0, Math.min(p.y - particleSize / 2, (gameAreaRef.current?.clientHeight || 0) - particleSize));
             return (
-              <div 
-                key={p.id} 
-                className="absolute w-3 h-3 rounded-full pointer-events-none" 
-                style={{ 
-                  left: `${particleLeft}px`, 
-                  top: `${particleTop}px`, 
-                  opacity: p.life / 30, 
-                  backgroundColor: p.life > 15 ? "#10b981" : "#ef4444" 
-                }} 
+              <div
+                key={p.id}
+                className="absolute w-3 h-3 rounded-full pointer-events-none"
+                style={{
+                  left: `${particleLeft}px`,
+                  top: `${particleTop}px`,
+                  opacity: p.life / 30,
+                  backgroundColor: p.life > 15 ? "#10b981" : "#ef4444"
+                }}
               />
             );
           })}
@@ -532,12 +531,12 @@ const Game = () => {
             <div className={health >= maxHealth ? "animate-pulse-glow" : ""} style={getCharacterStyle()}>
               <img
                 key={characterStage} // Force re-render when stage changes
-                src={`/charcaters/${characterStage}.png`}
+                src={`${import.meta.env.BASE_URL}characters/${characterStage}.png`}
                 alt={`Character Stage ${characterStage}`}
                 className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 object-contain"
                 style={{ filter: health >= maxHealth ? "drop-shadow(0 0 20px rgba(255,215,0,0.8))" : "none" }}
-                onLoad={() => console.log(`✅ Image loaded: ${characterStage}.png`)}
-                onError={(e) => console.error(`❌ Image failed to load: ${characterStage}.png`, e)}
+                onLoad={() => console.log(`✅ Image loaded: characters/${characterStage}.png`)}
+                onError={(e) => console.error(`❌ Image failed to load: characters/${characterStage}.png`, e)}
               />
             </div>
 
@@ -566,17 +565,17 @@ const Game = () => {
                 )}
                 {gameWon && (
                   <div className="flex flex-col items-center justify-center h-full py-1">
-                  <div className="text-l sm:text-l md:text-l animate-bounce-in -mb-">🎉</div>
-                  <h1 className="text-base sm:text-lg md:text-xl font-bold text-white animate-bounce-in px-2 mb-0.5">Transformation Complete!</h1>
-                  <p className="text-white/90 text-xs sm:text-sm md:text-base px-4 mb-1">You've powered up with {score} Hello Eggs!</p>
-                  
-                  {highScore !== null && (
-                    <div className="bg-yellow-500/20 border border-yellow-400/30 rounded-lg p-1.5 sm:p-2 mx-2 mb-1">
-                      <p className="text-yellow-200 text-xs sm:text-sm font-medium">
-                        🏆 Best: {highScore} eggs
-                      </p>
-                    </div>
-                  )}
+                    <div className="text-l sm:text-l md:text-l animate-bounce-in -mb-">🎉</div>
+                    <h1 className="text-base sm:text-lg md:text-xl font-bold text-white animate-bounce-in px-2 mb-0.5">Transformation Complete!</h1>
+                    <p className="text-white/90 text-xs sm:text-sm md:text-base px-4 mb-1">You've powered up with {score} Hello Eggs!</p>
+
+                    {highScore !== null && (
+                      <div className="bg-yellow-500/20 border border-yellow-400/30 rounded-lg p-1.5 sm:p-2 mx-2 mb-1">
+                        <p className="text-yellow-200 text-xs sm:text-sm font-medium">
+                          🏆 Best: {highScore} eggs
+                        </p>
+                      </div>
+                    )}
                     {/* Nutritional Facts - Compact fit */}
                     <div className="mt-1 sm:mt-2 p-2 sm:p-3 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 mx-2 mb-2">
                       <h3 className="text-xs sm:text-sm font-semibold text-white mb-1">🌟 Nutritional Power Gained:</h3>

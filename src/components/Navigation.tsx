@@ -2,7 +2,13 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X, Home, HelpCircle, Info, Phone } from "lucide-react";
+import { Menu, X, Home, HelpCircle, Info, Phone, ShoppingCart, ChevronDown } from "lucide-react";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import eggImage from "/egg.png";
 
 const Navigation = () => {
@@ -14,6 +20,24 @@ const Navigation = () => {
         { path: "/about", label: "About", icon: <Info className="w-4 h-4" /> },
         { path: "/faqs", label: "FAQs", icon: <HelpCircle className="w-4 h-4" /> },
         { path: "/contact", label: "Contact", icon: <Phone className="w-4 h-4" /> }
+    ];
+
+    const partners = [
+        {
+            name: 'Blinkit',
+            logo: 'blinkit.jpeg',
+            link: 'https://link.blinkit.com/b/p3o9zd8v',
+            padding: 'p-0',
+            fit: 'object-cover'
+        },
+        {
+            name: 'Zepto',
+            logo: 'zepto.png',
+            link: 'https://zepto-prod.onelink.me/tC90/iifcnkrf',
+            padding: 'p-0',
+            fit: 'object-cover',
+            imageClass: 'scale-[1.3]'
+        }
     ];
 
     const isActive = (path: string) => {
@@ -40,22 +64,62 @@ const Navigation = () => {
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center gap-1">
-                        {navItems.map((item) => (
-                            <Button
-                                key={item.path}
-                                asChild
-                                variant={isActive(item.path) ? "default" : "ghost"}
-                                className={`${isActive(item.path)
-                                    ? "bg-primary text-primary-foreground"
-                                    : "hover:bg-primary/10 hover:text-primary"} font-logo tracking-wide`}
+                    <div className="hidden md:flex items-center gap-4">
+                        <div className="flex items-center gap-1">
+                            {navItems.map((item) => (
+                                <Button
+                                    key={item.path}
+                                    asChild
+                                    variant={isActive(item.path) ? "default" : "ghost"}
+                                    className={`${isActive(item.path)
+                                        ? "bg-primary text-primary-foreground"
+                                        : "hover:bg-primary/10 hover:text-primary"} font-logo tracking-wide`}
+                                >
+                                    <Link to={item.path} className="flex items-center gap-2">
+                                        {item.icon}
+                                        {item.label}
+                                    </Link>
+                                </Button>
+                            ))}
+                        </div>
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button
+                                    className="bg-primary hover:bg-primary/90 text-white font-bold shadow-lg transform hover:scale-105 transition-all duration-200"
+                                >
+                                    <ShoppingCart className="w-4 h-4 mr-2" />
+                                    Order Now
+                                    <ChevronDown className="w-3 h-3 ml-1 opacity-70" />
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent
+                                align="end"
+                                className="p-4 bg-white/95 backdrop-blur-md border-2 border-primary/20 shadow-2xl rounded-2xl flex items-center gap-6 animate-in fade-in zoom-in duration-200"
                             >
-                                <Link to={item.path} className="flex items-center gap-2">
-                                    {item.icon}
-                                    {item.label}
-                                </Link>
-                            </Button>
-                        ))}
+                                {partners.map((partner) => (
+                                    <DropdownMenuItem
+                                        key={partner.name}
+                                        asChild
+                                        className="p-0 focus:bg-transparent"
+                                    >
+                                        <a
+                                            href={partner.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="group/item outline-none"
+                                        >
+                                            <div className="w-16 h-16 rounded-2xl overflow-hidden transition-all duration-300 group-hover/item:scale-110 group-hover/item:shadow-xl group-hover/item:ring-4 group-hover/item:ring-primary/10">
+                                                <img
+                                                    src={`${import.meta.env.BASE_URL}${partner.logo}`}
+                                                    alt={partner.name}
+                                                    className={`w-full h-full ${partner.fit} ${partner.padding} ${partner.imageClass || ''}`}
+                                                />
+                                            </div>
+                                        </a>
+                                    </DropdownMenuItem>
+                                ))}
+                            </DropdownMenuContent>
+                        </DropdownMenu>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -83,7 +147,7 @@ const Navigation = () => {
                                 </div>
 
                                 {/* Mobile Navigation */}
-                                <div className="flex flex-col gap-2">
+                                <div className="flex flex-col gap-3">
                                     {navItems.map((item) => (
                                         <Button
                                             key={item.path}
@@ -101,6 +165,46 @@ const Navigation = () => {
                                             </Link>
                                         </Button>
                                     ))}
+                                    <DropdownMenu>
+                                        <DropdownMenuTrigger asChild>
+                                            <Button
+                                                className="bg-primary hover:bg-primary/90 text-white font-bold shadow-md mt-2 w-full "
+                                            >
+                                                <ShoppingCart className="w-4 h-4 mr-2" />
+                                                Order Now
+                                                <ChevronDown className="w-3 h-3 ml-1 opacity-70" />
+                                            </Button>
+                                        </DropdownMenuTrigger>
+                                        <DropdownMenuContent
+                                            align="center"
+                                            side="bottom"
+                                            className="p-4 bg-white/95 backdrop-blur-md border-2 border-primary/20 shadow-2xl rounded-2xl flex items-center justify-around gap-6 animate-in fade-in zoom-in duration-200"
+                                        >
+                                            {partners.map((partner) => (
+                                                <DropdownMenuItem
+                                                    key={partner.name}
+                                                    asChild
+                                                    className="p-0 focus:bg-transparent"
+                                                >
+                                                    <a
+                                                        href={partner.link}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="group/item outline-none"
+                                                        onClick={() => setIsOpen(false)}
+                                                    >
+                                                        <div className="w-14 h-14 rounded-xl overflow-hidden transition-all duration-300 group-hover/item:scale-110">
+                                                            <img
+                                                                src={`${import.meta.env.BASE_URL}${partner.logo}`}
+                                                                alt={partner.name}
+                                                                className={`w-full h-full ${partner.fit} ${partner.padding} ${partner.imageClass || ''}`}
+                                                            />
+                                                        </div>
+                                                    </a>
+                                                </DropdownMenuItem>
+                                            ))}
+                                        </DropdownMenuContent>
+                                    </DropdownMenu>
                                 </div>
 
                                 {/* Mobile Contact Info */}

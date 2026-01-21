@@ -1,6 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { ShoppingCart, ChevronDown } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import eggImage from "/egg.png";
 
 
@@ -17,7 +24,10 @@ const Variants = () => {
         { icon: "☀️", name: " Perfect for those with limited sun exposure " },
       ],
       highlight: true,
-      link: "https://blinkit.com/prn/x/prid/727735",
+      links: {
+        Blinkit: "https://blinkit.com/prn/x/prid/727735",
+        Zepto: "https://zepto-prod.onelink.me/tC90/iifcnkrf"
+      },
     },
     {
       name: "Hello Eggs — DHA Enriched",
@@ -30,8 +40,27 @@ const Variants = () => {
         { icon: "🌿", name: " Natural source of essential Omega-3 fats" },
       ],
       highlight: false,
-      link: "https://blinkit.com/prn/x/prid/725491",
+      links: {
+        Blinkit: "https://blinkit.com/prn/x/prid/725491",
+        Zepto: "https://zepto-prod.onelink.me/tC90/iifcnkrf"
+      },
     },
+  ];
+
+  const partners = [
+    {
+      name: 'Blinkit',
+      logo: 'blinkit.jpeg',
+      padding: 'p-0',
+      fit: 'object-cover'
+    },
+    {
+      name: 'Zepto',
+      logo: 'zepto.png',
+      padding: 'p-0',
+      fit: 'object-cover',
+      imageClass: 'scale-[1.3]'
+    }
   ];
 
   return (
@@ -89,16 +118,46 @@ const Variants = () => {
                       />
                     </div>
 
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 border-2 border-primary hover:bg-primary hover:text-white text-primary font-semibold rounded-lg min-w-[200px] sm:min-w-[220px] shadow-md hover:shadow-xl transition-all duration-300"
-                      asChild
-                    >
-                      <a href={variant.link} target="_blank" rel="noopener noreferrer">
-                        Order Now
-                      </a>
-                    </Button>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button
+                          size="lg"
+                          variant="outline"
+                          className="text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 border-2 border-primary hover:bg-primary hover:text-white text-primary font-semibold rounded-lg min-w-[200px] sm:min-w-[220px] shadow-md hover:shadow-xl transition-all duration-300 group"
+                        >
+                          <ShoppingCart className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                          Order Now
+                          <ChevronDown className="w-4 h-4 ml-2 opacity-50 group-hover:opacity-100 transition-opacity" />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent
+                        align="center"
+                        className="p-4 bg-white/95 backdrop-blur-md border-2 border-primary/20 shadow-2xl rounded-2xl flex items-center gap-6 animate-in fade-in zoom-in duration-200"
+                      >
+                        {partners.map((partner) => (
+                          <DropdownMenuItem
+                            key={partner.name}
+                            asChild
+                            className="p-0 focus:bg-transparent"
+                          >
+                            <a
+                              href={(variant.links as any)[partner.name]}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group/item outline-none"
+                            >
+                              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden transition-all duration-300 group-hover/item:scale-110 group-hover/item:shadow-xl group-hover/item:ring-4 group-hover/item:ring-primary/10">
+                                <img
+                                  src={`${import.meta.env.BASE_URL}${partner.logo}`}
+                                  alt={partner.name}
+                                  className={`w-full h-full ${partner.fit} ${partner.padding} ${(partner as any).imageClass || ''}`}
+                                />
+                              </div>
+                            </a>
+                          </DropdownMenuItem>
+                        ))}
+                      </DropdownMenuContent>
+                    </DropdownMenu>
 
 
                   </div>
